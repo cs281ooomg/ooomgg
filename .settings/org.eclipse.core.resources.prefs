@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//classes/Account.php=UTF-8
+encoding//config/config.php=UTF-8
+encoding//control/AccountMgnt.php=UTF-8
+encoding//control/addFavorite.php=UTF-8
+encoding//control/addProduct.php=UTF-8
+encoding//control/addtocart.php=UTF-8
+encoding//control/deleteFAV.php=UTF-8
+encoding//control/login_auth.php=UTF-8
+encoding//control/logout.php=UTF-8
+encoding//control/register_auth.php=UTF-8
