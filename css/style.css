@@ -136,7 +136,6 @@ ul.top_icons li a:hover {
     z-index: 99;
     right: -2%;
 }
-
 .top_nav_right_acc {
     width: 19.5%;
     margin-top: 47px;
@@ -1377,6 +1376,9 @@ p.head_para {
     .top_nav_right {
         right: -1%;
     }
+    .top_nav_right_acc {
+        right: -0.2%;
+    } 
     .mid_services_img {
         min-height: 550px;
     }
@@ -1518,10 +1520,6 @@ p.head_para {
     }
     .top_nav_right {
         right: 3.5%;
-        margin-top: 48px;
-    }
-	.top_nav_right_acc {
-        right: 6.5%;
         margin-top: 48px;
     }
 }
@@ -1719,8 +1717,8 @@ p.head_para {
         right: 8%;
         margin-top: 48px;
     }
-	.top_nav_right_acc {
-        right: 14%;
+    .top_nav_right_acc {
+        right: 12%;
         margin-top: 48px;
     }
     .cd-header-buttons {
@@ -1803,11 +1801,8 @@ p.head_para {
         right: 61px;
     }
     .top_nav_right {
-        display: none;
-    }
-	.top_nav_right_acc {
-        right: 16%;
-        margin-top: 19px;
+        right: 5.5%;
+        margin-top: 25px;
     }
     .callbacks_tabs {
         bottom: 16%;
@@ -1991,6 +1986,10 @@ p.head_para {
         right: 17.5%;
         margin-top: 19px;
     }
+    .top_nav_right_acc {
+        right: 27%;
+        margin-top: 19px;
+    }
     .cd-header-buttons {
         top: 18px;
         right: 57px;
@@ -2089,6 +2088,10 @@ p.head_para {
 @media(max-width:375px){
 	.top_nav_right {
         right: 18.5%;
+        margin-top: 19px;
+    }
+    .top_nav_right_acc {
+        right: 28%;
         margin-top: 19px;
     }
     .banner-top, .banner-top1, .banner-top2, .banner-top3 {
