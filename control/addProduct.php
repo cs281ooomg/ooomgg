@@ -4,7 +4,7 @@ $session_set = false;
 if(isset($_SESSION['ACC_ID'])){
     $session_set = true;
 }
-if ($_REQUEST['ACC_TYPE'] == '1') {
+//if ($_REQUEST['ACC_TYPE'] == '1') {
     
 
 
@@ -33,14 +33,14 @@ if($conn->query($sql)===TRUE){
 }
 
 $conn->close();
-}
-else{
+//}
+//else{
     echo "<script language=\"JavaScript\">";
     echo "alert('คุณไม่ใช่เจ้าของร้าน')";
     echo "</script>";
     echo "<script> document.location.href=\"index.php\";</script>";
     exit();
-}
+//}
 
 
 
