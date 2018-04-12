@@ -29,5 +29,20 @@ class AccountMgnt
         header("location:../index.php");
         exit();
     }
+
+    public static function addFavorite($cpro_id)
+    {
+        $pro_id = $cpro_id;
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM PRODUCT  WHERE PRO_INDEX = '" . $pro_id . "'  ";
+        $query = $conn->query($sql1);
+        $result = $query->fetch_assoc();
+        if($result)
+        {
+         return TRUE;   
+        }
+        return FALSE;
+    }
+    
 }
 ?>

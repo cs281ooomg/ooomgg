@@ -14,5 +14,6 @@ class ProductMgnt
          $product =new Product($result["PRO_NAME"], $result["PRO_images"],$result["PRO_PRICE"],$result["PRO_DESC"], $result["CAT_INDEX"],$result["PRO_INDEX"]);
          return $product;
     }
+    
 }
 ?>
