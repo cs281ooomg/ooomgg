@@ -13,7 +13,7 @@ if ($userinput === "" || $passinput === "") {
     $ac = AccountMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
         session_start();
-        $_SESSION["ACC_OO"] = ac;
+        $_SESSION["ACC_OO"] = $ac;
         
         session_write_close();
         
