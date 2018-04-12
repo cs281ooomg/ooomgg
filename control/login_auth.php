@@ -13,7 +13,9 @@ if ($userinput === "" || $passinput === "") {
     $ac = AccountMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
         session_start();
+        
         $_SESSION["ACC_ID"] = $ac->getID();
+
         
         session_write_close();
         
