@@ -16,6 +16,13 @@ if(!$session_set){
 $accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
 $query = $conn->query($accType);
 $result = $query->fetch_assoc();
+if ($result['ACC_TYPE'] == 1){
+    echo "<script language=\"JavaScript\">";
+    echo "alert('ต้องอยู่ในระบบและเป็นเจ้าของร้าน จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "</script>";
+    echo "<script> document.location.href=\"login.php\";</script>";
+    exit();
+}
 
 
 
