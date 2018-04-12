@@ -5,12 +5,15 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 
-<?php
-session_start();
-$session_set = false;
-if(isset($_SESSION['ACC_ID'])){
-    $session_set = true;
-} ?>
+<?php include ('includes/session.php');
+if(!$session_set){
+    echo "<script language=\"JavaScript\">";
+    echo "alert('ต้องอยู่ในระบบ จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "</script>";
+    echo "<script> document.location.href=\"login.php\";</script>";
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="th">
 
