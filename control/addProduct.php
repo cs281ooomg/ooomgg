@@ -4,8 +4,11 @@ $session_set = false;
 if(isset($_SESSION['ACC_ID'])){
     $session_set = true;
 }
+$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
+$query = $conn->query($accType);
+$result = $query->fetch_assoc();
+
 //if ($_REQUEST['ACC_TYPE'] == '1') {
-    
 
 
 include'../config/config.php';
@@ -22,7 +25,7 @@ $price = $_REQUEST['pprice'];
 $des = $_REQUEST['pdes'];
 
 
-$sql = "INSERT INTO PRODUCT(PRO_ID,PRO_NAME,PRO_PRICE,PRO_DESC)
+$sql = "INSERT INTO PRODUCT(PRO_INDEX,PRO_NAME,PRO_PRICE,PRO_DESC)
 		VALUES('".$id."','".$name."','".$price."','".$des."');";
 
 
