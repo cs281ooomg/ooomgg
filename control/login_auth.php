@@ -1,5 +1,4 @@
 <?php
-require '../classes/Account.php';
 require 'AccountMgnt.php';
 
 $userinput = $_POST['username'];
@@ -12,11 +11,8 @@ if ($userinput === "" || $passinput === "") {
 } else {
     $ac = AccountMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
-        session_start();
-        
+        session_start();     
         $_SESSION["ACC_ID"] = $ac->getID();
-
-        
         session_write_close();
         
         echo "<script language=\"JavaScript\">";

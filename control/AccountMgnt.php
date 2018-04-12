@@ -1,14 +1,14 @@
 <?php
 require '../classes/Account.php';
-require '../config/config.php';
 
 class AccountMgnt
 {
-
+    
     public static function loginAuth($acc_id, $acc_pass)
     {
+        require '../config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        if ($userinput != "" && $passinput != "") {
+        if ($acc_id != "" && $acc_pass != "") {
             $sql = "SELECT * FROM ACCOUNT WHERE ACC_ID = '" . $acc_id . "' AND ACC_PASS ='" . $acc_pass . "' ";
             $query = $conn->query($sql);
             $result = $query->fetch_assoc();
@@ -32,6 +32,7 @@ class AccountMgnt
 
     public static function addFavorite($cpro_id)
     {
+        require '../config/config.php';
         $pro_id = $cpro_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM PRODUCT  WHERE PRO_INDEX = '" . $pro_id . "'  ";
