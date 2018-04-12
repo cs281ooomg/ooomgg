@@ -13,6 +13,7 @@
 		<nav>
 			<ul>
 				<li><a href="index.php" class="active">Home</a></li>
+				<li><a href="register.php">Register</a></li>
 				<li><a href="about.php">About</a></li>
 				<li><a href="404.php">Team</a></li>
 				<li><a href="product.php">Shop Now</a></li>
