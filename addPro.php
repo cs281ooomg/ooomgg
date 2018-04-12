@@ -13,6 +13,12 @@ if(!$session_set){
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
+$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
+$query = $conn->query($accType);
+$result = $query->fetch_assoc();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="th">
