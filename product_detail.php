@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="banner_top innerpage" id="home">
 		<?php require 'includes/header_inner.php';?>
-		
+		<?php require $product= ProductMgnt::ShowProductDetail(1);?>
 		<!-- search -->
 		<?php require 'includes/search_top.php';?>
 	   <!-- //search -->
@@ -104,10 +104,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
-				<h3>Shoe Rock Vision(SRV) Sneakers (Blue)</h3>
+				<h3><?php echo $product->getPname()?>></h3>
 				<p>
-					<span class="item_price">$650</span>
-					<del>$1,199</del>
+					<span class="item_price"><?php echo $product->getPrice()?>></span>
+					
 				</p>
 				<div class="rating1">
 					<ul class="stars">
@@ -221,19 +221,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<div class="single_page">
 								<h6>Lorem ipsum dolor sit amet</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elPellentesque vehicula augue eget nisl ullamcorper, molestie
-									blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur
-									adipisicing elit, sed do eiusmod tempor incididunt ut lab ore
-									et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco. labore et dolore magna aliqua.</p>
-								<p class="para">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elPellentesque vehicula augue eget nisl
-									ullamcorper, molestie blandit ipsum auctor. Mauris volutpat
-									augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor
-									incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim
-									veniam, quis nostrud exercitation ullamco. labore et dolore
-									magna aliqua.</p>
+								<p><?php echo $product->getDescription()?></p>
+								<p class="para"><?php echo $product->getDescription()?></p>
 							</div>
 						</div>
 						<!--//tab_one-->
