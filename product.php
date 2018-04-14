@@ -6,7 +6,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="th">
-
+<?php
+require 'control/ProductMgnt.php';
+$product = ProductMgnt::ShowProductDetail(1);
+// $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
+?>
 <head>
 	<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website Template | Shop :: w3layouts</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -192,23 +196,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/s1.jpg" alt="">
+										<img src="<?php echo $product->getPImages();?>" alt="">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="product_detail.php" class="link-product-add-cart">Quick View</a>
+												<a href="product_detail.php?pro_id=1" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 									</div>
 									<div class="item-info-product">
 										<h4>
-											<a href="product_detail.php">Bella Toes </a>
+											<a href="product_detail.php?pro_id=1"><?php echo $product->getPName(); ?> </a>
 										</h4>
 										<div class="info-product-price">
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money ">$675.00</span>
+														<span class="money "><?php echo $product->getPPrice(); ?></span>
 													</div>
 												</div>
 												<ul class="stars">

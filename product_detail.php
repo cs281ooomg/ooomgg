@@ -1,6 +1,14 @@
 <?php
 require 'control/ProductMgnt.php';
-$product = ProductMgnt::ShowProductDetail(1);
+
+if(isset($_GET['pro_id']))
+{
+$product = ProductMgnt::ShowProductDetail($_GET['pro_id']);
+}
+else 
+{
+    header("Location: 404.php");
+}
 // $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
 ?>
 <!--
@@ -84,21 +92,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="flexslider">
 
 						<ul class="slides">
-							<li data-thumb="images/d2.jpg">
+							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="images/d2.jpg" data-imagezoom="true"
+									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
 										class="img-responsive">
 								</div>
 							</li>
-							<li data-thumb="images/d1.jpg">
+							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="images/d1.jpg" data-imagezoom="true"
+									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
 										class="img-responsive">
 								</div>
 							</li>
-							<li data-thumb="images/d3.jpg">
+							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="images/d3.jpg" data-imagezoom="true"
+									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
 										class="img-responsive">
 								</div>
 							</li>
@@ -155,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
 								name="amount" value="405.00"> <input type="submit" name="submit"
 								value="Add to cart" class="button add">
-							<button class="button add">Add to Fav</button>
+							<button class="button add">Favorite</button>
 						</form>
 					</div>
 
@@ -211,9 +219,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="tab1">
 
 							<div class="single_page">
-								<h6>Lorem ipsum dolor sit amet</h6>
-								<p><?php echo $product->getDescription()?></p>
-								<p class="para"><?php echo $product->getDescription()?></p>
+								<h6><?php echo $product->getPName()?></h6>
+								<p><?php echo $product->getPDescription()?></p>
+								<p class="para"><?php echo $product->getPDescription()?></p>
 							</div>
 						</div>
 						<!--//tab_one-->
@@ -255,20 +263,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="tab3">
 
 							<div class="single_page">
-								<h6>Shoe Rock Vision(SRV) Sneakers (Blue)</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elPellentesque vehicula augue eget nisl ullamcorper, molestie
-									blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur
-									adipisicing elit, sed do eiusmod tempor incididunt ut lab ore
-									et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco. labore et dolore magna aliqua.</p>
-								<p class="para">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elPellentesque vehicula augue eget nisl
-									ullamcorper, molestie blandit ipsum auctor. Mauris volutpat
-									augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor
-									incididunt ut lab ore et dolore magna aliqua. Ut enim ad minim
-									veniam, quis nostrud exercitation ullamco. labore et dolore
-									magna aliqua.</p>
+								<h6><?php echo $product->getPName()?></h6>
+								<p><?php echo $product->getPDescription()?></p>
+								<p class="para"><?php echo $product->getPDescription()?></p>
 							</div>
 						</div>
 					</div>
