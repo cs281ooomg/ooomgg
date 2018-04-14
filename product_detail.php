@@ -158,14 +158,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
 						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart"> <input
-								type="hidden" name="add" value="1"> <input type="hidden"
-								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
-								name="amount" value="405.00"> <input type="submit" name="submit"
-								value="Add to cart" class="button add"> <a href="#"
-								data-toggle="modal" data-target="#myModal1"></a>
+							<input type="hidden" name="cmd" value="_cart"> 
+							<input type="hidden" name="add" value="1"> 
+							<input type="hidden" name="shoe_item" value="Chikku Loafers"> 
+							<input type="hidden" name="amount" value="405.00"> 
+							<input type="submit" name="submit" value="Add to cart" class="button add"> 		
+							<button class="button add">Add to Fav</button> 
 						</form>
-
 					</div>
 
 				</div>
@@ -652,7 +651,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
 	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
+	<!-- script src="js/minicart.js"></script>
 	<script>
 		shoe.render();
 
@@ -665,7 +664,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				for (i = 0, len = items.length; i < len; i++) {}
 			}
 		});
-	</script>
+	</script-->
 	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
