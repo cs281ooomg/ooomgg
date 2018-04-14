@@ -194,12 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<img src="<?php echo $product->getPImages();?>" alt="">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-<<<<<<< HEAD
 												<a href="product_detail.php?pro_id=1" class="link-product-add-cart">Quick View</a>
-=======
-												<a href="product_detail.php" class="link-product-add-cart">Quick
-													View</a>
->>>>>>> branch 'master' of https://github.com/cs281ooomg/ooomgg
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
