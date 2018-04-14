@@ -1,5 +1,7 @@
-<?php require 'control/ProductMgnt.php';
-    $product = ProductMgnt::ShowProductDetail(1);
+<?php
+require 'control/ProductMgnt.php';
+$product = ProductMgnt::ShowProductDetail(1);
+// $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
 ?>
 <!--
 author: W3layouts
@@ -108,8 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
 				<h3><?php echo $product->getPname();?></h3>
 				<p>
-					<span class="item_price"><?php echo $product->getPrice();?></span>
-					
+					<span class="item_price"><?php echo $product->getPPrice();?></span>
+
 				</p>
 				<div class="rating1">
 					<ul class="stars">
@@ -142,18 +144,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<div class="occasional">
-				
+
 					<div class="clearfix"></div>
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
 						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart"> 
-							<input type="hidden" name="add" value="1"> 
-							<input type="hidden" name="shoe_item" value="Chikku Loafers"> 
-							<input type="hidden" name="amount" value="405.00"> 
-							<input type="submit" name="submit" value="Add to cart" class="button add"> 		
-							<button class="button add">Add to Fav</button> 
+							<input type="hidden" name="cmd" value="_cart"> <input
+								type="hidden" name="add" value="1"> <input type="hidden"
+								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
+								name="amount" value="405.00"> <input type="submit" name="submit"
+								value="Add to cart" class="button add">
+							<button class="button add">Add to Fav</button>
 						</form>
 					</div>
 

@@ -1,11 +1,12 @@
 <?php
-require '../classes/Product.php';
+require 'classes/Product.php';
 
 class ProductMgnt
 {
+
     public static function ShowProductDetail($pro_index)
     {
-        require '../config/config.php';
+        require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM PRODUCT WHERE PRO_INDEX ='" . $pro_index . "'";
         $query = $conn->query($sql);
