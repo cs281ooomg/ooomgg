@@ -8,7 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php 
 include ('includes/session.php');
 //require 'control/AccountMgnt.php';
-require 'config/config.php';
+require 'control/config/config.php';
 if(!$session_set){
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
