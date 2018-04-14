@@ -7,23 +7,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <?php 
 include ('includes/session.php');
-require 'control/AccountMgnt.php';
-require 'config/config.php';
+//require 'control/AccountMgnt.php';
+require 'control/config/config.php';
 if(!$session_set){
     echo "<script language=\"JavaScript\">";
-    echo "alert('ต้องอยู่ในระบบและเป็นเจ้าของร้าน จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "alert('Please login!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$acc = AccountMgnt::loginAuth('fookza2013', '12345678');
+$conn = new mysqli($hostname, $username, $password, $dbname);
+$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
+$query = $conn->query($accType);
+$result = $query->fetch_assoc();
 
-if ($acc->getTYPE() === '1'){
+
+//$acc = AccountMgnt::loginAuth('fookza2013', '12345678');
+//echo $result;
+//if ($acc->getTYPE() === '0'){
+if ($result["ACC_TYPE"] == '0'){
     echo "<script language=\"JavaScript\">";
-    echo "alert('ต้องอยู่ในระบบและเป็นเจ้าของร้าน จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "alert('You is not owner!!!')";
     echo "</script>";
-    echo "<script> document.location.href=\"login.php\";</script>";
+    echo "<script> document.location.href=\"index.php\";</script>";
     exit();
+}
+else if ($result["ACC_TYPE"] == '1'){
+    echo "<script language=\"JavaScript\">";
+    echo "alert('Hello Owner')";
+    echo "</script>";
 }
 
 
@@ -100,20 +112,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>fill product you want to add.</h6>
-					<form action="#" method="post">
+					<form action="control/addProduct.php" method="post">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="text" name="Name" placeholder="Name" required=""> <input
-								type="email" name="Email" placeholder="Email" required="">
+							<input type="text" name="pname" placeholder="Product Name"> <input
+								type="text" name="pprice" placeholder="Price" >
 						</div>
-						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="text" name="Telephone" placeholder="Telephone"
-								required=""> <input type="text" name="Subject"
-								placeholder="Subject" required="">
+					<div class="col-md-6 col-sm-6 contact_left_grid">
+                            Select image to upload:
+                            <input type="file" name="fileToUpload" id="fileToUpload">
 						</div>
 						<div class="clearfix"></div>
-						<textarea name="Message" onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Message...';}"
-							required="">Message...</textarea>
+						<textarea name="pdes" onfocus="this.value = '';"
+							onblur="if (this.value == '') {this.value = 'Description...';}"
+							>Description...</textarea>
 						<input type="submit" value="Submit"> <input type="reset"
 							value="Clear">
 					</form>
