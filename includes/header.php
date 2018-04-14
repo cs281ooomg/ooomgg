@@ -28,7 +28,10 @@
 	</div>
 	<!-- cart details -->
 	<div class="top_nav_right_acc">
-		<button class="top_shoe_cart dropdown-toggle" data-toggle="dropdown">
+		<!-- button class="top_shoe_cart dropdown-toggle" data-toggle="dropdown">
+			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+		</button-->
+		<button class="top_shoe_cart" onclick="window.location.href='login.php'">
 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 		</button>
 		<ul id="login-dp" class="dropdown-menu">
