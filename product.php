@@ -8,12 +8,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-	<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website Template | Shop :: w3layouts</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
+	Template | Shop :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-	<script type="application/x-javascript">
+<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -22,19 +24,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			window.scrollTo(0, 1);
 		}
 	</script>
-	<!-- //custom-theme -->
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<link rel="stylesheet" href="css/shop.css" type="text/css" media="screen" property="" />
-	<link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- Owl-carousel-CSS -->
-	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
-	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-	<!-- font-awesome-icons -->
-	<link href="css/font-awesome.css" rel="stylesheet">
-	<!-- //font-awesome-icons -->
-	<link href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-	    rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+<!-- //custom-theme -->
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link rel="stylesheet" href="css/shop.css" type="text/css"
+	media="screen" property="" />
+<link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Owl-carousel-CSS -->
+<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome-icons -->
+<link href="css/font-awesome.css" rel="stylesheet">
+<!-- //font-awesome-icons -->
+<link
+	href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	rel="stylesheet">
+<link
+	href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800"
+	rel="stylesheet">
 </head>
 
 <body>
@@ -59,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //banner_inner -->
 	</div>
 	<!-- //banner -->
-	
+
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
@@ -71,8 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="search-hotel">
 					<h3 class="agileits-sear-head">Search Here..</h3>
 					<form action="#" method="post">
-						<input type="search" placeholder="Product name..." name="search" required="">
-						<input type="submit" value=" ">
+						<input type="search" placeholder="Product name..." name="search"
+							required=""> <input type="submit" value=" ">
 					</form>
 				</div>
 				<!-- price range -->
@@ -81,8 +88,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="dropdown-menu6">
 						<li>
 
-							<div id="slider-range"></div>
-							<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+							<div id="slider-range"></div> <input type="text" id="amount"
+							style="border: 0; color: #ffffff; font-weight: normal;" />
 						</li>
 					</ul>
 				</div>
@@ -91,30 +98,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li>
-							<a href="#" >
-								<span class="span">Guitar</span>
-							</a>		
-						</li>
-						<li>
-							<a href="#" >
-								<span class="span">Bass</span>
-							</a>
-						</li>
-						<li>
-							<a href="#" >
-								<span class="span">Piano</span>
-							</a>
-						</li>
-						<li>
-							<a href="#" >
-								<span class="span">Drum</span>
-							</a>
-						</li>
+						<li><a href="#"> <span class="span">Guitar</span>
+						</a></li>
+						<li><a href="#"> <span class="span">Bass</span>
+						</a></li>
+						<li><a href="#"> <span class="span">Piano</span>
+						</a></li>
+						<li><a href="#"> <span class="span">Drum</span>
+						</a></li>
 					</ul>
 				</div>
 				<!-- // preference -->
-			
+
 				<!-- deals -->
 				<div class="deal-leftmk left-side">
 					<h3 class="agileits-sear-head">Special Deals</h3>
@@ -195,7 +190,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<img src="images/s1.jpg" alt="">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="product_detail.php" class="link-product-add-cart">Quick View</a>
+												<a href="product_detail.php" class="link-product-add-cart">Quick
+													View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
@@ -215,17 +211,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
 													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-o"
+															aria-hidden="true"></i></a></li>
 													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
 												</ul>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
 												<form action="#" method="post">
-													<input type="hidden" name="cmd" value="_cart">
-													<input type="hidden" name="add" value="1">
-													<input type="hidden" name="shoe_item" value="Bella Toes">
-													<input type="hidden" name="amount" value="675.00">
-													<button type="submit" class="shoe-cart pshoe-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+													<input type="hidden" name="cmd" value="_cart"> <input
+														type="hidden" name="add" value="1"> <input type="hidden"
+														name="shoe_item" value="Bella Toes"> <input type="hidden"
+														name="amount" value="675.00">
+													<button type="submit" class="shoe-cart pshoe-cart">
+														<i class="fa fa-cart-plus" aria-hidden="true"></i>
+													</button>
 
 													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 												</form>
@@ -275,89 +274,121 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="item">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="item active">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g5.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g6.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			<span class="fa fa-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			<span class="fa fa-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
+				<a class="left carousel-control" href="#myCarousel" role="button"
+					data-slide="prev"> <span class="fa fa-chevron-left"
+					aria-hidden="true"></span> <span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#myCarousel"
+					role="button" data-slide="next"> <span class="fa fa-chevron-right"
+					aria-hidden="true"></span> <span class="sr-only">Next</span>
+				</a>
 				<!-- The Modal -->
 
 			</div>
 		</div>
 
-		<div class="clearfix"> </div>
+		<div class="clearfix"></div>
 	</div>
 
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
-	
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+
+	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span
+		id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
