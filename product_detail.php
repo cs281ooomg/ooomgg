@@ -1,3 +1,6 @@
+<?php require 'control/ProductMgnt.php';
+    $product = ProductMgnt::ShowProductDetail(1);
+?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -52,7 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- banner -->
 	<div class="banner_top innerpage" id="home">
 		<?php require 'includes/header_inner.php';?>
-		<?php require $product= ProductMgnt::ShowProductDetail(1);?>
 		<!-- search -->
 		<?php require 'includes/search_top.php';?>
 	   <!-- //search -->
@@ -104,9 +106,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
-				<h3><?php echo $product->getPname()?>></h3>
+				<h3><?php echo $product->getPname();?></h3>
 				<p>
-					<span class="item_price"><?php echo $product->getPrice()?>></span>
+					<span class="item_price"><?php echo $product->getPrice();?></span>
 					
 				</p>
 				<div class="rating1">
