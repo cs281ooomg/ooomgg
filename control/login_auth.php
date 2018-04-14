@@ -11,12 +11,12 @@ if ($userinput === "" || $passinput === "") {
 } else {
     $ac = AccountMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
-        session_start();     
+        session_start();
         $_SESSION["ACC_ID"] = $ac->getID();
         session_write_close();
         
         echo "<script language=\"JavaScript\">";
-        echo "alert('Welcome " . $result["ACC_FNAME"] . " " . $result["ACC_LNAME"] . "')";
+        echo "alert('Welcome " . $ac->getFname() . " " . $ac->getLname() . "')";
         echo "</script>";
         echo "<script> document.location.href=\"../index.php\";</script>";
     } else {

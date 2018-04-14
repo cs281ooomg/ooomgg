@@ -3,77 +3,77 @@
 class Product
 {
 
-    private $Pname, $images, $price, $description, $Ptype, $pid;
+    private $pId, $pName, $pImages, $pPrice, $pDescription, $pType;
 
-    public function getPid()
+    public function __construct($pId, $pName, $pImages, $pPrice, $pDescription, $pType)
     {
-        return $this->pid;
+        $this->pId = $pId;
+        $this->pName = $pName;
+        $this->pImages = $pImages;
+        $this->pPrice = $pPrice;
+        $this->pDescription = $pDescription;
+        $this->pType = $pType;
     }
 
-    public function setPid($pid)
+    public function getPId()
     {
-        $this->pid = $pid;
+        return $this->pId;
     }
 
-    public function __construct($Pname, $images, $price, $description, $Ptype, $pid)
+    public function getPName()
     {
-        $this->$Pname = $Pname;
-        $this->$images = $images;
-        $this->$price = $price;
-        $this->$description = $description;
-        $this->$Ptype = $Ptype;
-        $this->$pid = $pid;
-        
+        return $this->pName;
     }
 
-    public function getPname()
+    public function getPImages()
     {
-        return $this->Pname;
+        return $this->pImages;
     }
 
-    public function getImages()
+    public function getPPrice()
     {
-        return $this->images;
+        return $this->pPrice;
     }
 
-    public function getPrice()
+    public function getPDescription()
     {
-        return $this->price;
+        return $this->pDescription;
     }
 
-    public function getDescription()
+    public function getPType()
     {
-        return $this->description;
+        return $this->pType;
     }
 
-    public function getPtype()
+    public function setPId($pId)
     {
-        return $this->Ptype;
+        $this->pId = $pId;
     }
 
-    public function setPname($Pname)
+    public function setPName($pName)
     {
-        $this->Pname = $Pname;
+        $this->pName = $pName;
     }
 
-    public function setImages($images)
+    public function setPImages($pImages)
     {
-        $this->images = $images;
+        $this->pImages = $pImages;
     }
 
-    public function setPrice($price)
+    public function setPPrice($pPrice)
     {
-        $this->price = $price;
+        $this->pPrice = $pPrice;
     }
 
-    public function setDescription($description)
+    public function setPDescription($pDescription)
     {
-        $this->description = $description;
+        $this->pDescription = $pDescription;
     }
 
-    public function setPtype($Ptype)
+    public function setPType($pType)
     {
-        $this->Ptype = $Ptype;
+        $this->pType = $pType;
     }
 }
 
+?>
