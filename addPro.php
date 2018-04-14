@@ -112,22 +112,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>fill product you want to add.</h6>
-					<form action="#" method="post">
+					<form action="control/addProduct.php" method="post">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="text" name="pname" placeholder="Product Name" required=""> <input
-								type="text" name="pprice" placeholder="Price" required="">
+							<input type="text" name="pname" placeholder="Product Name"> <input
+								type="text" name="pprice" placeholder="Price" >
 						</div>
 					<div class="col-md-6 col-sm-6 contact_left_grid">
-                            <form action="upload.php" method="post" enctype="multipart/form-data">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
-                            <input type="submit" value="Upload Image" name="submit">
-                            </form>
 						</div>
 						<div class="clearfix"></div>
-						<textarea name="pdescription" onfocus="this.value = '';"
+						<textarea name="pdes" onfocus="this.value = '';"
 							onblur="if (this.value == '') {this.value = 'Description...';}"
-							required="">Description...</textarea>
+							>Description...</textarea>
 						<input type="submit" value="Submit"> <input type="reset"
 							value="Clear">
 					</form>
