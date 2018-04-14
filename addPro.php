@@ -7,23 +7,35 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <?php 
 include ('includes/session.php');
-require 'control/AccountMgnt.php';
+//require 'control/AccountMgnt.php';
 require 'config/config.php';
 if(!$session_set){
     echo "<script language=\"JavaScript\">";
-    echo "alert('ต้องอยู่ในระบบและเป็นเจ้าของร้าน จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "alert('Please login!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$acc = AccountMgnt::loginAuth('fookza2013', '12345678');
+$conn = new mysqli($hostname, $username, $password, $dbname);
+$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
+$query = $conn->query($accType);
+$result = $query->fetch_assoc();
 
-if ($acc->getTYPE() === '1'){
+
+//$acc = AccountMgnt::loginAuth('fookza2013', '12345678');
+//echo $result;
+//if ($acc->getTYPE() === '0'){
+if ($result["ACC_TYPE"] == '0'){
     echo "<script language=\"JavaScript\">";
-    echo "alert('ต้องอยู่ในระบบและเป็นเจ้าของร้าน จึงจะสามารถเพิ่มสินค้าได้')";
+    echo "alert('You is not owner!!!')";
     echo "</script>";
-    echo "<script> document.location.href=\"login.php\";</script>";
+    echo "<script> document.location.href=\"index.php\";</script>";
     exit();
+}
+else if ($result["ACC_TYPE"] == '1'){
+    echo "<script language=\"JavaScript\">";
+    echo "alert('Hello Owner')";
+    echo "</script>";
 }
 
 
