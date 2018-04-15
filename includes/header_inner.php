@@ -10,16 +10,9 @@
 			<button type="button" class="overlay-close">
 				<i class="fa fa-times" aria-hidden="true"></i>
 			</button>
-
-			<nav>
-				<ul>
-					<li><a href="index.php" class="active">Home</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="404.php">Team</a></li>
-					<li><a href="product.php">Shop Now</a></li>
-					<li><a href="contact.php">Contact</a></li>
-				</ul>
-			</nav>
+			<!-- //menu -->
+    		<?php require 'includes/menu.php';?>
+    		<!-- //menu -->
 		</div>
 		<div class="mobile-nav-button">
 			<button id="trigger-overlay" type="button">
