@@ -144,7 +144,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								type="hidden" name="add" value="1"> <input type="hidden"
 								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
 								name="amount" value="405.00"> <input type="submit" name="submit"
-								value="Add to cart" class="button add"> <a href="#"
+								value="Add to cart" class="button add"> 
+								<a href=""product_detail.php?pro_id=<?php echo $product->getPId();?>"
 								class="button add fav"> <!-- span class="glyphicon glyphicon-heart"></span-->
 								<?php if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC_ID'])){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>

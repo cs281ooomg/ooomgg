@@ -1,4 +1,4 @@
-<?php require 'includes/seesion.php';
+<?php require 'includes/session.php';
     if(!$session_set){
         header('Location: index.php');
         exit;
