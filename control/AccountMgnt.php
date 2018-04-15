@@ -34,14 +34,20 @@ class AccountMgnt
     {
         require 'config/config.php';
         $pro_id = $cpro_id;
+        $acc_id = $a_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT  WHERE PRO_INDEX = '" . $pro_id . "'  ";
-        $query = $conn->query($sql1);
+        
+        $sql = "SELECT * FROM FAVORITE  WHERE ACC_INDEX ='" . $acc_id . "' AND PRO_INDEX ='" . $pro_id . "' ";
+        $query = $conn->query($sql);
         $result = $query->fetch_assoc();
+        // echo $sql;
         if ($result) {
             return TRUE;
         }
-        return FALSE;
+        else {
+            return FALSE;
+        }
     }
 }
+
 ?>
