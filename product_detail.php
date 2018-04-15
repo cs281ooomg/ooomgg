@@ -1,7 +1,7 @@
 <?php
-require 'includes/seesion.php';
+require 'includes/session.php';
 require 'control/ProductMgnt.php';
-
+require 'control/AccountMgnt.php';
 if (isset($_GET['pro_id'])) {
     $product = ProductMgnt::ShowProductDetail($_GET['pro_id']);
 } else {
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								name="amount" value="405.00"> <input type="submit" name="submit"
 								value="Add to cart" class="button add"> <a href="#"
 								class="button add fav"> <!-- span class="glyphicon glyphicon-heart"></span-->
-								<?php if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC_IS'])){?>
+								<?php if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC_ID'])){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php } else {?>
 								<span class="glyphicon glyphicon-heart"></span>
