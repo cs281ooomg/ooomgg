@@ -147,9 +147,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								value="Add to cart" class="button add"> <a href="addFavorite.php?pro_id=""<?php echo $product->getPId();?>"
 								class="button add fav"> <!-- span class="glyphicon glyphicon-heart"></span-->
 								<?php if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC_ID'])){?>
-								<span class="glyphicon glyphicon-heart-empty"></span>
-								<?php } else {?>
 								<span class="glyphicon glyphicon-heart"></span>
+								<?php } else {?>
+								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php } ?>
 							</a>
 						</form>
