@@ -1059,6 +1059,20 @@ input.button.add {
     letter-spacing: 1px;
     font-weight: 600;
 }
+.button.add.fav {
+    font-size: 13px;
+    color: #fff;
+    background: #1d1d1d;
+    text-decoration: none;
+    position: relative;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    padding: .7em 1em;
+    outline: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
 .responsive_tabs {
     margin-top: 2em;
 }

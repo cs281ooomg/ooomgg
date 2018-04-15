@@ -1,12 +1,9 @@
 <?php
 require 'control/ProductMgnt.php';
 
-if(isset($_GET['pro_id']))
-{
-$product = ProductMgnt::ShowProductDetail($_GET['pro_id']);
-}
-else 
-{
+if (isset($_GET['pro_id'])) {
+    $product = ProductMgnt::ShowProductDetail($_GET['pro_id']);
+} else {
     header("Location: 404.php");
 }
 // $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
@@ -75,8 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li><a href="index.php">product</a><i>|</i></li>
-					<li>x</li>
+					<li><a href="product.php">product</a><i>|</i></li>
+					<li><?php echo $product->getPname();?></li>
 				</ul>
 			</div>
 		</div>
@@ -94,20 +91,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul class="slides">
 							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
-										class="img-responsive">
+									<img src="<?php echo $product->getPImages();?>"
+										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
 							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
-										class="img-responsive">
+									<img src="<?php echo $product->getPImages();?>"
+										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
 							<li data-thumb="<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>" data-imagezoom="true"
-										class="img-responsive">
+									<img src="<?php echo $product->getPImages();?>"
+										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
 						</ul>
@@ -118,26 +115,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
 				<h3><?php echo $product->getPname();?></h3>
 				<p>
-					<span class="item_price"><?php echo $product->getPPrice();?></span>
-
+					<span class="item_price"><?php echo $product->getPPrice();?> ฿</span>
 				</p>
-				<div class="rating1">
-					<ul class="stars">
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
 				<div class="description">
 					<h5>Check delivery, payment options and charges at your location</h5>
-					<form action="#" method="post">
-						<input type="text" value="Enter pincode"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Enter pincode';}"
-							required=""> <input type="submit" value="Check">
-					</form>
 				</div>
 				<div class="color-quality">
 					<div class="color-quality-right">
@@ -158,12 +139,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
 						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart"> <input
-								type="hidden" name="add" value="1"> <input type="hidden"
-								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
-								name="amount" value="405.00"> <input type="submit" name="submit"
-								value="Add to cart" class="button add">
-							<button class="button add">Favorite</button>
+							<input type="hidden" name="cmd" value="_cart"> 
+							<input type="hidden" name="add" value="1"> 
+							<input type="hidden" name="shoe_item" value="Chikku Loafers"> 
+							<input type="hidden" name="amount" value="405.00"> 
+							<input type="submit" name="submit" value="Add to cart" class="button add">
+							<a href ="#" class="button add fav">
+								<span class="glyphicon glyphicon-heart"></span>
+							</a>
 						</form>
 					</div>
 
@@ -276,6 +259,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="new_arrivals">
 				<h3>Featured Products</h3>
 				<!-- /womens -->
+				<?php for ($i = 0; $i < 4; $i++) { ?>
 				<div class="col-md-3 product-men women_two">
 					<div class="product-shoe-info shoe">
 						<div class="men-pro-item">
@@ -299,21 +283,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<span class="money ">$575.00</span>
 											</div>
 										</div>
-										<ul class="stars">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o"
-													aria-hidden="true"></i></a></li>
-										</ul>
 									</div>
 									<div class="shoe single-item hvr-outline-out">
 										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> <input
-												type="hidden" name="add" value="1"> <input type="hidden"
-												name="shoe_item" value="Shuberry Heels"> <input
-												type="hidden" name="amount" value="575.00">
+											<input type="hidden" name="cmd" value="_cart"> 
+											<input type="hidden" name="add" value="1"> 
+											<input type="hidden" name="shoe_item" value="Shuberry Heels"> 
+											<input type="hidden" name="amount" value="575.00">
 											<button type="submit" class="shoe-cart pshoe-cart">
 												<i class="fa fa-cart-plus" aria-hidden="true"></i>
 											</button>
@@ -328,163 +304,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s5.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Quick View</a>
-									</div>
-								</div>
-								<span class="product-new-top">New</span>
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">Red Bellies </a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">$325.00</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o"
-													aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> <input
-												type="hidden" name="add" value="1"> <input type="hidden"
-												name="shoe_item" value="Red Bellies"> <input type="hidden"
-												name="amount" value="325.00">
-											<button type="submit" class="shoe-cart pshoe-cart">
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s7.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Quick View</a>
-									</div>
-								</div>
-								<span class="product-new-top">New</span>
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">Running Shoes</a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">$875.00</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o"
-													aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> <input
-												type="hidden" name="add" value="1"> <input type="hidden"
-												name="shoe_item" value="Running Shoes"> <input type="hidden"
-												name="amount" value="875.00">
-											<button type="submit" class="shoe-cart pshoe-cart">
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s8.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Quick View</a>
-									</div>
-								</div>
-								<span class="product-new-top">New</span>
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">Sukun Casuals</a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">$505.00</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-											<li><a href="#"><i class="fa fa-star-half-o"
-													aria-hidden="true"></i></a></li>
-										</ul>
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> <input
-												type="hidden" name="add" value="1"> <input type="hidden"
-												name="shoe_item" value="Sukun Casuals"> <input type="hidden"
-												name="amount" value="505.00">
-											<button type="submit" class="shoe-cart pshoe-cart">
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-
+				<?php } ?>
+				
 				<!-- //womens -->
 				<div class="clearfix"></div>
 			</div>
