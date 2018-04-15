@@ -1,4 +1,4 @@
-<?php require 'includes/seesion.php'; ?>
+<?php require 'includes/session.php'; ?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
