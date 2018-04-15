@@ -78,7 +78,27 @@
     font-size: 14px;
     color: #fff;
     background: #000000;
-    width: 45.6%;
+    width: 23%;
+    border: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-left: 1.4em;
+    margin-top: 10px;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    font-weight: 700;
+}
+
+.login_grid_right_reg_btn {
+    outline: none;
+    padding: 15px 0;
+    font-size: 14px;
+    color: #fff;
+    background: #000000;
+    width: 23%;
     border: none;
     letter-spacing: 2px;
     text-transform: uppercase;
