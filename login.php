@@ -1,5 +1,5 @@
 <?php require 'includes/session.php';
-    if(!$session_set){
+    if($session_set){
         header('Location: index.php');
         exit;
     }
