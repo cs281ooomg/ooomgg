@@ -1,5 +1,5 @@
 <?php
-require 'includes/seesion.php';
+require 'includes/session.php';
 ?>
 <!--
 author: W3layouts

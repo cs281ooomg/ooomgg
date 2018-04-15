@@ -1,5 +1,5 @@
 <?php
-require 'includes/seesion.php';
+require 'includes/session.php';
 require 'control/ProductMgnt.php';
 $product = ProductMgnt::ShowProductDetail(1);
 ?>

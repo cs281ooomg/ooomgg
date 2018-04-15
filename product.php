@@ -7,6 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="th">
 <?php
+require 'includes/session.php';
 require 'control/ProductMgnt.php';
 $productArr = ProductMgnt::getallProduct();
 ?>
