@@ -145,7 +145,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input type="hidden" name="amount" value="405.00"> 
 							<input type="submit" name="submit" value="Add to cart" class="button add">
 							<a href ="#" class="button add fav">
-								<span class="glyphicon glyphicon-heart"></span>
+								<!-- span class="glyphicon glyphicon-heart"></span-->
+								<span class="glyphicon glyphicon-heart-empty"></span>
 							</a>
 						</form>
 					</div>
