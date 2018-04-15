@@ -14,7 +14,7 @@ if ($result) {
     echo "<script> document.location.href=\"../register.php\";</script>";
 }
 else{
-    $sql = "INSERT INTO ACCOUNT (ACC_ID,ACC_PASS,ACC_FNAME,ACC_LNAME,ACC_EMAIL,ACC_TEL) 
+    $sql = "INSERT INTO ACCOUNT (ACC_ID,ACC_PASS,ACC_FNAME,ACC_LNAME,ACC_EMAIL,ACC_TEL)
             VALUES ('".$userinput."','".$passinput."','".$_POST['fname']."','".$_POST['lname']."','".$_POST['email']."','".$_POST['phone-number']."')";
     $query= $conn->query($sql);
     echo"<script language=\"JavaScript\">";
