@@ -66,7 +66,7 @@
 	</div>
 
 	<div class="top_nav_right">
-		<button class="top_shoe_cart" onclick="window.location.href='checkout.php'">
+		<button class="top_shoe_cart" onclick="window.location.href='cart.php'">
 			<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
 		</button>
 	</div>

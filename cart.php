@@ -8,8 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
-	Template | Check Out :: w3layouts</title>
+<title>OOOMG : Cart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -59,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>Check Out</li>
+					<li>Cart</li>
 				</ul>
 			</div>
 		</div>
@@ -72,12 +71,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="shop_inner_inf">
 			<div class="privacy about">
 				<h3>
-					Chec<span>kout</span>
+					Cart
 				</h3>
 
 				<div class="checkout-right">
 					<h4>
-						Your shopping cart contains: <span>3 Products</span>
+						Your shopping cart contains: <?php echo 'x';?> Products
 					</h4>
 					<table class="timetable_sub">
 						<thead>
