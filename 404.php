@@ -1,3 +1,6 @@
+<?php
+require 'includes/seesion.php';
+?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com

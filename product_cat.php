@@ -1,3 +1,8 @@
+<?php
+require 'includes/seesion.php';
+require 'control/ProductMgnt.php';
+$product = ProductMgnt::ShowProductDetail(1);
+?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -6,11 +11,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="th">
-<?php
-require 'control/ProductMgnt.php';
-$product = ProductMgnt::ShowProductDetail(1);
-// $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
-?>
 <head>
 <title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
 	Template | Shop :: w3layouts</title>

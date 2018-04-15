@@ -1,3 +1,9 @@
+<?php require 'includes/seesion.php';
+    if(!$session_set){
+        header('Location: index.php');
+        exit;
+    }
+?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com

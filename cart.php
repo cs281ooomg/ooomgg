@@ -1,3 +1,4 @@
+<?php require 'includes/seesion.php';?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -70,9 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
 			<div class="privacy about">
-				<h3>
-					Cart
-				</h3>
+				<h3>Cart</h3>
 
 				<div class="checkout-right">
 					<h4>
@@ -185,14 +184,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>
 	<!-- //top product -->
-	
+
 	<!-- footer -->
-		<?php require 'includes/footer.php';?>
-	   <!-- //footer -->
+	<?php require 'includes/footer.php';?>
+	<!-- //footer -->
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span
 		id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->

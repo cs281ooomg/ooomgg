@@ -1,4 +1,5 @@
 <?php
+require 'includes/seesion.php';
 require 'control/ProductMgnt.php';
 
 if (isset($_GET['pro_id'])) {
@@ -139,13 +140,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
 						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart"> 
-							<input type="hidden" name="add" value="1"> 
-							<input type="hidden" name="shoe_item" value="Chikku Loafers"> 
-							<input type="hidden" name="amount" value="405.00"> 
-							<input type="submit" name="submit" value="Add to cart" class="button add">
-							<a href ="#" class="button add fav">
-								<!-- span class="glyphicon glyphicon-heart"></span-->
+							<input type="hidden" name="cmd" value="_cart"> <input
+								type="hidden" name="add" value="1"> <input type="hidden"
+								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
+								name="amount" value="405.00"> <input type="submit" name="submit"
+								value="Add to cart" class="button add"> <a href="#"
+								class="button add fav"> <!-- span class="glyphicon glyphicon-heart"></span-->
 								<span class="glyphicon glyphicon-heart-empty"></span>
 							</a>
 						</form>
@@ -287,10 +287,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="shoe single-item hvr-outline-out">
 										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> 
-											<input type="hidden" name="add" value="1"> 
-											<input type="hidden" name="shoe_item" value="Shuberry Heels"> 
-											<input type="hidden" name="amount" value="575.00">
+											<input type="hidden" name="cmd" value="_cart"> <input
+												type="hidden" name="add" value="1"> <input type="hidden"
+												name="shoe_item" value="Shuberry Heels"> <input
+												type="hidden" name="amount" value="575.00">
 											<button type="submit" class="shoe-cart pshoe-cart">
 												<i class="fa fa-cart-plus" aria-hidden="true"></i>
 											</button>
