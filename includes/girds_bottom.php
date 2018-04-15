@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="style-image-2">
-			<img src="images/b2.jpg" alt="shoe">
+			<img src="images/wall18.jpg" alt="shoe">
 			<div class="style-grid-2-text">
 				<h3>Air force</h3>
 			</div>
@@ -44,7 +44,7 @@
 				</div>
 			</div>
 			<div class="style-image-2">
-				<img src="images/b4.jpg" alt="shoe">
+				<img src="images/wall7.jpg" alt="shoe">
 				<div class="style-grid-2-text">
 					<h3>Air force</h3>
 				</div>
@@ -53,7 +53,7 @@
 		<div class="col-md-6 grids_sec_2_left">
 
 			<div class="style-image-2">
-				<img src="images/b3.jpg" alt="shoe">
+				<img src="images/wall11.jpg" alt="shoe">
 				<div class="style-grid-2-text">
 					<h3>Air force</h3>
 				</div>
