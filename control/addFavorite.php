@@ -34,6 +34,7 @@ if ($_GET["pro_id"]) {
         else 
         {
             echo"alert('ไม่พบสินค้า')";
+            header("Location: 404.php");
         }
     }
     $path_url = $_SERVER['REQUEST_URI'];

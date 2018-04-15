@@ -3,7 +3,7 @@ require 'classes/Account.php';
 
 class AccountMgnt
 {
-    
+
     public static function loginAuth($acc_id, $acc_pass)
     {
         require 'config/config.php';
@@ -38,12 +38,10 @@ class AccountMgnt
         $sql = "SELECT * FROM PRODUCT  WHERE PRO_INDEX = '" . $pro_id . "'  ";
         $query = $conn->query($sql1);
         $result = $query->fetch_assoc();
-        if($result)
-        {
-         return TRUE;   
+        if ($result) {
+            return TRUE;
         }
         return FALSE;
     }
-    
 }
 ?>
