@@ -1,0 +1,12 @@
+.type_select {
+	margin-top: 21px;
+	outline: none;
+    padding: 15px 15px;
+    font-size: 14px;
+    color: #777;
+    background: #f6f9fb;
+    width: 98%;
+    letter-spacing: 1px;
+    border: none;
+    border: 1px solid #ddd;
+}
