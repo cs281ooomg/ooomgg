@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>product</li>
+					<li><a href = "product.php">product</a></li>
 				</ul>
 			</div>
 		</div>
@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b></span>
+						<li><a href="product_cat.php."> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
 						</a></li>
 						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
 						</a></li>

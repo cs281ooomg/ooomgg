@@ -2,10 +2,10 @@
 require 'control/classes/Account.php';
 require 'includes/session.php';
 if ($session_set) {
-    $acc = $_SESSION['ACC'];
+	$acc = $_SESSION['ACC'];
 }
 require 'control/ProductMgnt.php';
-$product = ProductMgnt::ShowProductDetail(1);
+$productArr = ProductMgnt::getGuitarProduct();
 ?>
 <!--
 author: W3layouts
@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>product</li>
+					<li><a href = "product.php">product</li>
 				</ul>
 			</div>
 		</div>
@@ -78,6 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
+		
 			<!-- tittle heading -->
 
 			<!-- //tittle heading -->
@@ -135,6 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- product-sec1 -->
 					<div class="product-sec1">
 						<!--/mens-->
+						<?php foreach ($productArr as $product) {?>
 						<div class="col-md-4 product-men">
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
@@ -142,14 +144,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<img src="<?php echo $product->getPImages();?>" alt="">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
-												<a href="product_detail.php?pro_id=1" class="link-product-add-cart">Quick View</a>
+												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
 										<span class="product-new-top">New</span>
 									</div>
 									<div class="item-info-product">
 										<h4>
-											<a href="product_detail.php?pro_id=1"><?php echo $product->getPName(); ?> </a>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
 										</h4>
 										<div class="info-product-price">
 											<div class="grid_meta">
@@ -187,6 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</div>
 						</div>
+						<?php } ?>
 						<!-- //mens -->
 						<div class="clearfix"></div>
 
