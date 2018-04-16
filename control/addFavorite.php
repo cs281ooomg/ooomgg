@@ -21,11 +21,11 @@ if ($_GET["pro_id"]) {
         if ($result) {
             $sql = "DELETE FROM FAVORITE WHERE ACC_ID='" . $acc_id . "' AND '" . $pro_id . "' ";
             $query = $conn->query($sql);
-            echo "del";
+            echo "alert('delete wishlist')";
         } else {
             $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
             $query = $conn->query($sql);
-            echo "add matha fakka";
+            echo "alert('wished')";
         }
         header("location:../product_detail.php?pro_id=$pro_id");
        // echo "<script> document.location.href=\"../product.php\";</script>";
