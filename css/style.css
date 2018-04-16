@@ -141,7 +141,7 @@ ul.top_icons li a:hover {
     margin-top: 47px;
     position: absolute;
     z-index: 99;
-    right: -2%;
+    right: 2%;
 }
 /*-- menu --*/
 .mobile-nav-button {
@@ -1376,9 +1376,6 @@ p.head_para {
     .top_nav_right {
         right: -1%;
     }
-    .top_nav_right_acc {
-        right: -0.2%;
-    } 
     .mid_services_img {
         min-height: 550px;
     }
@@ -1558,6 +1555,7 @@ p.head_para {
         right:4.3%;
         margin-top: 48px;
     }
+
     .style-grid-1 img {
         height: 525px;
     }
@@ -2155,6 +2153,10 @@ p.head_para {
     }
     .top_nav_right {
         right: 23%;
+        margin-top: 19px;
+    }
+     .top_nav_right_acc {
+        right: 35%;
         margin-top: 19px;
     }
     .banner-top, .banner-top1, .banner-top2, .banner-top3 {
