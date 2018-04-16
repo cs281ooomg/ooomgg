@@ -36,7 +36,7 @@ class AccountMgnt
         $pro_id = $cpro_id;
         $acc_id = $cacc_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX = '" . $pro_id . "' AND '".$acc_id."'  ";
+        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='". $pro_id . "' AND ACC_ID ='".$acc_id."'  ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {

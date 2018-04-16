@@ -2,9 +2,9 @@
 if ($_GET["pro_id"]) {
     session_start();
     $session_set = false;
-    if (isset($_SESSION['ACC_ID'])) {
-        $session_set = true;
-    }
+     if (isset($_SESSION['ACC']->getID())) {
+         $session_set = true;
+     }
     
     if ($session_set) {
         // include'../classes/Favorite.php';
@@ -12,7 +12,7 @@ if ($_GET["pro_id"]) {
         require 'config/config.php';
         
         $pro_id = $_GET["pro_id"];
-        $acc_id = $_SESSION['ACC_ID'];
+        $acc_id = $_SESSION['ACC']->getID();
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql1 = "SELECT * FROM FAVORITE  WHERE ACC_ID ='".$acc_id."' AND PRO_INDEX ='".$pro_id."'";
         $query = $conn->query($sql1);
