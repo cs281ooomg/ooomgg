@@ -10,16 +10,9 @@ if(!$session_set){
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-//$conn = new mysqli($hostname, $username, $password, $dbname);
-//$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
-//$query = $conn->query($accType);
-//$result = $query->fetch_assoc();
-
 
 $acc = $_SESSION['ACC'];
-//echo $result;
 if ($acc->getTYPE() == '0'){
-    //if ($result["ACC_TYPE"] == '0'){
     echo "<script language=\"JavaScript\">";
     echo "alert('You is not owner!!!')";
     echo "</script>";
@@ -28,7 +21,7 @@ if ($acc->getTYPE() == '0'){
 }
 else if ($acc->getTYPE() == '1'){
     echo "<script language=\"JavaScript\">";
-    //    echo "alert('Hello Owner')";
+    echo "alert('Hello Owner')";
     echo "</script>";
 }
 
