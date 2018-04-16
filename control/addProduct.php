@@ -23,7 +23,7 @@ if (empty($name) or empty($price) or empty($des)) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please fill information.')";
     echo "</script>";
-    echo "<script> document.location.href=\"../addPro.php\";</script>";
+    echo "<script> document.location.href=\"../add_Product.php\";</script>";
     exit();
 }
 else {
@@ -77,7 +77,7 @@ else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new product successfully.')";
             echo "</script>";
-            echo "<script> document.location.href=\"../addPro.php\";</script>";
+            echo "<script> document.location.href=\"../add_Product.php\";</script>";
             exit();
 
         }else{
