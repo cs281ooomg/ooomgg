@@ -52,6 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/shop.css" type="text/css"
 	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/product.css" rel="stylesheet" type="text/css" media="all" />
+
 <!-- Owl-carousel-CSS -->
 <link rel="stylesheet" type="text/css" href="css/contact.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -105,6 +107,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
+                            <select class="type_select" name ="type">
+                            <option value=" "></option>
+                            </select>
+                            
 						</div>
 						<div class="clearfix"></div>
 						<textarea name="pdes" onfocus="this.value = '';"
