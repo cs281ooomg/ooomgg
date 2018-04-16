@@ -51,7 +51,25 @@ class AddMgnt
         return true;
     }
     
-    
+    public static function addCatagory($name)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "INSERT INTO CATAGORY(CAT_NAME)
+		VALUES('".$name."');";
+        if($conn->query($sql)===TRUE){
+            echo "<script language=\"JavaScript\">";
+            echo "alert('Add new catagory successfully.')";
+            echo "</script>";
+            echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
+            exit();
+            
+        }else{
+            echo "Error".$sql. "<br>" .$conn->error;
+        }
+        $conn->close();
+        
+    }
     
     
     

@@ -1,6 +1,6 @@
 <?php
 
-
+require 'AddMgnt.php';
 include'../control/config/config.php';
 $conn = new mysqli($hostname,$username,$password,$dbname);
 
@@ -17,7 +17,7 @@ if (empty($name)) {
     exit();
 }
 else {
-    $sql = "SELECT * FROM CATAGORY WHERE CAT_NAME='".$name."' ";
+/*    $sql = "SELECT * FROM CATAGORY WHERE CAT_NAME='".$name."' ";
     $query = $conn->query($sql);
     $result = $query->fetch_assoc();
     if (!$result) {
@@ -41,8 +41,16 @@ else {
         echo "</script>";
         echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
         exit();
+    }*/
+    if (AddMgnt::checkCatagory($name)){
+        AddMgnt::addCatagory($name);
+    }else {
+        echo "<script language=\"JavaScript\">";
+        echo "alert('Have this catagory already.')";
+        echo "</script>";
+        echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
+        exit();
     }
-    
 }
 
 ?>
