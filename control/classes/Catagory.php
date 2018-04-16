@@ -8,7 +8,7 @@ class Catagory
 	{
 		$this->cName= $cName;
 		
-		$this->pType = $cType;
+		$this->cType = $cType;
 	}
 	
 	public function getcName()
@@ -30,7 +30,7 @@ class Catagory
 	
 	public function setCType($cType)
 	{
-		$this->pType = $cType;
+		$this->cType = $cType;
 	}
 }
 

@@ -1,4 +1,5 @@
 <?php
+require 'classes/Account.php';
 require 'AccountMgnt.php';
 require '../includes/session.php';
 $pro_id = $_POST['pro_id'];

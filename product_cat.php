@@ -14,8 +14,8 @@ if (isset($pag)) {
 } else {
 	header("Location: 404.php");
 }
-$PID = (string)$pag;
-//echo $PID.'<br/>';
+//$PID = (string)$pag;
+//echo $pag.'<br/>';
 ?>
 <!--
 author: W3layouts
@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a></li>
 						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
 						<?php foreach ($cataArr as $cata) {?>
-						<li><a href="product_cat.php?page=<?php echo $cata->getcName();?>"> <span class="span glyphicon glyphicon-menu-down"> <b><?php echo $cata->getcName();?></b> </span>
+						<li><a href="product_cat.php?page=<?php echo $cata->getCType();?>"> <span class="span glyphicon glyphicon-menu-down"> <b><?php echo $cata->getcName();?></b> </span>
 						</a></li>
 <!-- 						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span> -->
 <!-- 						</a></li> -->
@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!--/mens-->
 						
 							<?php $productArr = ProductMgnt::getProduct($pag); foreach ($productArr as $product) {?>
-						
+							
 						<div class="col-md-4 product-men">
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
@@ -175,7 +175,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿"</span>
+														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿</span>
 													</div>
 												</div>
 												<ul class="stars">
