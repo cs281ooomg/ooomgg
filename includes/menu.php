@@ -13,6 +13,10 @@
 		<?php } ?>
 		<li><a href="about.php">About</a></li>
 		<li><a href="404.php">Team</a></li>
+		<?php if ($acc->getTYPE() == '1'){ ?>
+		<li><a href="add_Catagory.php">Add Catagory</a></li>
+		<li><a href="add_Product.php">Add Product</a></li>
+		<?php } ?>
 		<li><a href="product.php">Shop Now</a></li>
 		<li><a href="contact.php">Contact</a></li>
 		<?php if($session_set){ ?>
