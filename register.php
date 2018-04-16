@@ -1,4 +1,4 @@
-<?php require 'includes/session.php';
+﻿<?php require 'includes/session.php';
     if($session_set){
         header('Location: index.php');
         exit;
@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>Please fill this form to join with us.</h6>
-					<form action="#" method="post">
+					<form action="control/register_auth.php" method="post">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="fname" placeholder="Fristname"
 								required=""> <input type="text" name="lname"
@@ -88,12 +88,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="accid" placeholder="ID"
-								required=""> <input type="text" name="accpass"
+								required=""> <input type="password" name="accpass"
 								placeholder="Password" required="">
+											<input type="password" name="confirmepass"
+								placeholder="Confirme password" required="">
 						</div>
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="email" name="email" placeholder="Email"
-								required=""> <input type="text" name="phone-number"
+								required=""> <input type="text" name="phonenumber"
 								placeholder="Telephone number" required="">
 						</div>
 						<div class="clearfix"></div>
