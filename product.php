@@ -110,6 +110,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a></li>
 						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
 						</a></li>
+						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
+						</a></li>
 					</ul>
 				</div>
 				<!-- // preference -->
