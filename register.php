@@ -103,6 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<br> 
 							<input type="submit" value="Submit"> 
 							<input type="reset" value="Clear">
+							
 					</form>
 				</div>
 
@@ -115,6 +116,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
+	<!-- top product -->
+	<?php require 'includes/top_product.php';?>
+	<!-- //top product  -->
+	
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
@@ -169,7 +174,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
 
 </body>
 
