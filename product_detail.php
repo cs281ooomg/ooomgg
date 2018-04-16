@@ -51,6 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/easy-responsive-tabs.css" rel='stylesheet'
 	type='text/css' />
 <!-- Owl-carousel-CSS -->
+<link rel="stylesheet" type="text/css" href="css/checkout.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
@@ -129,13 +130,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="color-quality">
 					<div class="color-quality-right">
 						<h5>Quality :</h5>
-						<select id="country1" onchange="change_country(this.value)"
-							class="frm-field required sect">
-							<option value="null">5 Qty</option>
-							<option value="null">6 Qty</option>
-							<option value="null">7 Qty</option>
-							<option value="null">10 Qty</option>
-						</select>
+						<div class="quantity">
+							<div class="quantity-select">
+								<div class="entry value-minus">&nbsp;</div>
+								<div class="entry value"><span>1</span></div>
+								<div class="entry value-plus active">&nbsp;</div>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="occasional">

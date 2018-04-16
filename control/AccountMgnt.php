@@ -1,9 +1,11 @@
 <?php
 require 'classes/Account.php';
+require 'classes/Cart.php';
+require 'ProductMgnt.php';
 
 class AccountMgnt
 {
-    
+
     public static function loginAuth($acc_id, $acc_pass)
     {
         require 'config/config.php';
@@ -21,7 +23,7 @@ class AccountMgnt
         $conn->close();
         return null;
     }
-    
+
     public static function logout()
     {
         session_start();
@@ -29,14 +31,14 @@ class AccountMgnt
         header("location:../index.php");
         exit();
     }
-    
-    public static function addFavorite($cpro_id,$cacc_id)
+
+    public static function addFavorite($cpro_id, $cacc_id)
     {
         require 'config/config.php';
         $pro_id = $cpro_id;
         $acc_id = $cacc_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='". $pro_id . "' AND ACC_ID ='".$acc_id."'  ";
+        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='" . $pro_id . "' AND ACC_ID ='" . $acc_id . "'  ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
@@ -44,7 +46,7 @@ class AccountMgnt
         }
         return FALSE;
     }
-    
+
     public static function registerAuth($accid)
     {
         require 'config/config.php';
@@ -57,7 +59,7 @@ class AccountMgnt
         }
         return true;
     }
-    
+
     public static function createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber)
     {
         require 'config/config.php';
@@ -69,6 +71,25 @@ class AccountMgnt
         echo "alert('Registration Complete!\\nYour account has been confirmed.')";
         echo "</script>";
         echo "<script> document.location.href=\"../login.php\";</script>";
+    }
+
+    public static function getMyCart($account)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' ";
+        $query = $conn->query($sql);
+        $resultArray = array();
+        $count = 0;
+        while ($result = $query->fetch_array()) {
+            $resultArray[] = ProductMgnt::ShowProductDetail($result['PRO_ID']);
+            $count ++;
+        }
+        if ($count === 0) {
+            return NULL;
+        }
+        $cart = new Cart($result['CART_INDEX'], $resultArray);
+        return $cart;
     }
 }
 ?>

@@ -1,5 +1,5 @@
 <?php
-require 'control/classes/Account.php';
+require 'control/AccountMgnt.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];
@@ -10,6 +10,8 @@ if ($session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
+$cart = AccountMgnt::getMyCart($acc);
+
 ?>
 <!--
 author: W3layouts
@@ -87,7 +89,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="checkout-right">
 					<h4>
-						Your shopping cart contains: <?php echo 'x';?> Products
+						Your shopping cart contains: 
+						<?php 
+						if($cart === NULL){
+						    echo '0';
+						}else{
+						    echo 'x';
+						}
+						?> 
+						Products
 					</h4>
 					<table class="timetable_sub">
 						<thead>
@@ -101,28 +111,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="rem1">
-								<td class="invert">1</td>
-								<td class="invert-image"><a href="single.html"><img
-										src="images/s1.jpg" alt=" " class="img-responsive"></a></td>
-								<td class="invert">Bella Toes</td>
-								<td class="invert">
-									<div class="quantity">
-										<div class="quantity-select">
-											<div class="entry value">
-												<span>1</span>
-											</div>
-										</div>
-									</div>
-								</td>
-								<td class="invert">$675.00</td>
-								<td class="invert">
-									<div class="rem">
-										<div class="close1"></div>
-									</div>
-
-								</td>
-							</tr>
+							<?php
+							if($cart != NULL){
+    							$i = 1;
+    							foreach ($cart->getItems() as $product){?>
+    							<tr class="rem<?php echo $i;?>">
+    								<td class="invert"><?php echo $product->getPId();?></td>
+    								<td class="invert-image"><a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
+    										src="images/<?php echo $product->getPImages();?>" alt=" " class="img-responsive"></a></td>
+    								<td class="invert"><?php echo $product->getPName();?></td>
+    								<td class="invert">
+    									<div class="quantity">
+    										<div class="quantity-select">
+    											<div class="entry value-minus">&nbsp;</div>
+    											<div class="entry value"><span>1</span></div>
+    											<div class="entry value-plus active">&nbsp;</div>
+    										</div>
+    									</div>
+    								</td>
+    								<td class="invert"><?php echo $product->getPPrice();?></td>
+    								<td class="invert">
+    									<div class="rem">
+    										<div class="close1"></div>
+    									</div>
+    
+    								</td>
+    							</tr>
+    							<?php 
+    							     $i++;
+    							}
+							}?>
 						</tbody>
 					</table>
 				</div>
