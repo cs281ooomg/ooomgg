@@ -1,11 +1,12 @@
 <?php
+require 'classes/Account.php';
+
 if ($_GET["pro_id"]) {
     session_start();
     $session_set = false;
-     if (isset($_SESSION['ACC']->getID())) {
+     if (isset($_SESSION['ACC'])) {
          $session_set = true;
-     }
-    
+     } 
     if ($session_set) {
         // include'../classes/Favorite.php';
         
@@ -20,18 +21,18 @@ if ($_GET["pro_id"]) {
         if ($result) {
             $sql = "DELETE FROM FAVORITE WHERE ACC_ID='" . $acc_id . "' AND '" . $pro_id . "' ";
             $query = $conn->query($sql);
-            echo "del";
+            echo "alert('delete wishlist')";
         } else {
             $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
             $query = $conn->query($sql);
-            echo "add matha fakka";
+            echo "alert('wished')";
         }
         header("location:../product_detail.php?pro_id=$pro_id");
        // echo "<script> document.location.href=\"../product.php\";</script>";
     }else 
     {
-        header("location:../login.php");
+        header("Location:../login.php");
     }
 }
-//   header("Location: product.php");
+
 ?>

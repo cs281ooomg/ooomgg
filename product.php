@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>product</li>
+					<li><a href = "product.php">product</a></li>
 				</ul>
 			</div>
 		</div>
@@ -106,15 +106,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b></span>
+						<li><a href="product_cat.php?page=1."> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
+						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
+						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
+						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
+						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
 						</a></li>
 					</ul>
 				</div>
@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
