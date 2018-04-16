@@ -95,21 +95,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="flexslider">
 
 						<ul class="slides">
-							<li data-thumb="<?php echo $product->getPImages();?>">
+							<li data-thumb="images/<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>"
+									<img src="images/<?php echo $product->getPImages();?>"
 										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
-							<li data-thumb="<?php echo $product->getPImages();?>">
+							<li data-thumb="images/<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>"
+									<img src="images/<?php echo $product->getPImages();?>"
 										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
-							<li data-thumb="<?php echo $product->getPImages();?>">
+							<li data-thumb="images/<?php echo $product->getPImages();?>">
 								<div class="thumb-image">
-									<img src="<?php echo $product->getPImages();?>"
+									<img src="images/<?php echo $product->getPImages();?>"
 										data-imagezoom="true" class="img-responsive">
 								</div>
 							</li>
