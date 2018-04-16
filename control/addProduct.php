@@ -64,33 +64,43 @@ else {
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+//                echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
             } else {
-                echo "Sorry, there was an error uploading your file.";
+//                echo "Sorry, there was an error uploading your file.";
             }
         }
-        $sql = "INSERT INTO PRODUCT(PRO_NAME,PRO_images,PRO_PRICE,PRO_DESC)
+        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$name."' ";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if (!$result) {
+            $sql1 = "INSERT INTO PRODUCT(PRO_NAME,PRO_images,PRO_PRICE,PRO_DESC)
 		VALUES('".$name."','".$image."','".$price."','".$des."');";
-        
-        
-        if($conn->query($sql)===TRUE){
+            if($conn->query($sql1)===TRUE){
+                echo "<script language=\"JavaScript\">";
+                echo "alert('Add new product successfully.')";
+                echo "</script>";
+                echo "<script> document.location.href=\"../add_Product.php\";</script>";
+                exit();
+                
+            }else{
+                echo "Error".$sql. "<br>" .$conn->error;
+            }
+            
+            //move_uploaded_file($_FILES['fileToUpload'][''], $destination)
+            $conn->close();
+        }
+        else{
             echo "<script language=\"JavaScript\">";
-            echo "alert('Add new product successfully.')";
+            echo "alert('Have this product already.')";
             echo "</script>";
             echo "<script> document.location.href=\"../add_Product.php\";</script>";
             exit();
-
-        }else{
-            echo "Error".$sql. "<br>" .$conn->error;
         }
         
-        //move_uploaded_file($_FILES['fileToUpload'][''], $destination)
-        $conn->close();
+
         
 
 }
-
-
 
 
 ?>

@@ -12,9 +12,6 @@ if($conn->connect_error){
     die("Connection failed:" .$conn->connect_error);
 }
 
-
-
-
 $name = $_REQUEST['cname'];
 if (empty($name)) {
     echo "<script language=\"JavaScript\">";
@@ -24,11 +21,13 @@ if (empty($name)) {
     exit();
 }
 else {
-        $sql = "INSERT INTO CATAGORY(CAT_NAME)
+    $sql = "SELECT * FROM CATAGORY WHERE CAT_NAME='".$name."' ";
+    $query = $conn->query($sql);
+    $result = $query->fetch_assoc();
+    if (!$result) {
+        $sql1 = "INSERT INTO CATAGORY(CAT_NAME)
 		VALUES('".$name."');";
-        
-        
-        if($conn->query($sql)===TRUE){
+        if($conn->query($sql1)===TRUE){
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new catagory successfully.')";
             echo "</script>";
@@ -39,11 +38,15 @@ else {
             echo "Error".$sql. "<br>" .$conn->error;
         }
         $conn->close();
-        
-        
+    }
+    else{
+        echo "<script language=\"JavaScript\">";
+        echo "alert('Have this catagory already.')";
+        echo "</script>";
+        echo "<script> document.location.href=\"../add_Product.php\";</script>";
+        exit();
+    }
+    
 }
-
-
-
 
 ?>
