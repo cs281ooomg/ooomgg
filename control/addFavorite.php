@@ -28,8 +28,10 @@ if ($_GET["pro_id"]) {
         }
         header("location:../product_detail.php?pro_id=$pro_id");
        // echo "<script> document.location.href=\"../product.php\";</script>";
+    }else 
+    {
+        header("location:../login.php");
     }
 }
 //   header("Location: product.php");
 ?>
-
