@@ -1,5 +1,9 @@
 <?php
+require 'control/classes/Account.php';
 require 'includes/session.php';
+if ($session_set) {
+    $acc = $_SESSION['ACC'];
+}
 require 'control/ProductMgnt.php';
 require 'control/AccountMgnt.php';
 $productid=$_GET['pro_id'];

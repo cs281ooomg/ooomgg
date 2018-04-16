@@ -1,3 +1,12 @@
+<?php
+require 'control/classes/Account.php';
+require 'includes/session.php';
+if ($session_set) {
+    $acc = $_SESSION['ACC'];
+}
+require 'control/ProductMgnt.php';
+$productArr = ProductMgnt::getallProduct();
+?>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -6,11 +15,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="th">
-<?php
-require 'includes/session.php';
-require 'control/ProductMgnt.php';
-$productArr = ProductMgnt::getallProduct();
-?>
 <head>
 <title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
 	Template | Shop :: w3layouts</title>

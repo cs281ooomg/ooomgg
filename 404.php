@@ -1,5 +1,9 @@
 <?php
+require 'control/classes/Account.php';
 require 'includes/session.php';
+if ($session_set) {
+    $acc = $_SESSION['ACC'];
+}
 ?>
 <!--
 author: W3layouts
