@@ -163,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿"</span>
+														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿</span>
 													</div>
 												</div>
 											</div>
