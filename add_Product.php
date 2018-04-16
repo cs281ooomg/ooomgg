@@ -1,5 +1,6 @@
-<?php 
-include ('includes/session.php');
+<?php
+require 'control/classes/Account.php';
+require 'includes/session.php';
 //require 'control/AccountMgnt.php';
 require 'control/config/config.php';
 if(!$session_set){
@@ -9,29 +10,27 @@ if(!$session_set){
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$conn = new mysqli($hostname, $username, $password, $dbname);
-$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
-$query = $conn->query($accType);
-$result = $query->fetch_assoc();
+//$conn = new mysqli($hostname, $username, $password, $dbname);
+//$accType = "SELECT ACC_TYPE FROM ACCOUNT WHERE ACC_ID = '".$_SESSION['ACC_ID']."'";
+//$query = $conn->query($accType);
+//$result = $query->fetch_assoc();
 
 
-//$acc = AccountMgnt::loginAuth('fookza2013', '12345678');
+$acc = $_SESSION['ACC'];
 //echo $result;
-//if ($acc->getTYPE() === '0'){
-if ($result["ACC_TYPE"] == '0'){
+if ($acc->getTYPE() == '0'){
+    //if ($result["ACC_TYPE"] == '0'){
     echo "<script language=\"JavaScript\">";
     echo "alert('You is not owner!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"index.php\";</script>";
     exit();
 }
-else if ($result["ACC_TYPE"] == '1'){
+else if ($acc->getTYPE() == '1'){
     echo "<script language=\"JavaScript\">";
-//    echo "alert('Hello Owner')";
+    //    echo "alert('Hello Owner')";
     echo "</script>";
 }
-
-
 
 ?>
 <!DOCTYPE html>
