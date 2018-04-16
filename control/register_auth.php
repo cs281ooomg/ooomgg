@@ -3,7 +3,7 @@ require 'config/config.php';
 require 'AccountMgnt.php';
 $userinput = $_POST['accid'];
 $passinput = $_POST['accpass'];
-$confirmepass = $_POST['confirmepass'];
+$confirmpass = $_POST['confirmpass'];
 $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 $email = $_POST['email'];

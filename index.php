@@ -66,9 +66,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<?php require 'includes/girds_bottom.php';?>
 	<!-- //grids_bottom-->
 
-	<!-- Properties -->
-	<?php require 'includes/properties.php';?>
-	<!-- //Properties -->
+	<!-- top product -->
+	<?php require 'includes/top_product.php';?>
+	<!-- //top product  -->
 
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
@@ -85,22 +85,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<script src="js/classie.js"></script>
 	<script src="js/demo1.js"></script>
 	<!-- //nav -->
-	<!-- cart-js -->
-	<!-- script src="js/minicart.js"></script-->
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function(evt) {
-			var items, len, i;
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {
-				}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>
 	<!--//search-bar-->

@@ -82,7 +82,6 @@ else {
                 echo "Error".$sql. "<br>" .$conn->error;
             }
             
-            //move_uploaded_file($_FILES['fileToUpload'][''], $destination)
             $conn->close();
         }
         else{

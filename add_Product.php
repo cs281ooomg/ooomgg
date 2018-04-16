@@ -52,6 +52,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/shop.css" type="text/css"
 	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/product.css" rel="stylesheet" type="text/css" media="all" />
+
 <!-- Owl-carousel-CSS -->
 <link rel="stylesheet" type="text/css" href="css/contact.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -105,6 +107,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
+                            <select class="type_select" name ="type">
+                            <option value=" "></option>
+                            </select>
+                            
 						</div>
 						<div class="clearfix"></div>
 						<textarea name="pdes" onfocus="this.value = '';"
@@ -127,22 +133,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div>
 	</div>
-
-	<!-- /newsletter-->
-	<div class="newsletter_w3layouts_agile">
-		<div class="col-sm-6 newsleft">
-			<h3>Sign up for Newsletter !</h3>
-		</div>
-		<div class="col-sm-6 newsright">
-			<form action="#" method="post">
-				<input type="email" placeholder="Enter your email..." name="email"
-					required=""> <input type="submit" value="Submit">
-			</form>
-		</div>
-
-		<div class="clearfix"></div>
-	</div>
-	<!-- //newsletter-->
 	
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
@@ -151,22 +141,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
-
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>

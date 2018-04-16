@@ -95,6 +95,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 	</div>
 	
+	<!-- top product -->
+	<?php require 'includes/top_product.php';?>
+	<!-- //top product  -->
+	
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->

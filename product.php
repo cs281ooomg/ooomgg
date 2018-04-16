@@ -166,17 +166,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿"</span>
 													</div>
 												</div>
-												<ul class="stars">
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-o"
-															aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												</ul>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<form action="#" method="post">
+												<form action="control/addtocart.php" method="post">
 													<input type="hidden" name="cmd" value="_cart"> <input
 														type="hidden" name="add" value="1"> <input type="hidden"
 														name="shoe_item" value="Bella Toes"> <input type="hidden"
@@ -184,8 +176,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<button type="submit" class="shoe-cart pshoe-cart">
 														<i class="fa fa-cart-plus" aria-hidden="true"></i>
 													</button>
-
-													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 												</form>
 
 											</div>
@@ -216,132 +206,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<!-- //top products -->
-	<div class="mid_slider_w3lsagile">
-		<div class="col-md-3 mid_slider_text">
-			<h5>Some More Shoes</h5>
-		</div>
-		<div class="col-md-9 mid_slider_info">
-			<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				<!-- Indicators -->
-				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class=""></li>
-					<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="2" class=""></li>
-					<li data-target="#myCarousel" data-slide-to="3" class=""></li>
-				</ol>
-				<div class="carousel-inner" role="listbox">
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item active">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g5.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g6.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail">
-									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a class="left carousel-control" href="#myCarousel" role="button"
-					data-slide="prev"> <span class="fa fa-chevron-left"
-					aria-hidden="true"></span> <span class="sr-only">Previous</span>
-				</a> <a class="right carousel-control" href="#myCarousel"
-					role="button" data-slide="next"> <span class="fa fa-chevron-right"
-					aria-hidden="true"></span> <span class="sr-only">Next</span>
-				</a>
-				<!-- The Modal -->
-
-			</div>
-		</div>
-
-		<div class="clearfix"></div>
-	</div>
+	
+    <!-- top product -->
+	<?php require 'includes/top_product.php';?>
+	<!-- //top product  -->
 
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
@@ -352,22 +220,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
-
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
