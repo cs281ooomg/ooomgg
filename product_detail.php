@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<?php if(!$session_set){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php }else {
-								           if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
+								if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
 								<span class="glyphicon glyphicon-heart"></span>
 								<?php      } 
 								      else {?>
