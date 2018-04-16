@@ -1,5 +1,9 @@
 <?php
+require 'control/classes/Account.php';
 require 'includes/session.php';
+if ($session_set) {
+    $acc = $_SESSION['ACC'];
+}
 ?>
 <!--
 author: W3layouts
@@ -25,8 +29,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		}
 </script>
 <!-- //custom-theme -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link rel="stylesheet" href="css/shop.css" type="text/css" media="screen" property="" />
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css"
+	media="all" />
+<link rel="stylesheet" href="css/shop.css" type="text/css"
+	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/login.css" rel="stylesheet" type="text/css" media="all" />

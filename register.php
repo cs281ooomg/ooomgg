@@ -88,8 +88,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="accid" placeholder="ID"
-								required=""> <input type="text" name="accpass"
+								required=""> <input type="password" name="accpass"
 								placeholder="Password" required="">
+											<input type="password" name="confirmepass"
+								placeholder="Confirme password" required="">
 						</div>
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="email" name="email" placeholder="Email"

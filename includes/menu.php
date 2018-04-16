@@ -3,13 +3,8 @@
 		<?php if($session_set){ ?>
 		<li><a href="profile.php">
 		<?php
-		$conn = new mysqli('server.mydpk.net:3307', 'ooomg', '12345678', 'ooomg');
-		$accType = "SELECT * FROM ACCOUNT WHERE ACC_ID = '" . $_SESSION['ACC_ID'] . "'";
-		$query = $conn->query($accType);
-		$result = $query->fetch_assoc();
-		echo $result["ACC_FNAME"] . ' ' .$result["ACC_LNAME"];
-		$conn->close();
-    ?>
+		  echo $acc->getFNAME().' '.$acc->getLNAME();
+        ?>
 		</a></li>
 		<?php } ?>
 		<li><a href="index.php" class="active">Home</a></li>

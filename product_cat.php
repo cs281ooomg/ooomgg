@@ -1,5 +1,9 @@
 <?php
+require 'control/classes/Account.php';
 require 'includes/session.php';
+if ($session_set) {
+    $acc = $_SESSION['ACC'];
+}
 require 'control/ProductMgnt.php';
 $product = ProductMgnt::ShowProductDetail(1);
 ?>

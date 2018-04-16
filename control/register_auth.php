@@ -3,10 +3,11 @@ require 'config/config.php';
 require 'AccountMgnt.php';
 $userinput = $_POST['accid'];
 $passinput = $_POST['accpass'];
-$fname = $_POST['accid'];
-$lname = $_POST['accid'];
-$email = $_POST['accid'];
-$phonenumber = $_POST['accid'];
+$confirmepass = $_POST['confirmepass'];
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
+$email = $_POST['email'];
+$phonenumber = $_POST['phonenumber'];
 
 if (AccountMgnt::registerAuth($userinput)) {
     AccountMgnt::createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber);
