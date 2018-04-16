@@ -120,6 +120,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+	
+	<!-- top product -->
+	<?php require 'includes/top_product.php';?>
+	<!-- //top product  -->
+	
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
