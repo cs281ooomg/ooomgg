@@ -99,8 +99,8 @@ class ProductMgnt
 		return $resultArray;
 	}
 }
-$proArr = ProductMgnt::getGuitarProduct();
+/*$proArr = ProductMgnt::getGuitarProduct();
 foreach ($proArr as $pro){
 	echo $pro->getcName().'<br/>';
-}
+}*/
 ?>
