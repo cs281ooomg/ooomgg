@@ -12,7 +12,7 @@ if (isset($pag)) {
 	header("Location: 404.php");
 }
 //$PID = (string)$pag;
-echo $pag.'<br/>';
+//echo $pag.'<br/>';
 ?>
 <!--
 author: W3layouts
