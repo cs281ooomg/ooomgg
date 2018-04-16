@@ -1,4 +1,5 @@
 <?php
+require 'classes/Account.php';
 if ($_GET["pro_id"]) {
     session_start();
     $session_set = false;
