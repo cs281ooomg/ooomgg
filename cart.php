@@ -109,7 +109,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<th>SL No.</th>
 								<th>Product</th>				
 								<th>Product Name</th>
-								<th>Quality</th>
+								<th>Quantity</th>
 								<th>Price</th>
 								<th>Remove</th>
 							</tr>
@@ -128,7 +128,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     									<div class="quantity">
     										<div class="quantity-select">
     											<div class="entry value-minus">&nbsp;</div>
-    											<div class="entry value"><span>1</span></div>
+    											<div class="entry value"><span><?php echo $product->getPQuantity();?></span></div>
     											<div class="entry value-plus active">&nbsp;</div>
     										</div>
     									</div>

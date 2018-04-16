@@ -78,7 +78,9 @@ class AccountMgnt
         $resultArray = array();
         $count = 0;
         while ($result = $query->fetch_array()) {
-            $resultArray[] = ProductMgnt::ShowProductDetail($result['PRO_ID']);
+            $temp = ProductMgnt::ShowProductDetail($result['PRO_ID']);
+            $temp->setPQuantity($result['QUANTITY']);
+            $resultArray[] = $temp;
             $count ++;
         }
         if ($count === 0) {
