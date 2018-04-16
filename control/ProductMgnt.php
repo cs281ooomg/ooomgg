@@ -36,15 +36,21 @@ class ProductMgnt
 		$sql = "SELECT * FROM CATAGORY ";
 		$query = $conn->query($sql);
 		$resultArray = array();
-		$i=0;
+		
 		while($result = $query->fetch_array()){
 			
 			//echo $result["CAT_INDEX"].'<br/>';
 			if($result["CAT_NAME"]=='guitar'){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
-				$resultArray [] = $catagory;
+				$connn = new mysqli($hostname, $username, $password, $dbname);
+				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
+				$queryy = $conn->query($sqll);
+				$resultt = $queryy->fetch_array();
+				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				$resultArray [] = $product;
 			}
 		}
+		
 		return $resultArray;
 	}
 	public static function getBassProduct(){
@@ -59,7 +65,12 @@ class ProductMgnt
 			//echo $result["CAT_INDEX"].'<br/>';
 			if($result["CAT_NAME"]=='bass'){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
-				$resultArray [] = $catagory;
+				$connn = new mysqli($hostname, $username, $password, $dbname);
+				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
+				$queryy = $conn->query($sqll);
+				$resultt = $queryy->fetch_array();
+				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				$resultArray [] = $product;
 			}
 		}
 		return $resultArray;
@@ -76,7 +87,12 @@ class ProductMgnt
 			//echo $result["CAT_INDEX"].'<br/>';
 			if($result["CAT_NAME"]=='piano'){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
-				$resultArray [] = $catagory;
+				$connn = new mysqli($hostname, $username, $password, $dbname);
+				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
+				$queryy = $conn->query($sqll);
+				$resultt = $queryy->fetch_array();
+				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				$resultArray [] = $product;
 			}
 		}
 		return $resultArray;
@@ -93,7 +109,34 @@ class ProductMgnt
 			//echo $result["CAT_INDEX"].'<br/>';
 			if($result["CAT_NAME"]=='drum'){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
-				$resultArray [] = $catagory;
+				$connn = new mysqli($hostname, $username, $password, $dbname);
+				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
+				$queryy = $conn->query($sqll);
+				$resultt = $queryy->fetch_array();
+				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				$resultArray [] = $product;
+			}
+		}
+		return $resultArray;
+	}
+	public static function getAccessoriesProduct(){
+		require 'config/config.php';
+		$conn = new mysqli($hostname, $username, $password, $dbname);
+		$sql = "SELECT * FROM CATAGORY ";
+		$query = $conn->query($sql);
+		$resultArray = array();
+		$i=0;
+		while($result = $query->fetch_array()){
+			
+			//echo $result["CAT_INDEX"].'<br/>';
+			if($result["CAT_NAME"]=='acessories'){
+				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
+				$connn = new mysqli($hostname, $username, $password, $dbname);
+				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
+				$queryy = $conn->query($sqll);
+				$resultt = $queryy->fetch_array();
+				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				$resultArray [] = $product;
 			}
 		}
 		return $resultArray;
@@ -101,6 +144,6 @@ class ProductMgnt
 }
 /*$proArr = ProductMgnt::getGuitarProduct();
 foreach ($proArr as $pro){
-	echo $pro->getcName().'<br/>';
+	echo $pro->getPName().'<br/>';
 }*/
 ?>
