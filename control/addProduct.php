@@ -1,6 +1,6 @@
 <?php
 
-
+require 'AddMgnt.php';
 include'../control/config/config.php';
 $conn = new mysqli($hostname,$username,$password,$dbname);
 
@@ -65,7 +65,7 @@ else {
 //                echo "Sorry, there was an error uploading your file.";
             }
         }
-        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$name."' ";
+/*        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$name."' ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if (!$result) {
@@ -85,6 +85,15 @@ else {
             $conn->close();
         }
         else{
+            echo "<script language=\"JavaScript\">";
+            echo "alert('Have this product already.')";
+            echo "</script>";
+            echo "<script> document.location.href=\"../add_Product.php\";</script>";
+            exit();
+        }*/
+        if (AddMgnt::checkProduct($name)) {
+            AddMgnt::addProduct($name, $image, $price, $des);
+        }else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Have this product already.')";
             echo "</script>";
