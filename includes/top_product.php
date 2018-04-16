@@ -1,7 +1,7 @@
 <!-- //top products -->
 <div class="mid_slider_w3lsagile">
 	<div class="col-md-3 mid_slider_text">
-		<h5>Some More Shoes</h5>
+		<h5>Hot Products</h5>
 	</div>
 	<div class="col-md-9 mid_slider_info">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">

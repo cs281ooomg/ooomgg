@@ -116,7 +116,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</a></li>
 
 				</ul>
-				<a class="b-home" href="index.html">Back to Home</a>
+				<a class="b-home" href="index.php">Back to Home</a>
 			</div>
 		</div>
 	</div>
