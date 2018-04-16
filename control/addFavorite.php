@@ -1,11 +1,12 @@
 <?php
+require 'classes/Account.php';
+
 if ($_GET["pro_id"]) {
     session_start();
     $session_set = false;
-     if (isset($_SESSION['ACC']->getID())) {
+     if (isset($_SESSION['ACC'])) {
          $session_set = true;
-     }
-    
+     } 
     if ($session_set) {
         // include'../classes/Favorite.php';
         
@@ -30,8 +31,8 @@ if ($_GET["pro_id"]) {
        // echo "<script> document.location.href=\"../product.php\";</script>";
     }else 
     {
-        header("location:../login.php");
+        header("Location:../login.php");
     }
 }
-//   header("Location: product.php");
+
 ?>
