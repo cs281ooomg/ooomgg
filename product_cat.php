@@ -145,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="<?php echo $product->getPImages();?>" alt="">
+										<img src="images/<?php echo $product->getPImages();?>" alt="">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
