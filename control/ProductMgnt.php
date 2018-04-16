@@ -54,14 +54,15 @@ class ProductMgnt
 		while($result = $query->fetch_array()){
 			
 			//echo $result["CAT_INDEX"].'<br/>';
-			if($result["CAT_NAME"]==$cat_index){
+			if($result["CAT_INDEX"]==$cat_index){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
 				$connn = new mysqli($hostname, $username, $password, $dbname);
 				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";
 				$queryy = $conn->query($sqll);
-				$resultt = $queryy->fetch_array();
+				while($resultt = $queryy->fetch_array()){
 				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
 				$resultArray [] = $product;
+				}
 			}
 		}
 		
@@ -173,13 +174,14 @@ class ProductMgnt
 				$queryy = $conn->query($sqll);
 				$resultt = $queryy->fetch_array();
 				$product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_images"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"]);
+				
 				$resultArray [] = $product;
 			}
 		}
 		return $resultArray;
 	}
 }
-/*$proArr = ProductMgnt::getProduct("drum");
+/*$proArr = ProductMgnt::getProduct(1);
 foreach ($proArr as $pro){
 	echo $pro->getPName().'<br/>';
 }*/
