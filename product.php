@@ -108,16 +108,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="span glyphicon glyphicon-menu-down"> <b>All</b> </span>
 						</a></li>
-						<li><a href="product_cat.php?page=1"> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
+						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
+						<?php foreach ($cataArr as $cata) {?>
+						<li><a href="product_cat.php?page=<?php echo $cata->getcName();?>"> <span class="span glyphicon glyphicon-menu-down"> <b><?php echo $cata->getcName();?></b> </span>
 						</a></li>
-						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
-						</a></li>
-						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
-						</a></li>
-						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
-						</a></li>
-						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
-						</a></li>
+<!-- 						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span> -->
+<!-- 						</a></li> -->
+<!-- 						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span> -->
+<!-- 						</a></li> -->
+<!-- 						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span> -->
+<!-- 						</a></li> -->
+<!-- 						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span> -->
+<!-- 						</a></li> -->
+						<?php }?>
 					</ul>
 				</div>
 				<!-- // preference -->
@@ -160,20 +163,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿"</span>
 													</div>
 												</div>
-												<ul class="stars">
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-o"
-															aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												</ul>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<form action="#" method="post">
+												<form action="control/addtocart.php" method="post">
 													<input type="hidden" name="cmd" value="_cart"> <input
 														type="hidden" name="add" value="1"> <input type="hidden"
 														name="shoe_item" value="Bella Toes"> <input type="hidden"
@@ -181,8 +176,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<button type="submit" class="shoe-cart pshoe-cart">
 														<i class="fa fa-cart-plus" aria-hidden="true"></i>
 													</button>
-
-													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 												</form>
 
 											</div>
