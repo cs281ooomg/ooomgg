@@ -1,6 +1,6 @@
 <?php
 require 'AccountMgnt.php';
-require 'clesses/Account.php';
+require 'classes/Account.php';
 
 $userinput = $_POST['username'];
 $passinput = $_POST['password'];
