@@ -7,7 +7,7 @@ require 'control/ProductMgnt.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];
-}else{
+} else {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
     echo "</script>";
@@ -94,20 +94,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="checkout-right">
 					<h4>
 						Your shopping cart contains: 
-						<?php 
-						if($cart === NULL){
-						    echo '0';
-						}else{
-						    echo 'x';
-						}
-						?> 
+						<?php
+                            if ($cart === NULL) {
+                                echo '0';
+                            } else {
+                                echo count($cart->getItems(),COUNT_NORMAL);
+                            }
+                        ?> 
 						Products
 					</h4>
 					<table class="timetable_sub">
 						<thead>
 							<tr>
 								<th>SL No.</th>
-								<th>Product</th>				
+								<th>Product</th>
 								<th>Product Name</th>
 								<th>Quantity</th>
 								<th>Price</th>
@@ -116,44 +116,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</thead>
 						<tbody>
 							<?php
-							if($cart != NULL){
-    							$i = 1;
-    							foreach ($cart->getItems() as $product){?>
+                            $total = 0;
+                            if ($cart != NULL) {
+                                 $i = 1;
+                                 foreach ($cart->getItems() as $product) {
+                                        $total += $product->getPPrice() * $product->getPQuantity();
+                                 ?>
     							<tr class="rem<?php echo $i;?>">
-    								<td class="invert"><?php echo $product->getPId();?></td>
-    								<td class="invert-image"><a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
-    										src="images/<?php echo $product->getPImages();?>" alt=" " class="img-responsive"></a></td>
-    								<td class="invert"><?php echo $product->getPName();?></td>
-    								<td class="invert">
-    									<div class="quantity">
-    										<div class="quantity-select">
-    											<div class="entry value-minus">&nbsp;</div>
-    											<div class="entry value"><span><?php echo $product->getPQuantity();?></span></div>
-    											<div class="entry value-plus active">&nbsp;</div>
-    										</div>
-    									</div>
-    								</td>
-    								<td class="invert"><?php echo $product->getPPrice();?></td>
-    								<td class="invert">
-    									<div class="rem">
-    										<div class="close1"></div>
-    									</div>
-    
-    								</td>
-    							</tr>
-    							<?php 
-    							     $i++;
-    							}
-							}?>
+								<td class="invert"><?php echo $product->getPId();?></td>
+								<td class="invert-image"><a
+									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
+										src="images/<?php echo $product->getPImages();?>" alt=" "
+										class="img-responsive"></a></td>
+								<td class="invert"><?php echo $product->getPName();?></td>
+								<td class="invert">
+									<div class="quantity">
+										<div class="quantity-select">
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value">
+												<span><?php echo $product->getPQuantity();?></span>
+											</div>
+											<div class="entry value-plus active">&nbsp;</div>
+										</div>
+									</div>
+								</td>
+								<td class="invert"><?php echo $product->getPPrice();?></td>
+								<td class="invert">
+									<div class="rem">
+										<div class="close1"></div>
+									</div>
+
+								</td>
+							</tr>
+    							<?php
+                                $i ++;
+                                }
+                            }
+                            ?>
 						</tbody>
 					</table>
 				</div>
 				<div class="checkout-left">
 					<div class="col-md-4 checkout-left-basket">
 						<ul>
-							<li>Product1 <i>-</i> <span>$675.00 </span></li>
+						<?php
+                        if ($cart != NULL) {
+                        foreach ($cart->getItems() as $product) {
+                        ?>
+							<li><?php echo $product->getPName(); ?> <i>-</i> <span><?php echo $product->getPPrice()*$product->getPQuantity(); ?> </span></li>
 							<li>Total Service Charges <i>-</i> <span>$55.00</span></li>
-							<li>Total <i>-</i> <span>$1405.00</span></li>
+						<?php } }?>
+							<li>Total <i>-</i> <span><?php echo $total;?></span></li>
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>
