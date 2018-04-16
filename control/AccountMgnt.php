@@ -54,6 +54,7 @@ class AccountMgnt
         if ($result) {
             return false;
         }
+        return true;
     }
     
     public static function createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber)
