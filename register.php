@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-6 col-sm-6 register_left_grid">
 							<input type="text" name="accid" placeholder="Username" required=""> 
 							<input type="password" name="accpass" placeholder="Password" required="">
-							<input type="password" name="confirmepass" placeholder="Confirme password" required="">
+							<input type="password" name="confirmpass" placeholder="Confirm password" required="">
 							<input type="email" name="email" placeholder="Email" required=""> 
 						</div>
 						<div class="col-md-6 col-sm-6 register_left_grid">

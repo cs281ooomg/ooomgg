@@ -6,7 +6,7 @@ if ($_GET["pro_id"]) {
     $session_set = false;
      if (isset($_SESSION['ACC'])) {
          $session_set = true;
-     } 
+     }
     if ($session_set) {
         // include'../classes/Favorite.php';
         
