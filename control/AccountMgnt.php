@@ -1,8 +1,4 @@
 <?php
-require 'classes/Account.php';
-require 'classes/Cart.php';
-require 'ProductMgnt.php';
-
 class AccountMgnt
 {
 
@@ -65,7 +61,7 @@ class AccountMgnt
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "INSERT INTO ACCOUNT (ACC_ID,ACC_PASS,ACC_FNAME,ACC_LNAME,ACC_EMAIL,ACC_TEL)
-            VALUES ('" . $userinput . "','" . $passinput . "','" . $_POST['fname'] . "','" . $_POST['lname'] . "','" . $_POST['email'] . "','" . $_POST['phonenumber'] . "')";
+            VALUES ('" . $userinput . "','" . $passinput . "','" . $fname . "','" . $lname . "','" . $email . "','" . $phonenumber . "')";
         $query = $conn->query($sql);
         echo "<script language=\"JavaScript\">";
         echo "alert('Registration Complete!\\nYour account has been confirmed.')";
@@ -90,6 +86,27 @@ class AccountMgnt
         }
         $cart = new Cart($result['CART_INDEX'], $resultArray);
         return $cart;
+    }
+
+    public static function addToMyCart($account,$pro_id,$quantity)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '".$account->getID()."' AND PRO_ID = '".$pro_id."';";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) { //update
+            $quantity += $result['QUANTITY'];
+            $sql = "UPDATE CART SET QUANTITY = '". $quantity."' WHERE CART_INDEX = '".$result['CART_INDEX']."';";
+            $query = $conn->query($sql);
+            $conn->close();
+            return $query;
+        }else{ //new
+            $sql = "INSERT INTO CART (ACC_ID,PRO_ID,QUANTITY)  VALUES ('".$account->getID()."','".$pro_id."',".$quantity.");";
+            $query = $conn->query($sql);
+            $conn->close();
+            return $query;
+        }     
     }
 }
 ?>

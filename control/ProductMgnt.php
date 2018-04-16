@@ -1,6 +1,4 @@
 <?php
-require 'classes/Product.php';
-require 'classes/Catagory.php';
 class ProductMgnt
 {
 	

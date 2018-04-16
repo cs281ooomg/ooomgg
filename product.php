@@ -1,5 +1,7 @@
 <?php
 require 'control/classes/Account.php';
+require 'control/classes/Product.php';
+require 'control/classes/Catagory.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];

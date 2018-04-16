@@ -1,10 +1,13 @@
 <?php
 require 'control/classes/Account.php';
+require 'control/classes/Product.php';
+require 'control/classes/Catagory.php';
+require 'control/ProductMgnt.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];
 }
-require 'control/ProductMgnt.php';
+
 $pag=$_GET['page'];
 if (isset($pag)) {
 	$product = ProductMgnt::ShowProductDetail($pag);

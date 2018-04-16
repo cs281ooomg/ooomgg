@@ -1,10 +1,13 @@
 <?php
+require 'control/classes/Account.php';
+require 'control/classes/Product.php';
 require 'control/AccountMgnt.php'; 
+require 'control/ProductMgnt.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];
 }
-require 'control/ProductMgnt.php';
+
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
         $product = ProductMgnt::ShowProductDetail($productid);
@@ -145,13 +148,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart"> <input
-								type="hidden" name="add" value="1"> <input type="hidden"
-								name="shoe_item" value="Chikku Loafers"> <input type="hidden"
-								name="amount" value="405.00"> <input type="submit" name="submit"
-								value="Add to cart" class="button add"> <a href="control/addFavorite.php?pro_id=<?php echo $product->getPId();?>"
-								class="button add fav"> <!-- span class="glyphicon glyphicon-heart"></span-->
+						<form action="control/addtocart.php" method="post">					
+							<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
+							<input type="hidden" name="amount" value="1"> 
+							<input type="submit" name="submit" value="Add to cart" class="button add"> 
+							<a href="control/addFavorite.php?pro_id=<?php echo $product->getPId();?>" class="button add fav"> 
 								<?php if(!$session_set){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php }else {
