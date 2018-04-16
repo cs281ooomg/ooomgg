@@ -106,15 +106,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li><a href="product_cat.php."> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
+						<li><a href="product_cat.php?page=1."> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
+						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
+						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
+						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
+						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
 						</a></li>
 					</ul>
 				</div>

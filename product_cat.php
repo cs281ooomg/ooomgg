@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 require 'control/classes/Account.php';
 require 'includes/session.php';
