@@ -109,9 +109,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td class="invert">
 									<div class="quantity">
 										<div class="quantity-select">
-											<div class="entry value">
-												<span>1</span>
-											</div>
+											<div class="entry value-minus">&nbsp;</div>
+											<div class="entry value"><span>1</span></div>
+											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
 								</td>
