@@ -34,7 +34,7 @@ if ($result["ACC_TYPE"] == '0'){
 }
 else if ($result["ACC_TYPE"] == '1'){
     echo "<script language=\"JavaScript\">";
-    echo "alert('Hello Owner')";
+//    echo "alert('Hello Owner')";
     echo "</script>";
 }
 
