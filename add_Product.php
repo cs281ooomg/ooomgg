@@ -107,9 +107,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
-                            
-                            <select class="type_select" name ="gender">
-                            <option value=" ">____</option>
+                            <select class="type_select" name ="type">
+                            <option value=" "></option>
                             </select>
                             
 						</div>
