@@ -43,7 +43,7 @@ else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this catagory already.')";
         echo "</script>";
-        echo "<script> document.location.href=\"../add_Product.php\";</script>";
+        echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
         exit();
     }
     
