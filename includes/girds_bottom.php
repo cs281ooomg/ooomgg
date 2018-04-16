@@ -16,7 +16,7 @@
 						5. Check the construction up and down the guitar to ensure a well-built guitar.<br/>
 						</p>
 				<div class="shop-button">
-					<a href="shop.html">Shop Now</a>
+					<a href="product.php">Shop Now</a>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 	 
 
 					<div class="shop-button">
-						<a href="shop.html">Shop Now</a>
+						<a href="product.php">Shop Now</a>
 					</div>
 				</div>
 			</div>
@@ -74,7 +74,7 @@
 						ERIC&nbsp;CAPTON&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;LIAM&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;&nbsp;&nbsp;gorillaz<br/>
 					</p>
 					<div class="shop-button two">
-						<a href="shop.html">Shop Now</a>
+						<a href="product.php">Shop Now</a>
 					</div>
 				</div>
 			</div>
