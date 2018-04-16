@@ -4,7 +4,7 @@ class Cart
 {
 
     private $cartID;
-    private $items; //array
+    private $items; //array product
 
     public function __construct($cartID, $items)
     {
