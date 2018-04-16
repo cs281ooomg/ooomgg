@@ -129,7 +129,7 @@ class ProductMgnt
 		while($result = $query->fetch_array()){
 			
 			//echo $result["CAT_INDEX"].'<br/>';
-			if($result["CAT_NAME"]=='acessories'){
+			if($result["CAT_NAME"]=='accessories'){
 				$catagory = new Catagory($result["CAT_INDEX"], $result["CAT_NAME"]);
 				$connn = new mysqli($hostname, $username, $password, $dbname);
 				$sqll = "SELECT * FROM PRODUCT WHERE CAT_INDEX ='" . $result["CAT_INDEX"] . "'";

@@ -1,15 +1,18 @@
-
-
-
-
 <?php
 require 'control/classes/Account.php';
 require 'includes/session.php';
 if ($session_set) {
-	$acc = $_SESSION['ACC'];
+    $acc = $_SESSION['ACC'];
 }
 require 'control/ProductMgnt.php';
-$productArr = ProductMgnt::getGuitarProduct();
+$pag=$_GET['page'];
+if (isset($pag)) {
+	$product = ProductMgnt::ShowProductDetail($pag);
+} else {
+	header("Location: 404.php");
+}
+$PID = (string)$pag;
+
 ?>
 <!--
 author: W3layouts
@@ -71,7 +74,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li><a href = "product.php">product</li>
+					<li><a href = "product.php">product</a></li>
 				</ul>
 			</div>
 		</div>
@@ -82,7 +85,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
-		
 			<!-- tittle heading -->
 
 			<!-- //tittle heading -->
@@ -111,13 +113,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b></span>
+						<li><a href="product.php"> <span class="span glyphicon glyphicon-menu-down"> <b>All</b> </span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
+						<li><a href="product_cat.php?page=1"> <span class="span glyphicon glyphicon-menu-down"> <b>Guitar</b> </span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
+						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span>
 						</a></li>
-						<li><a href="#"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
+						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span>
+						</a></li>
+						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span>
+						</a></li>
+						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span>
 						</a></li>
 					</ul>
 				</div>
@@ -140,12 +146,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- product-sec1 -->
 					<div class="product-sec1">
 						<!--/mens-->
-						<?php foreach ($productArr as $product) {?>
+						<?php if($pag=="1") { ?>
+							<?php $productArr = ProductMgnt::getGuitarProduct(); foreach ($productArr as $product) {?>
+						
 						<div class="col-md-4 product-men">
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
@@ -161,7 +169,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money "><?php echo $product->getPPrice(); ?></span>
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
 													</div>
 												</div>
 												<ul class="stars">
@@ -192,8 +200,233 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 							</div>
-						</div>
-						<?php } ?>
+						</div><?php } ?>
+						<?php } ?> 
+						<?php if($pag=="2") { ?>
+							<?php $productArr = ProductMgnt::getBassProduct(); foreach ($productArr as $product) {?>
+						
+						<div class="col-md-4 product-men">
+							<div class="product-shoe-info shoe">
+								<div class="men-pro-item">
+									<div class="men-thumb-item">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
+											</div>
+										</div>
+										<span class="product-new-top">New</span>
+									</div>
+									<div class="item-info-product">
+										<h4>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
+										</h4>
+										<div class="info-product-price">
+											<div class="grid_meta">
+												<div class="product_price">
+													<div class="grid-price ">
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
+													</div>
+												</div>
+												<ul class="stars">
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-o"
+															aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+											<div class="shoe single-item hvr-outline-out">
+												<form action="#" method="post">
+													<input type="hidden" name="cmd" value="_cart"> <input
+														type="hidden" name="add" value="1"> <input type="hidden"
+														name="shoe_item" value="Bella Toes"> <input type="hidden"
+														name="amount" value="675.00">
+													<button type="submit" class="shoe-cart pshoe-cart">
+														<i class="fa fa-cart-plus" aria-hidden="true"></i>
+													</button>
+
+													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+												</form>
+
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div><?php } ?>
+						<?php } ?> 
+						
+						<?php if($pag=="4") { ?>
+							<?php $productArr = ProductMgnt::getDrumProduct(); foreach ($productArr as $product) {?>
+						
+						<div class="col-md-4 product-men">
+							<div class="product-shoe-info shoe">
+								<div class="men-pro-item">
+									<div class="men-thumb-item">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
+											</div>
+										</div>
+										<span class="product-new-top">New</span>
+									</div>
+									<div class="item-info-product">
+										<h4>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
+										</h4>
+										<div class="info-product-price">
+											<div class="grid_meta">
+												<div class="product_price">
+													<div class="grid-price ">
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
+													</div>
+												</div>
+												<ul class="stars">
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-o"
+															aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+											<div class="shoe single-item hvr-outline-out">
+												<form action="#" method="post">
+													<input type="hidden" name="cmd" value="_cart"> <input
+														type="hidden" name="add" value="1"> <input type="hidden"
+														name="shoe_item" value="Bella Toes"> <input type="hidden"
+														name="amount" value="675.00">
+													<button type="submit" class="shoe-cart pshoe-cart">
+														<i class="fa fa-cart-plus" aria-hidden="true"></i>
+													</button>
+
+													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+												</form>
+
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div><?php } ?>
+						<?php } ?> 
+						<?php if($pag=="3") { ?>
+							<?php $productArr = ProductMgnt::getPianoProduct(); foreach ($productArr as $product) {?>
+						
+						<div class="col-md-4 product-men">
+							<div class="product-shoe-info shoe">
+								<div class="men-pro-item">
+									<div class="men-thumb-item">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
+											</div>
+										</div>
+										<span class="product-new-top">New</span>
+									</div>
+									<div class="item-info-product">
+										<h4>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
+										</h4>
+										<div class="info-product-price">
+											<div class="grid_meta">
+												<div class="product_price">
+													<div class="grid-price ">
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
+													</div>
+												</div>
+												<ul class="stars">
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-o"
+															aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+											<div class="shoe single-item hvr-outline-out">
+												<form action="#" method="post">
+													<input type="hidden" name="cmd" value="_cart"> <input
+														type="hidden" name="add" value="1"> <input type="hidden"
+														name="shoe_item" value="Bella Toes"> <input type="hidden"
+														name="amount" value="675.00">
+													<button type="submit" class="shoe-cart pshoe-cart">
+														<i class="fa fa-cart-plus" aria-hidden="true"></i>
+													</button>
+
+													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+												</form>
+
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div><?php } ?>
+						<?php } ?> 
+						<?php if($pag=="5") { ?>
+							<?php $productArr = ProductMgnt::getAccessoriesProduct(); foreach ($productArr as $product) {?>
+						
+						<div class="col-md-4 product-men">
+							<div class="product-shoe-info shoe">
+								<div class="men-pro-item">
+									<div class="men-thumb-item">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<div class="men-cart-pro">
+											<div class="inner-men-cart-pro">
+												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
+											</div>
+										</div>
+										<span class="product-new-top">New</span>
+									</div>
+									<div class="item-info-product">
+										<h4>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
+										</h4>
+										<div class="info-product-price">
+											<div class="grid_meta">
+												<div class="product_price">
+													<div class="grid-price ">
+														<span class="money ">"<?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;Bath"</span>
+													</div>
+												</div>
+												<ul class="stars">
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-half-o"
+															aria-hidden="true"></i></a></li>
+													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+												</ul>
+											</div>
+											<div class="shoe single-item hvr-outline-out">
+												<form action="#" method="post">
+													<input type="hidden" name="cmd" value="_cart"> <input
+														type="hidden" name="add" value="1"> <input type="hidden"
+														name="shoe_item" value="Bella Toes"> <input type="hidden"
+														name="amount" value="675.00">
+													<button type="submit" class="shoe-cart pshoe-cart">
+														<i class="fa fa-cart-plus" aria-hidden="true"></i>
+													</button>
+
+													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
+												</form>
+
+											</div>
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+							</div>
+						</div><?php } ?>
+						<?php } ?> 
 						<!-- //mens -->
 						<div class="clearfix"></div>
 
@@ -214,10 +447,132 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	
-	<!-- top prodcut -->
-	<?php require 'includes/top_product.php';?>
-	<!-- //top product -->
+	<!-- //top products -->
+	<div class="mid_slider_w3lsagile">
+		<div class="col-md-3 mid_slider_text">
+			<h5>Some More Shoes</h5>
+		</div>
+		<div class="col-md-9 mid_slider_info">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="2" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="3" class=""></li>
+				</ol>
+				<div class="carousel-inner" role="listbox">
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item active">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g5.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g6.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g1.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g2.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g3.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail">
+									<img src="images/g4.jpg" alt="Image" style="max-width: 100%;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#myCarousel" role="button"
+					data-slide="prev"> <span class="fa fa-chevron-left"
+					aria-hidden="true"></span> <span class="sr-only">Previous</span>
+				</a> <a class="right carousel-control" href="#myCarousel"
+					role="button" data-slide="next"> <span class="fa fa-chevron-right"
+					aria-hidden="true"></span> <span class="sr-only">Next</span>
+				</a>
+				<!-- The Modal -->
+
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
 
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
