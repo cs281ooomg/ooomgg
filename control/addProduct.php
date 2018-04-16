@@ -74,7 +74,12 @@ else {
         
         
         if($conn->query($sql)===TRUE){
-            echo "New Records sql Created Succressfully";
+            echo "<script language=\"JavaScript\">";
+            echo "alert('Add new product successfully.')";
+            echo "</script>";
+            echo "<script> document.location.href=\"../addPro.php\";</script>";
+            exit();
+
         }else{
             echo "Error".$sql. "<br>" .$conn->error;
         }
