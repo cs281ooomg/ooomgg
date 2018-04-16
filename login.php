@@ -84,7 +84,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						</div>
 						<div class="clearfix"></div>
 						<input type="submit" value="Login">
-						<a href="register.php" class="login_grid_right_reg_btn">Register</a> 
+						<a href="register.php" class="login_grid_right_reg_btn">					
+						Register
+						</a> 
 					</form>
 				</div>
 				<div class="clearfix"></div>
@@ -100,22 +102,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
-
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>

@@ -3,6 +3,12 @@ require 'control/classes/Account.php';
 require 'includes/session.php';
 if ($session_set) {
     $acc = $_SESSION['ACC'];
+}else{
+    echo "<script language=\"JavaScript\">";
+    echo "alert('Please login!!!')";
+    echo "</script>";
+    echo "<script> document.location.href=\"login.php\";</script>";
+    exit();
 }
 ?>
 <!--

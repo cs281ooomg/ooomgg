@@ -35,6 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/shop.css" type="text/css"
 	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Owl-carousel-CSS -->
 <link rel="stylesheet" type="text/css" href="css/contact.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -78,29 +79,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3 class="head">Join Us Now</h3>
 			<p class="head_para">❤❤❤❤❤</p>
 			<div class="inner_section_w3ls">
-				<div class="col-md-7 contact_grid_right">
+				<div class="col-md-8 col-md-offset-2 register_grid_right">
 					<h6>Please fill this form to join with us.</h6>
 					<form action="control/register_auth.php" method="post">
-						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="text" name="fname" placeholder="Fristname"
-								required=""> <input type="text" name="lname"
-								placeholder="Lastname" required="">
+						<div class="col-md-6 col-sm-6 register_left_grid">
+							<input type="text" name="accid" placeholder="Username" required=""> 
+							<input type="password" name="accpass" placeholder="Password" required="">
+							<input type="password" name="confirmepass" placeholder="Confirme password" required="">
+							<input type="email" name="email" placeholder="Email" required=""> 
 						</div>
-						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="text" name="accid" placeholder="ID"
-								required=""> <input type="password" name="accpass"
-								placeholder="Password" required="">
-											<input type="password" name="confirmepass"
-								placeholder="Confirme password" required="">
+						<div class="col-md-6 col-sm-6 register_left_grid">
+							<input type="text" name="fname" placeholder="Fristname" required=""> 
+							<input type="text" name="lname" placeholder="Lastname" required="">
 						</div>
-						<div class="col-md-6 col-sm-6 contact_left_grid">
-							<input type="email" name="email" placeholder="Email"
-								required=""> <input type="text" name="phonenumber"
-								placeholder="Telephone number" required="">
+						<div class="col-md-6 col-sm-6 register_left_grid">
+							<select class="register_select" name ="gender">
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                            </select>
+							<input type="text" name="phonenumber" placeholder="Telephone number" required="">
 						</div>
 						<div class="clearfix"></div>
-						<br> <input type="submit" value="Submit"> <input type="reset"
-							value="Clear">
+							<br> 
+							<input type="submit" value="Submit"> 
+							<input type="reset" value="Clear">
 					</form>
 				</div>
 
@@ -113,46 +115,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-
-	<!-- /newsletter-->
-	<div class="newsletter_w3layouts_agile">
-		<div class="col-sm-6 newsleft">
-			<h3>Sign up for Newsletter !</h3>
-		</div>
-		<div class="col-sm-6 newsright">
-			<form action="#" method="post">
-				<input type="email" placeholder="Enter your email..." name="email"
-					required=""> <input type="submit" value="Submit">
-			</form>
-		</div>
-
-		<div class="clearfix"></div>
-	</div>
-	<!-- //newsletter-->
-
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
 
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
-
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
+	<!-- //js --> 
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>

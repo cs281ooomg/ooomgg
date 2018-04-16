@@ -1,26 +1,26 @@
-#login-dp{
+#register-dp{
     min-width: 250px;
     margin : 15px 15px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:rgba(255,255,255,.8);
 }
-#login-dp .help-block{
+#register-dp .help-block{
     font-size:12px    
 }
-#login-dp .bottom{
+#register-dp .bottom{
     background-color:rgba(255,255,255,.8);
     border-top:1px solid #ddd;
     clear:both;
     padding:14px;
 }
-#login-dp .social-buttons{
+#register-dp .social-buttons{
     margin:12px 0    
 }
-#login-dp .social-buttons a{
+#register-dp .social-buttons a{
     width: 49%;
 }
-#login-dp .form-group {
+#register-dp .form-group {
     margin-bottom: 10px;
 }
 .btn-fb{
@@ -40,24 +40,24 @@
     background-color:#59b5fa;
 }
 @media(max-width:768px){
-    #login-dp{
+    #register-dp{
         background-color: inherit;
         color: #fff;
     }
-    #login-dp .bottom{
+    #register-dp .bottom{
         background-color: inherit;
         border-top:0 none;
     }
 }
 @media(max-width:375px){
-    #login-dp{
+    #register-dp{
         display :none;
     }
 }
 
-/*-- login page --*/
+/*-- register page --*/
 
-.login_grid_right input[type="text"], .login_grid_right input[type="password"]  {
+.register_grid_right input[type="text"], .register_grid_right input[type="password"], .register_grid_right input[type="email"]  {
     outline: none;
     padding: 15px 15px;
     font-size: 14px;
@@ -67,12 +67,13 @@
     letter-spacing: 1px;
     border: none;
     border: 1px solid #ddd;
+    margin-top: 15px;
 }
-.login_grid_right input[type="text"]:nth-child(2), .login_grid_right input[type="password"] {
+.register_grid_right input[type="text"]:nth-child(2), .register_grid_right input[type="password"], .register_grid_right input[type="email"] {
     margin: 1em 0 0;
 }
 
-.login_grid_right input[type="submit"] {
+.register_grid_right input[type="submit"],.register_grid_right input[type="reset"] {
     outline: none;
     padding: 15px 0;
     font-size: 14px;
@@ -82,7 +83,7 @@
     border: none;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-left: 1.2em;
+    margin-left: 10em;
     margin-top: 10px;
     -webkit-transition: 0.5s all;
     -moz-transition: 0.5s all;
@@ -92,7 +93,20 @@
     font-weight: 700;
 }
 
-.login_grid_right_reg_btn {
+.register_select {
+	margin-top: 14px;
+	outline: none;
+    padding: 15px 15px;
+    font-size: 14px;
+    color: #777;
+    background: #f6f9fb;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    border: 1px solid #ddd;
+}
+
+.register_grid_right_reg_btn {
     outline: none;
     padding: 15.75px 48px;
     font-size: 14px;
@@ -112,24 +126,24 @@
     font-weight: 700;
 }
 
-.login-left h4 {
+.registers-left h4 {
     color: #444;
     font-size: 1em;
     margin-bottom: .5em;
     letter-spacing: 1px;
     font-weight: 700;
 }
-.login-left p {
+.register-left p {
     font-size:1em;
     letter-spacing: 1px;
 }
-.login-text a {
+.register-text a {
     color:#888;
 }
-.login-text a:hover{
+.register-text a:hover{
     color: #fb383b;
 }
-.login-left span.fa {
+.register-left span.fa {
     width: 50px;
     height: 50px;
     background: none;
@@ -144,7 +158,7 @@
     -o-border-radius: 50%;
 }
 
-.login_grid_right h6,.login-left h6 {
+.register_grid_right h6,.register-left h6 {
     font-size: 1.2em;
     color: #ff322e;
     margin-bottom: 1.5em;
@@ -152,20 +166,20 @@
     letter-spacing: 1px;
     font-weight: 700;
 }
-/*--//Login--*/
+/*--//register--*/
 
 /*--responsive--*/
 @media(max-width:991px) {
-   .login_grid_right textarea {
+    .register_grid_right textarea {
 		min-height: 150px;
 		margin: 1em 0em;
 		width: 98.3% !important;
 		resize: none;
 	}
-	.login_left_grid {
+	.register_left_grid {
 		padding-left: 0;
 	}
-	.login_grid_right input[type="submit"], .login_grid_right input[type="reset"] {
+	.register_grid_right input[type="submit"], .register_grid_right input[type="reset"] {
 		outline: none;
 		padding: 15px 0;
 		font-size: 14px;
@@ -174,7 +188,7 @@
 		letter-spacing: 2px;
 		margin-left: 0em;
 	}
-	.login-left {
+	.register-left {
 		margin-top: 2em;
 	}
 }
