@@ -263,49 +263,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			</div>
-			<!--//tabs-->
-			<!-- /new_arrivals -->
+	<?php $pro_fea_arr = ProductMgnt::getFeaProduct($product);
+	if($pro_fea_arr!=NULL){ ?>
 			<div class="new_arrivals">
 				<h3>Featured Products</h3>
-				<!-- /womens -->
-				<?php for ($i = 0; $i < 4; $i++) { ?>
+				<!-- /fea -->
+				<?php 
+				$count = 0;
+				foreach ($pro_fea_arr as $pro_fea) { 
+				    $count++;
+				    if($count === 4){
+				        break;
+				    }
+				?>
 				<div class="col-md-3 product-men women_two">
 					<div class="product-shoe-info shoe">
 						<div class="men-pro-item">
 							<div class="men-thumb-item">
-								<img src="images/s4.jpg" alt="">
+								<img src="images/<?php echo $pro_fea->getPImages();?>" alt="">
 								<div class="men-cart-pro">
 									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Quick View</a>
+										<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>" class="link-product-add-cart">Quick View</a>
 									</div>
 								</div>
-								<span class="product-new-top">New</span>
 							</div>
 							<div class="item-info-product">
 								<h4>
-									<a href="single.html">Shuberry Heels </a>
+									<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>"><?php echo $pro_fea->getPName(); ?></a>
 								</h4>
 								<div class="info-product-price">
 									<div class="grid_meta">
 										<div class="product_price">
 											<div class="grid-price ">
-												<span class="money ">$575.00</span>
+												<span class="money "><?php echo $pro_fea->getPPrice();?></span>
 											</div>
 										</div>
 									</div>
 									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart"> <input
-												type="hidden" name="add" value="1"> <input type="hidden"
-												name="shoe_item" value="Shuberry Heels"> <input
-												type="hidden" name="amount" value="575.00">
+										<form action="control/add_to_cart.php" method="post">					
+											<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
+											<input type="hidden" name="amount" value="1"> 
 											<button type="submit" class="shoe-cart pshoe-cart">
 												<i class="fa fa-cart-plus" aria-hidden="true"></i>
 											</button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 										</form>
-
 									</div>
 								</div>
 								<div class="clearfix"></div>
@@ -314,13 +315,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				<?php } ?>
-				
 				<!-- //womens -->
 				<div class="clearfix"></div>
 			</div>
 			<!--//new_arrivals-->
-
-
+	<?php } ?>	
 		</div>
 	</div>
 	<!-- //top products -->

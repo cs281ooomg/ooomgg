@@ -69,6 +69,26 @@ class ProductMgnt
         
         return $resultArray;
     }
+    
+    public static function getFeaProduct($product)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM PRODUCT WHERE CAT_INDEX = '".$product->getPType()."' AND PRO_INDEX != '".$product->getPID()."';";
+        $query = $conn->query($sql);
+        $resultArray = array();
+        $i = 0;
+        while ($result = $query->fetch_array()) {
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
+            $resultArray[] = $product;
+            $i++;
+        }
+        if($i===0){
+            return NULL;
+        }
+        shuffle($resultArray);
+        return $resultArray;
+    }
 
     public static function checkProduct($name)
     {
