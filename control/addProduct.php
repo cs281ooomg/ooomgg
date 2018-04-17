@@ -15,7 +15,8 @@ $name = $_REQUEST['pname'];
 $image = $_FILES['fileToUpload']['name'];
 $price = $_REQUEST['pprice'];
 $des = $_REQUEST['pdes'];
-if (empty($name) or empty($price) or empty($des)) {
+$type = $_REQUEST['type'];
+if (empty($name) or empty($price) or empty($des) or empty($type)) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please fill information.')";
     echo "</script>";
@@ -92,7 +93,7 @@ else {
             exit();
         }*/
         if (AddMgnt::checkProduct($name)) {
-            AddMgnt::addProduct($name, $image, $price, $des);
+            AddMgnt::addProduct($name, $image, $price, $des ,$type);
         }else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Have this product already.')";

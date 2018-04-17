@@ -16,12 +16,12 @@ class AddMgnt
         return true;
     }
     
-    public static function addProduct($name,$image,$price,$des)
+    public static function addProduct($name,$image,$price,$des,$type)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO PRODUCT(PRO_NAME,PRO_images,PRO_PRICE,PRO_DESC)
-		VALUES('".$name."','".$image."','".$price."','".$des."');";
+        $sql = "INSERT INTO PRODUCT(PRO_NAME,PRO_images,PRO_PRICE,PRO_DESC,CAT_INDEX)
+		VALUES('".$name."','".$image."','".$price."','".$des."', '".$type."');";
         if($conn->query($sql)===TRUE){
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new product successfully.')";

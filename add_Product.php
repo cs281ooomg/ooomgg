@@ -2,6 +2,8 @@
 require 'control/classes/Account.php';
 require 'includes/session.php';
 //require 'control/AccountMgnt.php';
+require 'control/classes/Catagory.php';
+require 'control/ProductMgnt.php';
 require 'control/config/config.php';
 if(!$session_set){
     echo "<script language=\"JavaScript\">";
@@ -107,10 +109,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
+                            <?php $cataArr = ProductMgnt::getallCatagory();?>
                             <select class="type_select" name ="type">
-                            <option value=" "></option>
-                            </select>
-                            
+                            <?php foreach ($cataArr as $cata) {?>
+                                	<option value="<?php echo $cata->getCType();?>"><?php echo $cata->getcName();?></option>
+							<?php }?>
+							</select>                            
 						</div>
 						<div class="clearfix"></div>
 						<textarea name="pdes" onfocus="this.value = '';"
