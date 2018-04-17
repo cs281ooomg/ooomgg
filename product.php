@@ -101,14 +101,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="left-side">
 					<h3 class="agileits-sear-head">Categories</h3>
 					<ul>
-						<li><a href="product.php"> <span class="span glyphicon glyphicon-menu-down"> <b>All</b> </span>
+						<li><a href="product.php"> <span class="glyphicon glyphicon-menu-right"> <b>All</b> </span>
 						</a></li>
 						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
 						<?php foreach ($cataArr as $cata) {?>
 						<li>
     						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
         						<span class="span glyphicon glyphicon-menu-down"> 
-        							<b><?php echo $cata->getcName();?></b> 
+        							<?php echo $cata->getcName();?>
         						</span>
         					</a>
 						</li>
