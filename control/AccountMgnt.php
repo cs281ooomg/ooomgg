@@ -56,17 +56,14 @@ class AccountMgnt
         return true;
     }
 
-    public static function createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber)
+    public static function createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber,$gender)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO ACCOUNT (ACC_ID,ACC_PASS,ACC_FNAME,ACC_LNAME,ACC_EMAIL,ACC_TEL)
-            VALUES ('" . $userinput . "','" . $passinput . "','" . $fname . "','" . $lname . "','" . $email . "','" . $phonenumber . "')";
+        $sql = "INSERT INTO ACCOUNT (ACC_ID,ACC_PASS,ACC_FNAME,ACC_LNAME,ACC_EMAIL,ACC_TEL,ACC_GENDER)
+            VALUES ('" . $userinput . "','" . $passinput . "','" . $fname . "','" . $lname . "','" . $email . "','" . $phonenumber . "','" . $gender . "')";
         $query = $conn->query($sql);
-        echo "<script language=\"JavaScript\">";
-        echo "alert('Registration Complete!\\nYour account has been confirmed.')";
-        echo "</script>";
-        echo "<script> document.location.href=\"../login.php\";</script>";
+       return $query;
     }
 
     public static function getMyCart($account)
