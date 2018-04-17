@@ -61,7 +61,7 @@ else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Have this product already.')";
             echo "</script>";
-            echo "<script> document.location.href=\"../add_Product.php\";</script>";
+            echo "<script> document.location.href=\"../add_product.php\";</script>";
             exit();
         }
 
