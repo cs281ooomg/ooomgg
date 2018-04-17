@@ -159,7 +159,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
-										<span class="product-new-top">New</span>
 									</div>
 									<div class="item-info-product">
 										<h4>
