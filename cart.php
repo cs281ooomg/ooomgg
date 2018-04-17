@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 								</td>
-								<td class="invert"><?php echo $product->getPPrice();?></td>
+								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
 								<td class="invert">
 									<div class="rem">
 										<form action="control/remove_from_cart.php" method="post">
@@ -157,13 +157,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-4 checkout-left-basket">
 						<ul>
 						<?php
+						$vat = 0;
                         if ($cart != NULL) {
                         foreach ($cart->getItems() as $product) {
+                            $vat+= $product->getPPrice()*7/100;
                         ?>
-							<li><?php echo $product->getPName(); ?> <i>-</i> <span><?php echo $product->getPPrice()*$product->getPQuantity(); ?> </span></li>
-							<li>Total Service Charges <i>-</i> <span>$55.00</span></li>
+							<li><?php echo $product->getPName().' x '.$product->getPQuantity(); ?><span><?php echo $product->getPPrice()*$product->getPQuantity(); ?> ฿</span></li>	
 						<?php } }?>
-							<li>Total <i>-</i> <span><?php echo $total;?></span></li>
+							<li>Total Service Charges<span><?php echo $vat;?> ฿</span></li>
+							<li>Total<span><?php echo $total+$vat;?> ฿</span></li>
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>
