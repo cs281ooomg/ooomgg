@@ -5,7 +5,7 @@ if(isset($_SESSION['ACC_ID'])){
     $session_set = true;
 }
 //include'../classes/Favorite.php';
-include'../config/config.php';
+include'classes/config/config.php';
 
 $conn = new mysqli($hostname,$username,$password,$dbname);
 

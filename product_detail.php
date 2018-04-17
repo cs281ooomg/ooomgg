@@ -1,13 +1,5 @@
 <?php
-require 'control/classes/Account.php';
-require 'control/classes/Product.php';
-require 'control/AccountMgnt.php'; 
-require 'control/ProductMgnt.php';
-require 'includes/session.php';
-if ($session_set) {
-    $acc = $_SESSION['ACC'];
-}
-
+require 'includes/autoload.php';
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
         $product = ProductMgnt::ShowProductDetail($productid);

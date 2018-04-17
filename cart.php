@@ -1,21 +1,13 @@
 <?php
-require 'control/classes/Account.php';
-require 'control/classes/Cart.php';
-require 'control/classes/Product.php';
-require 'control/AccountMgnt.php';
-require 'control/ProductMgnt.php';
-require 'includes/session.php';
-if ($session_set) {
-    $acc = $_SESSION['ACC'];
-} else {
+require 'includes/autoload.php';
+if (!$session_set) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
-}
+} 
 $cart = AccountMgnt::getMyCart($acc);
-
 ?>
 <!--
 author: W3layouts

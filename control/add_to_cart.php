@@ -1,7 +1,5 @@
 <?php
-require 'classes/Account.php';
-require 'AccountMgnt.php';
-require '../includes/session.php';
+require 'autoload.php';
 $pro_id = $_POST['pro_id'];
 $amount = $_POST['amount'];
 $account = $_SESSION['ACC'];

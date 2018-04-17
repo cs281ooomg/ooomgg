@@ -1,10 +1,5 @@
 <?php
-require 'control/classes/Account.php';
-require 'includes/session.php';
-//require 'control/AccountMgnt.php';
-require 'control/classes/Catagory.php';
-require 'control/ProductMgnt.php';
-require 'control/config/config.php';
+require 'includes/autoload.php';
 if(!$session_set){
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
@@ -12,8 +7,6 @@ if(!$session_set){
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-
-$acc = $_SESSION['ACC'];
 if ($acc->getTYPE() == '0'){
     echo "<script language=\"JavaScript\">";
     echo "alert('You is not owner!!!')";

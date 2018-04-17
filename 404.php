@@ -1,9 +1,5 @@
 <?php
-require 'control/classes/Account.php';
-require 'includes/session.php';
-if ($session_set) {
-    $acc = $_SESSION['ACC'];
-}
+require 'includes/autoload.php';
 ?>
 <!--
 author: W3layouts

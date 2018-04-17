@@ -1,6 +1,5 @@
 <?php
 require 'classes/Account.php';
-
 if ($_GET["pro_id"]) {
     session_start();
     $session_set = false;
@@ -8,9 +7,7 @@ if ($_GET["pro_id"]) {
          $session_set = true;
      }
     if ($session_set) {
-        // include'../classes/Favorite.php';
-        
-        require 'config/config.php';
+        require 'classes/config/config.php';
         
         $pro_id = $_GET["pro_id"];
         $acc_id = $_SESSION['ACC']->getID();

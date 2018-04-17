@@ -1,6 +1,5 @@
 ﻿<?php
-require 'config/config.php';
-require 'AccountMgnt.php';
+require 'autoload.php';
 $userinput = $_POST['accid'];
 $passinput = $_POST['accpass'];
 $confirmpass = $_POST['confirmpass'];

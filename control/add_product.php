@@ -1,5 +1,5 @@
 <?php
-require 'ProductMgnt.php'; 
+require 'autoload.php';
 $name = $_REQUEST['pname'];
 $image = $_FILES['fileToUpload']['name'];
 $price = $_REQUEST['pprice'];

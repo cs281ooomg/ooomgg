@@ -1,8 +1,9 @@
-<?php require 'includes/session.php';
-    if($session_set){
-        header('Location: index.php');
-        exit;
-    }
+<?php 
+require 'includes/autoload.php';
+if($session_set){
+    header('Location: index.php');
+    exit;
+}
 ?>
 <!--
 author: W3layouts

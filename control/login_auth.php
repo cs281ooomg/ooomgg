@@ -1,7 +1,5 @@
 <?php
-require 'AccountMgnt.php';
-require 'classes/Account.php';
-
+require 'autoload.php';
 $userinput = $_POST['username'];
 $passinput = $_POST['password'];
 if ($userinput === "" || $passinput === "") {
@@ -12,7 +10,6 @@ if ($userinput === "" || $passinput === "") {
 } else {
     $ac = AccountMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
-        session_start();
         $_SESSION["ACC"] = $ac;
         session_write_close();
         
