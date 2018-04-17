@@ -147,10 +147,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="clearfix"></div>
 					<!-- product-sec1 -->
 					<div class="product-sec1">
-						<!--/mens-->
-						
-							<?php $productArr = ProductMgnt::getProduct($pag); foreach ($productArr as $product) {?>
-							
+						<!--/mens-->			
+					<?php $productArr = ProductMgnt::getProduct($pag); foreach ($productArr as $product) {?>		
 						<div class="col-md-4 product-men">
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
@@ -171,31 +169,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;฿</span>
+														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp; ฿</span>
 													</div>
 												</div>
-												<ul class="stars">
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-half-o"
-															aria-hidden="true"></i></a></li>
-													<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
-												</ul>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<form action="#" method="post">
-													<input type="hidden" name="cmd" value="_cart"> <input
-														type="hidden" name="add" value="1"> <input type="hidden"
-														name="shoe_item" value="Bella Toes"> <input type="hidden"
-														name="amount" value="675.00">
+												<form action="control/add_to_cart.php" method="post">
+													<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
+													<input type="hidden" name="amount" value="1"> 
 													<button type="submit" class="shoe-cart pshoe-cart">
 														<i class="fa fa-cart-plus" aria-hidden="true"></i>
 													</button>
-
-													<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 												</form>
-
 											</div>
 										</div>
 										<div class="clearfix"></div>
