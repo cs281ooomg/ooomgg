@@ -1,16 +1,5 @@
 <?php
-
-require 'AddMgnt.php';
-include'../control/config/config.php';
-$conn = new mysqli($hostname,$username,$password,$dbname);
-
-if($conn->connect_error){
-    die("Connection failed:" .$conn->connect_error);
-}
-
-
-
-    
+require 'ProductMgnt.php'; 
 $name = $_REQUEST['pname'];
 $image = $_FILES['fileToUpload']['name'];
 $price = $_REQUEST['pprice'];
@@ -20,7 +9,7 @@ if (empty($name) or empty($price) or empty($des) or empty($type)) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please fill information.')";
     echo "</script>";
-    echo "<script> document.location.href=\"../add_Product.php\";</script>";
+    echo "<script> document.location.href=\"../add_product.php\";</script>";
     exit();
 }
 else {
@@ -66,34 +55,8 @@ else {
 //                echo "Sorry, there was an error uploading your file.";
             }
         }
-/*        $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$name."' ";
-        $query = $conn->query($sql);
-        $result = $query->fetch_assoc();
-        if (!$result) {
-            $sql1 = "INSERT INTO PRODUCT(PRO_NAME,PRO_images,PRO_PRICE,PRO_DESC)
-		VALUES('".$name."','".$image."','".$price."','".$des."');";
-            if($conn->query($sql1)===TRUE){
-                echo "<script language=\"JavaScript\">";
-                echo "alert('Add new product successfully.')";
-                echo "</script>";
-                echo "<script> document.location.href=\"../add_Product.php\";</script>";
-                exit();
-                
-            }else{
-                echo "Error".$sql. "<br>" .$conn->error;
-            }
-            
-            $conn->close();
-        }
-        else{
-            echo "<script language=\"JavaScript\">";
-            echo "alert('Have this product already.')";
-            echo "</script>";
-            echo "<script> document.location.href=\"../add_Product.php\";</script>";
-            exit();
-        }*/
-        if (AddMgnt::checkProduct($name)) {
-            AddMgnt::addProduct($name, $image, $price, $des ,$type);
+        if (ProductMgnt::checkProduct($name)) {
+            ProductMgnt::addProduct($name, $image, $price, $des ,$type);
         }else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Have this product already.')";
@@ -101,9 +64,6 @@ else {
             echo "<script> document.location.href=\"../add_Product.php\";</script>";
             exit();
         }
-        
-
-        
 
 }
 

@@ -120,16 +120,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a></li>
 						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
 						<?php foreach ($cataArr as $cata) {?>
-						<li><a href="product_cat.php?page=<?php echo $cata->getCType();?>"> <span class="span glyphicon glyphicon-menu-down"> <b><?php echo $cata->getcName();?></b> </span>
-						</a></li>
-<!-- 						<li><a href="product_cat.php?page=2"> <span class="span glyphicon glyphicon-menu-down"> <b>Bass</b></span> -->
-<!-- 						</a></li> -->
-<!-- 						<li><a href="product_cat.php?page=3"> <span class="span glyphicon glyphicon-menu-down"> <b>Piano</b></span> -->
-<!-- 						</a></li> -->
-<!-- 						<li><a href="product_cat.php?page=4"> <span class="span glyphicon glyphicon-menu-down"> <b>Drum</b></span> -->
-<!-- 						</a></li> -->
-<!-- 						<li><a href="product_cat.php?page=5"> <span class="span glyphicon glyphicon-menu-down"> <b>Accessories</b></span> -->
-<!-- 						</a></li> -->
+						<li>
+						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> <span class="span glyphicon glyphicon-menu-down"> 
+							<b><?php echo $cata->getcName();?></b> 
+						</span>
+						</a>
+						</li>
 						<?php }?>
 					</ul>
 				</div>

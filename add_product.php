@@ -101,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>fill product you want to add.</h6>
-					<form action="control/addProduct.php" method="post" enctype="multipart/form-data">
+					<form action="control/add_product.php" method="post" enctype="multipart/form-data">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="pname" placeholder="Product Name"> <input
 								type="text" name="pprice" placeholder="Price" >
