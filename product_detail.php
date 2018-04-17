@@ -148,11 +148,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<form action="control/addtocart.php" method="post">					
+						<form action="control/add_to_cart.php" method="post">					
 							<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
 							<input type="hidden" name="amount" value="1"> 
 							<input type="submit" name="submit" value="Add to cart" class="button add"> 
-							<a href="control/addFavorite.php?pro_id=<?php echo $product->getPId();?>" class="button add fav"> 
+							<a href="control/add_favorite.php?pro_id=<?php echo $product->getPId();?>" class="button add fav"> 
 								<?php if(!$session_set){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php }else {
