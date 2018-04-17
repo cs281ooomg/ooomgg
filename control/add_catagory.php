@@ -24,7 +24,7 @@ else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this catagory already.')";
         echo "</script>";
-        echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
+        echo "<script> document.location.href=\"../add_catagory.php\";</script>";
         exit();
     }
 }
