@@ -75,6 +75,7 @@ class AccountMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' ";
         $query = $conn->query($sql);
+        $conn->close();
         $resultArray = array();
         $count = 0;
         while ($result = $query->fetch_array()) {
@@ -109,6 +110,19 @@ class AccountMgnt
             $conn->close();
             return $query;
         }     
+    }
+    
+    public static function removeFromMyCart($account,$pro_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "DELETE FROM CART WHERE ACC_ID = '".$account->getID()."' AND PRO_ID = '".$pro_id."';";
+        $query = $conn->query($sql);
+        $conn->close();
+        if ($query) {
+            return TRUE;
+        }
+        return FALSE;
     }
 }
 ?>

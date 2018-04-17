@@ -143,7 +143,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td class="invert"><?php echo $product->getPPrice();?></td>
 								<td class="invert">
 									<div class="rem">
-										<div class="close1"></div>
+										<form action="control/remove_from_cart.php" method="post">
+										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
+										<button type="submit" >
+											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+										</button>
+										</form>
 									</div>
 
 								</td>

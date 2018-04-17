@@ -171,15 +171,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											</div>
 											<div class="shoe single-item hvr-outline-out">
 												<form action="control/addtocart.php" method="post">
-													<input type="hidden" name="cmd" value="_cart"> <input
-														type="hidden" name="add" value="1"> <input type="hidden"
-														name="shoe_item" value="Bella Toes"> <input type="hidden"
-														name="amount" value="675.00">
+													<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
+													<input type="hidden" name="amount" value="1"> 
 													<button type="submit" class="shoe-cart pshoe-cart">
 														<i class="fa fa-cart-plus" aria-hidden="true"></i>
 													</button>
 												</form>
-
 											</div>
 										</div>
 										<div class="clearfix"></div>
