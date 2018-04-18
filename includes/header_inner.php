@@ -24,9 +24,6 @@
 		<div class="top_nav_right_acc">
 		<!-- button class="top_shoe_cart dropdown-toggle" data-toggle="dropdown">
 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
-		</button-->
-		<button class="top_shoe_cart" onclick="window.location.href='login.php'">
-			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 		</button>
 		<ul id="login-dp" class="dropdown-menu">
 			<li>
@@ -56,7 +53,16 @@
 					</div>
 				</div>
 			</li>
-		</ul>
+		</ul-->
+		<?php if($session_set){ ?>
+		<button class="top_shoe_cart" onclick="window.location.href='login.php'">
+			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+		</button>
+<?php }else{ ?>		
+		<button class="top_shoe_cart" onclick="alert('Profile Coming Soon!!!')">
+			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+		</button>
+<?php } ?>
 	</div>
 	
 		<div class="top_nav_right">
