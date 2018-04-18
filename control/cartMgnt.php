@@ -4,6 +4,7 @@ if ($session_set) {
     if (isset($_GET['pro_id']) && isset($_GET['mode'])) {
         $pro_id = $_GET['pro_id'];
         $product = Product::ShowProductDetail($pro_id);
+        $product->setPQuantity(1);
         $mode = $_GET['mode'];
         if($mode === 'add'){
             if ($account->addToMyCart($product)) {
