@@ -235,6 +235,28 @@ class Product
         }
         $conn->close();
     }
+    public static function getFavoriteProduct($acc_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE PRO_INDEX =WHERE PRO_INDEX = AND ACC_ID ='".$acc_id . "'";
+        $query = $conn->query($sql);
+        $i = 0;
+        while ($result = $query->fetch_array()) {
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
+            $resultArray[] = $product;
+        }
+        $sql1 = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$row["PRO_INDEX"]."' ";
+        $query = $conn->query($sql1);
+        $resultArray = array();
+        $i = 0;
+        while ($result = $query->fetch_array()) {
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
+            $resultArray[] = $product;
+        }
+        return $resultArray;
+    }
+    
 }
 
 ?>

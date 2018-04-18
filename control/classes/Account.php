@@ -171,7 +171,7 @@ class Account
         $resultArray = array();
         $count = 0;
         while ($result = $query->fetch_array()) {
-            $temp = ProductMgnt::ShowProductDetail($result['PRO_ID']);
+            $temp = Product::ShowProductDetail($result['PRO_ID']);
             $temp->setPQuantity($result['QUANTITY']);
             $resultArray[] = $temp;
             $count ++;

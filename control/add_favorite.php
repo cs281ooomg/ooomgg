@@ -8,10 +8,8 @@ if ($_GET["pro_id"]) {
      }
     if ($session_set) {
         require 'classes/config/config.php';
-           
         $pro_id = $_GET["pro_id"];
         $acc_id = $_SESSION['ACC']->getID();
-        
         if (Account::checkFavorite($pro_id, $acc_id)) {
             Account::removeFavorite($acc_id, $pro_id)  ;
         } else {
