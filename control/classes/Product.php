@@ -235,28 +235,51 @@ class Product
         }
         $conn->close();
     }
-    public static function getFavoriteProduct($acc_id)
+
+    public static function getFavoriteProduct($acc)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE PRO_INDEX =WHERE PRO_INDEX = AND ACC_ID ='".$acc_id . "'";
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$acc->getID()  . "'";
         $query = $conn->query($sql);
-        $i = 0;
+        $proArr= array();
         while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
-            $resultArray[] = $product;
+            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);  
         }
-        $sql1 = "SELECT * FROM PRODUCT WHERE PRO_NAME='".$row["PRO_INDEX"]."' ";
-        $query = $conn->query($sql1);
-        $resultArray = array();
-        $i = 0;
-        while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
-            $resultArray[] = $product;
-        }
-        return $resultArray;
+        return $proArr;
     }
-    
+
+    public static function sendEmailNoti($topic, $massage)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM ACCOUNT";
+        $query = $conn->query($sql);  
+        while ($result = $query->fetch_array()) {
+            date_default_timezone_set('Asia/Bangkok');
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Username = " cs284cstu@gmail.com";
+            $mail->Password = "0822808826";
+            $mail->setFrom(' cs284cstu@gmail.com', 'OOOMG Promotion Notification');
+            $email = $result["ACC_EMAIL"];
+            $name = $result["ACC_FNAME"]. ' ' .$result["ACC_LNAME"];
+            $mail->addAddress($email, $name);
+            $mail->Subject = $topic;
+            $mail->CharSet = 'utf-8';
+            $mail->msgHTML($massage);
+            if (!$mail->send()) {
+                return false;
+            }
+        }  
+        return true;
+    }
 }
 
 ?>

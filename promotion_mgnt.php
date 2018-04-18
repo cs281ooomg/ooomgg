@@ -1,4 +1,4 @@
-<?php
+﻿<?php 
 require 'includes/autoload.php';
 ?>
 <!--
@@ -11,15 +11,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-<title>OOOMG : My Favourite</title>
+<title>Register</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
 	content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
 		}, false);
@@ -27,15 +25,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		function hideURLbar() {
 			window.scrollTo(0, 1);
 		}
-	
-
-</script>
+	</script>
 <!-- //custom-theme -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <link rel="stylesheet" href="css/shop.css" type="text/css"
 	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/register.css" rel="stylesheet" type="text/css" media="all" />
+<!-- Owl-carousel-CSS -->
+<link rel="stylesheet" type="text/css" href="css/contact.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
@@ -63,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>My Favourite</li>
+					<li>Promoton Mgnt</li>
 				</ul>
 			</div>
 		</div>
@@ -72,12 +71,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //banner -->
 
 	<!-- top Products -->
+	<div class="ads-grid_shop">
+		<div class="shop_inner_inf">
+			<h3 class="head">Promotion Email Notification</h3>
+			<div class="inner_section_w3ls">
+				<div class="col-md-8 col-md-offset-2 register_grid_right">
+					<h6>Please fill this.</h6>
+					<form action="control/email_noti.php" method="post">
+						<div class="col-md-12 col-sm-12 register_left_grid">
+							<input type="text" name="topic" placeholder="Topic" required=""> 
+							<textarea name="massage" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Description...';}">Massage...</textarea>
+						</div>
+						<div class="clearfix"></div>
+							<br> 
+							<input type="submit" value="Submit"> 
+							<input type="reset" value="Clear">
+							
+					</form>
+				</div>
 
-	<div class="alert alert-success" role="alert">
-	<blockquote class="blockquote text-center">
-  		<p class="mb-0">Eieieieieieieieiei eiei</p>
-  		<footer class="blockquote-footer"><cite title="Source Title">pattarabank</cite></footer>
-	</blockquote>
+				<div class="clearfix"></div>
+
+			</div>
+
+			<div class="clearfix"></div>
+
+		</div>
 	</div>
 
 	<!-- top product -->
@@ -88,29 +107,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
 
-	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span
-		id="toTopHover" style="opacity: 1;"> </span>
-	</a>
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<!-- //js -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		shoe.render();
-
-		shoe.cart.on('shoe_checkout', function(evt) {
-			var items, len, i;
-
-			if (this.subtotal() > 0) {
-				items = this.items();
-
-				for (i = 0, len = items.length; i < len; i++) {
-				}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
+	<!-- //js --> 
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
@@ -119,13 +118,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- script for responsive tabs -->
 	<script src="js/easy-responsive-tabs.js"></script>
 	<script>
-		$(document).ready(function() {
+		$(document).ready(function () {
 			$('#horizontalTab').easyResponsiveTabs({
-				type : 'default', //Types: default, vertical, accordion           
-				width : 'auto', //auto or any width like 600px
-				fit : true, // 100% fit in a container
-				closed : 'accordion', // Start closed if in accordion view
-				activate : function(event) { // Callback function if tab is switched
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
 					var $tab = $(this);
 					var $info = $('#tabInfo');
 					var $name = $('span', $info);
@@ -134,14 +133,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				}
 			});
 			$('#verticalTab').easyResponsiveTabs({
-				type : 'vertical',
-				width : 'auto',
-				fit : true
+				type: 'vertical',
+				width: 'auto',
+				fit: true
 			});
 		});
 	</script>
-
-
 	<!--search-bar-->
 	<script src="js/search.js"></script>
 	<!--//search-bar-->
@@ -149,18 +146,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/move-top.js"></script>
 	<script type="text/javascript" src="js/easing.js"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			$(".scroll").click(function(event) {
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
 				event.preventDefault();
 				$('html,body').animate({
-					scrollTop : $(this.hash).offset().top
+					scrollTop: $(this.hash).offset().top
 				}, 1000);
 			});
 		});
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
 
 </body>
 

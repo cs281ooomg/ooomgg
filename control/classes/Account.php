@@ -161,11 +161,11 @@ class Account
         return $query;
     }
 
-    public static function getMyCart($account)
+    public function getMyCart()
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' ";
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID(). "' ";
         $query = $conn->query($sql);
         $conn->close();
         $resultArray = array();
@@ -183,32 +183,32 @@ class Account
         return $cart;
     }
 
-    public static function addToMyCart($account, $pro_id, $quantity)
+    public function addToMyCart($product)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' AND PRO_ID = '" . $pro_id . "';";
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) { // update
             $quantity += $result['QUANTITY'];
-            $sql = "UPDATE CART SET QUANTITY = '" . $quantity . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
+            $sql = "UPDATE CART SET QUANTITY = '" . $product->getPQuantity() . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
             $query = $conn->query($sql);
             $conn->close();
             return $query;
         } else { // new
-            $sql = "INSERT INTO CART (ACC_ID,PRO_ID,QUANTITY)  VALUES ('" . $account->getID() . "','" . $pro_id . "'," . $quantity . ");";
+            $sql = "INSERT INTO CART (ACC_ID,PRO_ID,QUANTITY)  VALUES ('" . $this->getID() . "','" . $product->getPId() . "'," . $product->getPQuantity() . ");";
             $query = $conn->query($sql);
             $conn->close();
             return $query;
         }
     }
 
-    public static function removeFromMyCart($account, $pro_id)
+    public function removeFromMyCart($product)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM CART WHERE ACC_ID = '" . $account->getID() . "' AND PRO_ID = '" . $pro_id . "';";
+        $sql = "DELETE FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
         $query = $conn->query($sql);
         $conn->close();
         if ($query) {

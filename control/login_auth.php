@@ -12,7 +12,6 @@ if ($userinput === "" || $passinput === "") {
     if ($ac != null) {
         $_SESSION["ACC"] = $ac;
         session_write_close();
-        
         echo "<script language=\"JavaScript\">";
         echo "alert('Welcome " . $ac->getFname() . " " . $ac->getLname() . "')";
         echo "</script>";

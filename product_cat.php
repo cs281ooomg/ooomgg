@@ -176,13 +176,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<form action="control/add_to_cart.php" method="post">
-													<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
-													<input type="hidden" name="amount" value="1"> 
-													<button type="submit" class="shoe-cart pshoe-cart">
-														<i class="fa fa-cart-plus" aria-hidden="true"></i>
-													</button>
-												</form>
+												<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+													<i class="fa fa-cart-plus" aria-hidden="true"></i>
+												</button>
 											</div>
 										</div>
 										<div class="clearfix"></div>
