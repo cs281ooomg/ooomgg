@@ -20,6 +20,7 @@
 		          if ($acc->getTYPE() == '1'){ ?>
             		<li><a href="add_catagory.php">Add Catagory</a></li>
             		<li><a href="add_product.php">Add Product</a></li>
+            		<li><a href="promotion_mgnt.php">Promotion Manage</a></li>
 			<?php } 
 		      }?>
 		<li><a href="product.php">Shop Now</a></li>

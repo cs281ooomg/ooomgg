@@ -57,7 +57,7 @@
 
 /*-- register page --*/
 
-.register_grid_right input[type="text"], .register_grid_right input[type="password"], .register_grid_right input[type="email"]  {
+.register_grid_right input[type="text"], .register_grid_right input[type="password"], .register_grid_right input[type="email"], .register_grid_right textarea {
     outline: none;
     padding: 15px 15px;
     font-size: 14px;
@@ -69,6 +69,14 @@
     border: 1px solid #ddd;
     margin-top: 15px;
 }
+
+.register_grid_right textarea {
+    min-height: 150px;
+    margin: 1em 1.1em;
+    width: 95.3% !important;
+    resize: none;
+}
+
 .register_grid_right input[type="text"]:nth-child(2), .register_grid_right input[type="password"], .register_grid_right input[type="email"] {
     margin: 1em 0 0;
 }
