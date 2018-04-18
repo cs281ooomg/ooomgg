@@ -137,8 +137,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- product-sec1 -->
 					<div class="product-sec1">
 						<!--/mens-->
-						<?php foreach ($productArr as $product) {?>
-						<div class="col-md-4 product-men">
+						<?php
+						$i = 0;
+						foreach ($productArr as $product) {
+						if($i < 3){ 
+							$i++;
+						?>
+							<div class="col-md-4 product-men">	
+				  <?php } else { $i = 0; ?>
+							<div class="col-md-4 product-men women_two">
+				  <?php } ?>
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
