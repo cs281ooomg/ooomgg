@@ -9,7 +9,7 @@
 		<?php } ?>
 		<li><a href="index.php" class="active">Home</a></li>
 		<?php if($session_set){ ?>
-		<li><a href="myfev.php">My Favourite</a></li>
+		<li><a href="productFavorite.php">My Favourite</a></li>
 		<?php } ?>
 		<?php if(!$session_set){ ?>
 		<li><a href="register.php">Register</a></li>

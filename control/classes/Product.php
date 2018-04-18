@@ -239,14 +239,19 @@ class Product
     public static function getFavoriteProduct($acc_id)
     {
         require 'config/config.php';
+        $acc = $acc_id->getID();
         $conn = new mysqli($hostname, $username, $password, $dbname);
+<<<<<<< HEAD
         $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE PRO_INDEX =WHERE PRO_INDEX = AND ACC_ID ='" . $acc_id . "'";
+=======
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$acc  . "'";
+>>>>>>> refs/remotes/origin/master
         $query = $conn->query($sql);
-        $i = 0;
+        $proArr= array();
         while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
-            $resultArray[] = $product;
+            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);  
         }
+<<<<<<< HEAD
         $sql1 = "SELECT * FROM PRODUCT WHERE PRO_NAME='" . $row["PRO_INDEX"] . "' ";
         $query = $conn->query($sql1);
         $resultArray = array();
@@ -256,6 +261,9 @@ class Product
             $resultArray[] = $product;
         }
         return $resultArray;
+=======
+        return $proArr;
+>>>>>>> refs/remotes/origin/master
     }
 
     public static function sendEmailNoti($topic, $massage)
