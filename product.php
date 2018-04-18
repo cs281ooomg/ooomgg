@@ -1,6 +1,6 @@
 <?php
 require 'includes/autoload.php';
-$productArr = ProductMgnt::getallProduct();
+$productArr = Product::getallProduct();
 ?>
 <!--
 author: W3layouts
@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="glyphicon glyphicon-menu-right"> <b>All</b> </span>
 						</a></li>
-						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
+						<?php 	$cataArr = Product::getallCatagory();?>
 						<?php foreach ($cataArr as $cata) {?>
 						<li>
     						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 

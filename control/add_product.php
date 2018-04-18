@@ -55,8 +55,8 @@ else {
 //                echo "Sorry, there was an error uploading your file.";
             }
         }
-        if (ProductMgnt::checkProduct($name)) {
-            ProductMgnt::addProduct($name, $image, $price, $des ,$type);
+        if (Product::checkProduct($name)) {
+            Product::addProduct($name, $image, $price, $des ,$type);
         }else {
             echo "<script language=\"JavaScript\">";
             echo "alert('Have this product already.')";

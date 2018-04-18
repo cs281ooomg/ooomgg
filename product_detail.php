@@ -2,7 +2,7 @@
 require 'includes/autoload.php';
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
-        $product = ProductMgnt::ShowProductDetail($productid);
+        $product = Product::ShowProductDetail($productid);
 } else {
     header("Location: 404.php");
 }
@@ -148,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<?php if(!$session_set){?>
 								<span class="glyphicon glyphicon-heart-empty"></span>
 								<?php }else {
-								if (AccountMgnt::addFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
+								if (Account::addFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
 								<span class="glyphicon glyphicon-heart"></span>
 								<?php      } 
 								      else {?>
@@ -263,7 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			</div>
-	<?php $pro_fea_arr = ProductMgnt::getFeaProduct($product);
+	<?php $pro_fea_arr = Product::getFeaProduct($product);
 	if($pro_fea_arr!=NULL){ ?>
 			<div class="new_arrivals">
 				<h3>Featured Products</h3>

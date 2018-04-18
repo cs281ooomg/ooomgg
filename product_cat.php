@@ -2,7 +2,7 @@
 require 'includes/autoload.php';
 $pag=$_GET['page'];
 if (isset($pag)) {
-	$product = ProductMgnt::ShowProductDetail($pag);
+	$product = Product::ShowProductDetail($pag);
 } else {
 	header("Location: 404.php");
 }
@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="span glyphicon glyphicon-menu-down"> All </span>
 						</a></li>
-						<?php 	$cataArr = ProductMgnt::getallCatagory();?>
+						<?php 	$cataArr = Product::getallCatagory();?>
 						<?php foreach ($cataArr as $cata) {
     						    if($cata->getCType()===$pag){ ?>
     						         <li>
@@ -151,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- product-sec1 -->
 					<div class="product-sec1">
 						<!--/mens-->			
-					<?php $productArr = ProductMgnt::getProduct($pag); foreach ($productArr as $product) {?>		
+					<?php $productArr = Product::getProduct($pag); foreach ($productArr as $product) {?>		
 						<div class="col-md-4 product-men">
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">

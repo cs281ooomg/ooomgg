@@ -3,7 +3,6 @@ encoding//control/add_favorite.php=UTF-8
 encoding//control/add_product.php=UTF-8
 encoding//control/add_to_cart.php=UTF-8
 encoding//control/classes/Account.php=UTF-8
-encoding//control/classes/AccountMgnt.php=UTF-8
 encoding//control/classes/config/config.php=UTF-8
 encoding//control/delete_fav.php=UTF-8
 encoding//control/login_auth.php=UTF-8

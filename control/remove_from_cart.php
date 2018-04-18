@@ -5,7 +5,7 @@ $account = $_SESSION['ACC'];
 if ($pro_id === "") {
     //redirect
 } else {
-    if(AccountMgnt::removeFromMyCart($account, $pro_id)){
+    if(Account::removeFromMyCart($account, $pro_id)){
         echo "<script language=\"JavaScript\">";
         echo "alert('remove success!!')";
         echo "</script>";

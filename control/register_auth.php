@@ -10,8 +10,8 @@ $phonenumber = $_POST['phonenumber'];
 $gender = $_POST['gender'];
 
 if ($passinput===$confirmpass){
-    if (AccountMgnt::registerAuth($userinput)) {
-        if (AccountMgnt::createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber,$gender)){
+    if (Account::registerAuth($userinput)) {
+        if (Account::createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber,$gender)){
             echo "<script language=\"JavaScript\">";
             echo "alert('Registration Complete!\\nYour account has been confirmed.')";
             echo "</script>";

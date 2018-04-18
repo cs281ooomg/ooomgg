@@ -7,7 +7,7 @@ if (!$session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 } 
-$cart = AccountMgnt::getMyCart($acc);
+$cart = Account::getMyCart($acc);
 ?>
 <!--
 author: W3layouts

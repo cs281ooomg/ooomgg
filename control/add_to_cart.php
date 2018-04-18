@@ -6,7 +6,7 @@ $account = $_SESSION['ACC'];
 if ($pro_id === "" || $amount === "") {
     //redirect
 } else {
-    if(AccountMgnt::addToMyCart($account, $pro_id, $amount)){
+    if(Account::addToMyCart($account, $pro_id, $amount)){
         echo "<script language=\"JavaScript\">";
         echo "alert('Add to cart success!!')";
         echo "</script>";

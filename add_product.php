@@ -102,7 +102,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
-                            <?php $cataArr = ProductMgnt::getallCatagory();?>
+                            <?php $cataArr = Product::getallCatagory();?>
                             <select class="type_select" name ="type">
                             <?php foreach ($cataArr as $cata) {?>
                                 	<option value="<?php echo $cata->getCType();?>"><?php echo $cata->getcName();?></option>

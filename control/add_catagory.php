@@ -10,8 +10,8 @@ if (empty($name)) {
 }
 else {
 
-    if (ProductMgnt::checkCatagory($name)){
-        ProductMgnt::addCatagory($name);
+    if (Product::checkCatagory($name)){
+        Product::addCatagory($name);
     }else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this catagory already.')";
