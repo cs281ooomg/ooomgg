@@ -80,11 +80,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="side-bar col-md-3">
 				<div class="search-hotel">
 					<h3 class="agileits-sear-head">Search Here..</h3>
-					<form action="#" method="post">
+					<form action="product_cat.php?=<?php echo ?>php" method="post">
 						<input type="search" placeholder="Product name..." name="search"
 							required=""> <input type="submit" value=" ">
+							
 					</form>
 				</div>
+				
+				
 				<!-- price range -->
 				<div class="range">
 					<h3 class="agileits-sear-head">Price range</h3>

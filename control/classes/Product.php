@@ -280,6 +280,23 @@ class Product
         }  
         return true;
     }
+    
+    public static function searchWord($name)
+    {
+    	require 'config/config.php';
+    	
+    	$conn = new mysqli($hostname, $username, $password, $dbname);
+    	$sql = "SELECT * FROM PRODUCT WHERE PRO_NAME LIKE '%$name%'";
+    	$query = $conn->query($sql);
+    	$resultArray = array();
+    	while ($result = $query->fetch_array()) {
+    		$product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
+    		$resultArray[] = $product;
+    	}
+    	return $resultArray;
+    	
+    	
+    }
 }
 
 ?>
