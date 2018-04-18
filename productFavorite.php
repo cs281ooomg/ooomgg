@@ -1,7 +1,13 @@
 <?php
 require 'includes/autoload.php';
-
-$productArr = Product::getFavoriteProduct($acc_id);
+if (!$session_set) {
+    echo "<script language=\"JavaScript\">";
+    echo "alert('Please login!!!')";
+    echo "</script>";
+    echo "<script> document.location.href=\"login.php\";</script>";
+    exit();
+}
+$favorite = Product::getFavoriteProduct($acc);
 ?>
 <!--
 author: W3layouts
@@ -11,9 +17,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
-	Template | Shop :: w3layouts</title>
+<title>OOOMG : Cart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -35,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	media="screen" property="" />
 <link href="css/style7.css" rel="stylesheet" type="text/css" media="all" />
 <!-- Owl-carousel-CSS -->
-<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+<link rel="stylesheet" type="text/css" href="css/checkout.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
@@ -63,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li><a href = "product.php">product</a></li>
+					<li>Cart</li>
 				</ul>
 			</div>
 		</div>
@@ -74,136 +80,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
-			<!-- tittle heading -->
+			<div class="privacy about">
+				<h3>Favorite</h3>
 
-			<!-- //tittle heading -->
-			<!-- product left -->
-			<div class="side-bar col-md-3">
-				<div class="search-hotel">
-					<h3 class="agileits-sear-head">Search Here..</h3>
-					<form action="#" method="post">
-						<input type="search" placeholder="Product name..." name="search"
-							required=""> <input type="submit" value=" ">
-					</form>
-				</div>
-				<!-- price range -->
-				<div class="range">
-					<h3 class="agileits-sear-head">Price range</h3>
-					<ul class="dropdown-menu6">
-						<li>
-
-							<div id="slider-range"></div> <input type="text" id="amount"
-							style="border: 0; color: #ffffff; font-weight: normal;" />
-						</li>
-					</ul>
-				</div>
-				<!-- //price range -->
-				<!--preference -->
-				<div class="left-side">
-					<h3 class="agileits-sear-head">Categories</h3>
-					<ul>
-						<li><a href="product.php"> <span class="glyphicon glyphicon-menu-right"> <b>All</b> </span>
-						</a></li>
-						<?php 	$cataArr = Product::getallCatagory();?>
-						<?php foreach ($cataArr as $cata) {?>
-						<li>
-    						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
-        						<span class="span glyphicon glyphicon-menu-down"> 
-        							<?php echo $cata->getcName();?>
-        						</span>
-        					</a>
-						</li>
-						<?php }?>
-					</ul>
-				</div>
-				<!-- // preference -->
-
-			</div>
-			<!-- //product left -->
-			<!-- product right -->
-			<div class="left-ads-display col-md-9">
-				<div class="wrapper_top_shop">
-					<div class="col-md-6 shop_left">
-						<img src="images/banner3.jpg" alt="">
-						<h6>40% off</h6>
-					</div>
-					<div class="col-md-6 shop_right">
-						<img src="images/banner2.jpg" alt="">
-						<h6>50% off</h6>
-					</div>
-					<div class="clearfix"></div>
-					<!-- product-sec1 -->
-					<div class="product-sec1">
-						<!--/mens-->
-						<?php foreach ($productArr as $product) {?>
-						<div class="col-md-4 product-men">
-							<div class="product-shoe-info shoe">
-								<div class="men-pro-item">
-									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
-										<div class="men-cart-pro">
-											<div class="inner-men-cart-pro">
-												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
-											</div>
-										</div>
+				<div class="checkout-right">
+					<h4>
+						Products
+					</h4>
+					<table class="timetable_sub">
+						<thead>
+							<tr>
+								<th>SL No.</th>
+								<th>Product</th>
+								<th>Product Name</th>
+								<th>Price</th>
+								<th>Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+                            $total = 0;
+                            if ($favorite != NULL) {
+                                 $i = 1;
+                                 foreach ($favorite as $product) {
+                                        $total += $product->getPPrice() * $product->getPQuantity();
+                                 ?>
+    							<tr class="rem<?php echo $i;?>">
+								<td class="invert"><?php echo $product->getPId();?></td>
+								<td class="invert-image"><a
+									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
+										src="images/<?php echo $product->getPImages();?>" alt=" "
+										class="img-responsive"></a></td>
+								<td class="invert"><?php echo $product->getPName();?></td>
+								
+								<td class="invert"><?php echo $product->getPPrice();?>ß</td>
+								<td class="invert">
+									<div class="rem">
+										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=remove"method="post">
+										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
+										
+										<button type="submit" >
+											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+										</button>
+										</form>
 									</div>
-									<div class="item-info-product">
-										<h4>
-											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
-										</h4>
-										<div class="info-product-price">
-											<div class="grid_meta">
-												<div class="product_price">
-													<div class="grid-price ">
-														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp;ß</span>
-													</div>
-												</div>
-											</div>
-											<div class="shoe single-item hvr-outline-out">
-												<form action="control/add_to_cart.php" method="post">
-													<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
-													<input type="hidden" name="amount" value="1"> 
-													<button type="submit" class="shoe-cart pshoe-cart">
-														<i class="fa fa-cart-plus" aria-hidden="true"></i>
-													</button>
-												</form>
-											</div>
-										</div>
-										<div class="clearfix"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-						<!-- //mens -->
-						<div class="clearfix"></div>
 
-					</div>
-
-					<!-- //product-sec1 -->
-					<div class="col-md-6 shop_left shp">
-						<img src="images/banner4.jpg" alt="">
-						<h6>21% off</h6>
-					</div>
-					<div class="col-md-6 shop_right shp">
-						<img src="images/banner1.jpg" alt="">
-						<h6>31% off</h6>
-					</div>
-					<div class="clearfix"></div>
+								</td>
+							</tr>
+    							<?php
+                                $i ++;
+                                }
+                            }
+                            ?>
+						</tbody>
+					</table>
 				</div>
+				
 			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
-	
-    <!-- top product -->
+
+	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>
-	<!-- //top product  -->
+	<!-- //top product -->
 
 	<!-- footer -->
 	<?php require 'includes/footer.php';?>
 	<!-- //footer -->
-
 	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span
 		id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->
@@ -217,25 +160,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!--search-bar-->
 	<script src="js/search.js"></script>
 	<!--//search-bar-->
-	<!-- price range (top products) -->
-	<script src="js/jquery-ui.js"></script>
-	<script>
-		//<![CDATA[ 
-		$(window).load(function () {
-			$("#slider-range").slider({
-				range: true,
-				min: 0,
-				max: 9000,
-				values: [50, 6000],
-				slide: function (event, ui) {
-					$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-				}
-			});
-			$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-
-		}); //]]>
-	</script>
-	<!-- //price range (top products) -->
 
 	<!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="js/move-top.js"></script>
@@ -252,7 +176,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
 
 </body>
 
