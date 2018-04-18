@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         ?>
 							<li><?php echo $product->getPName().' x '.$product->getPQuantity(); ?><span><?php echo number_format($product->getPPrice()*$product->getPQuantity(),2); ?> ฿</span></li>	
 						<?php } }?>
-							<li>Total Service Charges<span><?php echo $vat;?> ฿</span></li>
+							<li>Total Service Charges<span><?php echo number_format($vat,2);?> ฿</span></li>
 							<li>Total<span><?php echo number_format($total+$vat,2);?> ฿</span></li>
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
