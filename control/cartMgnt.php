@@ -29,6 +29,11 @@ if ($session_set) {
         }
         echo "<script> document.location.href=\"../cart.php\";</script>";
     }
+}else{
+    echo "<script language=\"JavaScript\">";
+    echo "alert('Please Login!!')";
+    echo "</script>";
+    echo "<script> document.location.href=\"../login.php\";</script>";
 }
 echo "<script> document.location.href=\"../404.php\";</script>";
 ?>
