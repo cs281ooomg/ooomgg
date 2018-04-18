@@ -162,10 +162,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         foreach ($cart->getItems() as $product) {
                             $vat+= $product->getPPrice()*7/100;
                         ?>
-							<li><?php echo $product->getPName().' x '.$product->getPQuantity(); ?><span><?php echo $product->getPPrice()*$product->getPQuantity(); ?> ฿</span></li>	
+							<li><?php echo $product->getPName().' x '.$product->getPQuantity(); ?><span><?php echo number_format($product->getPPrice()*$product->getPQuantity(),2); ?> ฿</span></li>	
 						<?php } }?>
 							<li>Total Service Charges<span><?php echo $vat;?> ฿</span></li>
-							<li>Total<span><?php echo $total+$vat;?> ฿</span></li>
+							<li>Total<span><?php echo number_format($total+$vat,2);?> ฿</span></li>
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>
