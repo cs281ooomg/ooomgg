@@ -256,7 +256,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="single_page">
 								<h6><?php echo $product->getPName()?></h6>
 								<p><?php echo $product->getPDescription()?></p>
-								<p class="para"><?php echo $product->getPDescription()?></p>
 							</div>
 						</div>
 					</div>
