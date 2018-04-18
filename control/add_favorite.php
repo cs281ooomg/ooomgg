@@ -8,21 +8,14 @@ if ($_GET["pro_id"]) {
      }
     if ($session_set) {
         require 'classes/config/config.php';
-        
+           
         $pro_id = $_GET["pro_id"];
         $acc_id = $_SESSION['ACC']->getID();
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql1 = "SELECT * FROM FAVORITE  WHERE ACC_ID ='".$acc_id."' AND PRO_INDEX ='".$pro_id."'";
-        $query = $conn->query($sql1);
-        $result = $query->fetch_assoc();
-        if ($result) {
-            $sql = "DELETE FROM FAVORITE WHERE ACC_ID='" . $acc_id . "' AND '" . $pro_id . "' ";
-            $query = $conn->query($sql);
-            echo "alert('delete wishlist')";
+        
+        if (Account::checkFavorite($pro_id, $acc_id)) {
+            Account::removeFavorite($acc_id, $pro_id)  ;
         } else {
-            $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
-            $query = $conn->query($sql);
-            echo "alert('wished')";
+            Account::addFavorite($acc_id, $pro_id);    
         }
         header("location:../product_detail.php?pro_id=$pro_id");
        // echo "<script> document.location.href=\"../product.php\";</script>";
