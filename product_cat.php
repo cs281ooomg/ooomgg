@@ -151,12 +151,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<!-- product-sec1 -->
 					<div class="product-sec1">
 						<!--/mens-->			
-					<?php $productArr = Product::getProduct($pag); foreach ($productArr as $product) {?>		
-						<div class="col-md-4 product-men">
+				  <?php
+						$i = 0;
+						$mode = false;
+						$productArr = Product::getProduct($pag); 
+						foreach ($productArr as $product) {
+						if($i%3===0){
+						    $mode = !$mode;
+						}
+						if($mode){
+						    echo '<div class="col-md-4 product-men">';
+						}else{
+                            echo '<div class="col-md-4 product-men women_two">';
+						}
+						$i++;
+				  ?>
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="width: 300px;height: 300px;overflow: hidden;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>

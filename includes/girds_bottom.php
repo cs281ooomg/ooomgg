@@ -13,7 +13,7 @@
 						2. Ensure that the guitar is comfortable and easy to play.<br/>
 						3. Select a guitar that fits your style.<br/>
 						4. Know the difference between laminate and solid-topped guitars.<br/>
-						5. Check the construction up and down the guitar to ensure a well-built guitar.<br/>
+						5. Check the construction up and down the guitar to ensure a well-built guitar.
 						</p>
 				<div class="shop-button">
 					<a href="product.php">Shop Now</a>

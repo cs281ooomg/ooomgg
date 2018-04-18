@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="side-bar col-md-3">
 				<div class="search-hotel">
 					<h3 class="agileits-sear-head">Search Here..</h3>
-					<form action="product_cat.php?=<?php echo ?>php" method="post">
+					<form action="product_cat.php" method="post">
 						<input type="search" placeholder="Product name..." name="search"
 							required=""> <input type="submit" value=" ">
 							
@@ -139,18 +139,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<!--/mens-->
 						<?php
 						$i = 0;
+						$mode = false;
 						foreach ($productArr as $product) {
-						if($i < 3){ 
-							$i++;
+						if($i%3===0){
+						    $mode = !$mode;
+						}
+						if($mode){
+						    echo '<div class="col-md-4 product-men">';
+						}else{
+                            echo '<div class="col-md-4 product-men women_two">';
+						}
+						$i++;
 						?>
-							<div class="col-md-4 product-men">	
-				  <?php } else { $i = 0; ?>
-							<div class="col-md-4 product-men women_two">
-				  <?php } ?>
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="max-width:480px;">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="width: 300px;height: 300px;overflow: hidden;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
