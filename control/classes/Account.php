@@ -191,8 +191,8 @@ class Account
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) { // update
-            $quantity += $result['QUANTITY'];
-            $sql = "UPDATE CART SET QUANTITY = '" . $product->getPQuantity() . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
+            $quantity = $product->getPQuantity() + $result['QUANTITY'];
+            $sql = "UPDATE CART SET QUANTITY = '" . $quantity . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
             $query = $conn->query($sql);
             $conn->close();
             return $query;
