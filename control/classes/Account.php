@@ -123,7 +123,7 @@ class Account
         exit();
     }
 
-    public static function addFavorite($cpro_id, $cacc_id)
+    public static function checkFavorite($cpro_id, $cacc_id)
     {
         require 'config/config.php';
         $pro_id = $cpro_id;
@@ -215,6 +215,22 @@ class Account
             return TRUE;
         }
         return FALSE;
+    }
+    public static function removeFavorite($acc_id,$pro_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$acc_id."' AND '".$pro_id."' ";
+        $query = $conn->query($sql);
+        echo "alert('delete wishlist')";
+    }
+    public static function addFavorite($acc_id,$pro_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
+        $query = $conn->query($sql);
+        echo "alert('wished')";
     }
 }
 ?>
