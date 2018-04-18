@@ -53,7 +53,7 @@
 				</div>
 			</li>
 		</ul-->
-<?php if($session_set){ ?>
+<?php if(!$session_set){ ?>
 		<button class="top_shoe_cart" onclick="window.location.href='login.php'">
 			<i class="glyphicon glyphicon-user" aria-hidden="true"></i>
 		</button>
