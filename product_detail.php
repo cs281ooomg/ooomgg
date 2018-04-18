@@ -49,6 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" type="text/css" href="css/checkout.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom-ooomg.css" rel="stylesheet" type="text/css" media="all" />
 <!-- font-awesome-icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -140,23 +141,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<form action="control/add_to_cart.php" method="post">					
-							<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
-							<input type="hidden" name="amount" value="1"> 
-							<input type="submit" name="submit" value="Add to cart" class="button add"> 
-							<a href="control/add_favorite.php?pro_id=<?php echo $product->getPId();?>" class="button add fav"> 
-								<?php if(!$session_set){?>
-								<span class="glyphicon glyphicon-heart-empty"></span>
-								<?php }else {
-								if (Account::checkFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
-								<span class="glyphicon glyphicon-heart"></span>
-								<?php      } 
-								      else {?>
-								<span class="glyphicon glyphicon-heart-empty"></span>
-								<?php      }?>
-								<?php }?>
-							</a>
-						</form>
+						<button class="button_add_to_cart" onclick="location.href='control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+							Add to cart
+						</button>
+						<a href="control/add_favorite.php?pro_id=<?php echo $product->getPId();?>" class="button add fav"> 
+							<?php if(!$session_set){?>
+							<span class="glyphicon glyphicon-heart-empty"></span>
+							<?php }else {
+							if (Account::checkFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
+							<span class="glyphicon glyphicon-heart"></span>
+							<?php      } 
+							      else {?>
+							<span class="glyphicon glyphicon-heart-empty"></span>
+							<?php      }?>
+							<?php }?>
+						</a>
 					</div>
 
 				</div>
@@ -300,13 +299,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 									<div class="shoe single-item hvr-outline-out">
-										<form action="control/add_to_cart.php" method="post">					
-											<input type="hidden" name="pro_id" value="<?php echo $product->getPId();?>"> 
-											<input type="hidden" name="amount" value="1"> 
-											<button type="submit" class="shoe-cart pshoe-cart">
-												<i class="fa fa-cart-plus" aria-hidden="true"></i>
-											</button>
-										</form>
+										<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+											<i class="fa fa-cart-plus" aria-hidden="true"></i>
+										</button>
 									</div>
 								</div>
 								<div class="clearfix"></div>

@@ -7,7 +7,7 @@ if (!$session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 } 
-$cart = Account::getMyCart($acc);
+$cart = $account->getMyCart();
 ?>
 <!--
 author: W3layouts
@@ -135,14 +135,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
 								<td class="invert">
 									<div class="rem">
-										<form action="control/remove_from_cart.php" method="post">
-										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
-										<button type="submit" >
-											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-										</button>
-										</form>
+										<a href="control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
 									</div>
-
 								</td>
 							</tr>
     							<?php
