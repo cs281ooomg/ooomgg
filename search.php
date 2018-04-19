@@ -1,7 +1,15 @@
 <?php
 require 'includes/autoload.php';
+if(!isset($_POST['search'])){
+    header('location:404.php');   
+    exit();
+}
 $name = $_POST['search'];
 $searchArr = Product::searchWord($name);
+if($searchArr === NULL){
+    header('location:404.php');
+    exit();
+}
 ?>
 <!--
 author: W3layouts
@@ -154,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="width: 300px;height: 300px;overflow: hidden;">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" class = "img-responsive" style="height: 250px;overflow: hidden;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
@@ -163,7 +171,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="item-info-product">
 										<h4>
-											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>">
+												<?php 
+												$str = $product->getPName();
+												if(strlen($str) <= 22){
+												    echo $str.'</br>&nbsp;';
+												}else{
+												    echo $str;
+												}
+												?>
+											</a>
 										</h4>
 										<div class="info-product-price">
 											<div class="grid_meta">
@@ -187,9 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php } ?>
 						<!-- //mens -->
 						<div class="clearfix"></div>
-
 					</div>
-
 					<!-- //product-sec1 -->
 					<div class="col-md-6 shop_left shp">
 						<img src="images/banner4.jpg" alt="">

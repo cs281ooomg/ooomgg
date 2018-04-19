@@ -181,7 +181,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>">
 												<?php 
 												$str = $product->getPName();
-												echo strlen($str);
 												if(strlen($str) <= 22){
 												    echo $str.'</br>&nbsp;';
 												}else{

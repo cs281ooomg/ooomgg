@@ -212,7 +212,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="single_page">
 								<h6><?php echo $product->getPName()?></h6>
 								<p><?php echo $product->getPDescription()?></p>
-								<p class="para"><?php echo $product->getPDescription()?></p>
 							</div>
 						</div>
 						<!--//tab_one-->
@@ -278,7 +277,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="product-shoe-info shoe">
 						<div class="men-pro-item">
 							<div class="men-thumb-item">
-								<img src="images/<?php echo $pro_fea->getPImages();?>" alt="">
+								<img src="images/<?php echo $pro_fea->getPImages();?>" alt="#" class = "img-responsive" style="height: 250px;overflow: hidden;">
 								<div class="men-cart-pro">
 									<div class="inner-men-cart-pro">
 										<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>" class="link-product-add-cart">Quick View</a>
@@ -287,7 +286,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="item-info-product">
 								<h4>
-									<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>"><?php echo $pro_fea->getPName(); ?></a>
+									<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>">
+										<?php 
+											$str = $product->getPName();
+											if(strlen($str) <= 22){
+											    echo $str.'</br>&nbsp;';
+											}else{
+											    echo $str;
+											}
+										?>
+									</a>
 								</h4>
 								<div class="info-product-price">
 									<div class="grid_meta">
