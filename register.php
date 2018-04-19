@@ -15,7 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-<title>Register</title>
+<title>OOOMG : Register</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"

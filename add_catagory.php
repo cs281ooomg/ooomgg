@@ -25,8 +25,7 @@ else if ($acc->getTYPE() == '1'){
 <html lang="th">
 
 <head>
-<title>Downy Shoes an Ecommerce Category Bootstrap Responsive Website
-	Template | Contact :: w3layouts</title>
+<title>OOOMG : Add Catagory</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"

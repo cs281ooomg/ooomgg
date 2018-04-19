@@ -1,6 +1,7 @@
 <?php
 require 'includes/autoload.php';
-$productArr = Product::getallProduct();
+$name = $_POST['search'];
+$searchArr = Product::searchWord($name);
 ?>
 <!--
 author: W3layouts
@@ -11,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<title>OOOMG : Product</title>
+<title>OOOMG : Search</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -139,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php
 						$i = 0;
 						$mode = false;
-						foreach ($productArr as $product) {
+						foreach ($searchArr as $product) {
 						if($i%3===0){
 						    $mode = !$mode;
 						}
@@ -153,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<div class="product-shoe-info shoe">
 								<div class="men-pro-item">
 									<div class="men-thumb-item">
-										<img src="images/<?php echo $product->getPImages();?>" alt="#" class = "img-responsive" style="height: 250px;overflow: hidden;">
+										<img src="images/<?php echo $product->getPImages();?>" alt="#" style="width: 300px;height: 300px;overflow: hidden;">
 										<div class="men-cart-pro">
 											<div class="inner-men-cart-pro">
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
@@ -162,17 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 									<div class="item-info-product">
 										<h4>
-											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>">
-												<?php 
-												$str = $product->getPName();
-												echo strlen($str);
-												if(strlen($str) <= 22){
-												    echo $str.'</br>&nbsp;';
-												}else{
-												    echo $str;
-												}
-												?>
-											</a>
+											<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><?php echo $product->getPName(); ?> </a>
 										</h4>
 										<div class="info-product-price">
 											<div class="grid_meta">
