@@ -14,11 +14,6 @@ if ($acc->getTYPE() == '0'){
     echo "<script> document.location.href=\"index.php\";</script>";
     exit();
 }
-else if ($acc->getTYPE() == '1'){
-    echo "<script language=\"JavaScript\">";
-    echo "alert('Hello Owner')";
-    echo "</script>";
-}
 
 ?>
 <!DOCTYPE html>

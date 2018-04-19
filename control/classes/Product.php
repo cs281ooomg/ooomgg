@@ -196,7 +196,7 @@ class Product
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new product successfully.')";
             echo "</script>";
-            echo "<script> document.location.href=\"../add_Product.php\";</script>";
+            echo "<script> document.location.href=\"../add_product.php\";</script>";
             exit();
         } else {
             echo "Error" . $sql . "<br>" . $conn->error;
@@ -228,7 +228,7 @@ class Product
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new catagory successfully.')";
             echo "</script>";
-            echo "<script> document.location.href=\"../add_Catagory.php\";</script>";
+            echo "<script> document.location.href=\"../add_catagory.php\";</script>";
             exit();
         } else {
             echo "Error" . $sql . "<br>" . $conn->error;
