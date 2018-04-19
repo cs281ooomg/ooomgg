@@ -1,6 +1,7 @@
 <?php
 require 'includes/autoload.php';
-$productArr = Product::getallProduct();
+$name = $_POST['search'];
+$searchArr = Product::searchWord($name);
 ?>
 <!--
 author: W3layouts
@@ -11,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<title>OOOMG : Product</title>
+<title>OOOMG : Search</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -139,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php
 						$i = 0;
 						$mode = false;
-						foreach ($productArr as $product) {
+						foreach ($searchArr as $product) {
 						if($i%3===0){
 						    $mode = !$mode;
 						}
