@@ -157,7 +157,7 @@ class Product
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM PRODUCT WHERE CAT_INDEX = '4' AND PRO_INDEX != '" . $product->getPID() . "';";
+        $sql = "SELECT * FROM PRODUCT WHERE (CAT_INDEX = '" . $product->getPType() . "' OR CAT_INDEX = '4') AND (PRO_INDEX != '" . $product->getPID() . "');";
         $query = $conn->query($sql);
         $resultArray = array();
         $i = 0;

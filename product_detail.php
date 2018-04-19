@@ -7,7 +7,6 @@ if (isset($productid)) {
     header("Location: 404.php");
 }
 $PID = (string)$productid;
-// $product = new Product('1', 'test', 'test.png', '500', 'sdsdsdsd', '5');
 ?>
 <!--
 author: W3layouts
@@ -268,10 +267,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<?php 
 				$count = 0;
 				foreach ($pro_fea_arr as $pro_fea) { 
-				    $count++;
-				    if($count === 4){
-				        break;
-				    }
+				    $count++;    
 				?>
 				<div class="col-md-3 product-men women_two">
 					<div class="product-shoe-info shoe">
@@ -316,7 +312,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				<?php } ?>
+				<?php 
+        				if($count === 4){
+        				    break;
+        				}
+				    } 
+				?>
 				<!-- //womens -->
 				<div class="clearfix"></div>
 			</div>
