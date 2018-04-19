@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     										class="img-responsive"></a></td>
     								<td class="invert"><?php echo $product->getPName();?></td>
     								
-    								<td class="invert"><?php echo $product->getPPrice();?>ß</td>
+    								<td class="invert"><?php echo $product->getPPrice();?>à¸¿</td>
     								<td class="invert">
     									<div class="rem">
     										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=remove"method="post">
