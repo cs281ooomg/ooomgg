@@ -95,57 +95,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         ?> 
 						Products
 					</h4>
-					<table class="timetable_sub">
-						<thead>
-							<tr>
-								<th>SL No.</th>
-								<th>Product</th>
-								<th>Product Name</th>
-								<th>Quantity</th>
-								<th>Price</th>
-								<th>Remove</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-                            $total = 0;
-                            if ($cart != NULL) {
-                                 $i = 1;
-                                 foreach ($cart->getItems() as $product) {
-                                        $total += $product->getPPrice() * $product->getPQuantity();
-                                 ?>
-    							<tr class="rem<?php echo $i;?>">
-								<td class="invert"><?php echo $product->getPId();?></td>
-								<td class="invert-image"><a
-									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
-										src="images/<?php echo $product->getPImages();?>" alt=" "
-										class="img-responsive"></a></td>
-								<td class="invert"><?php echo $product->getPName();?></td>
-								<td class="invert">
-									<div class="quantity">
-										<div class="quantity-select">
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value">
-												<span><?php echo $product->getPQuantity();?></span>
-											</div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</td>
-								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
-								<td class="invert">
-									<div class="rem">
-										<a href="control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
-									</div>
-								</td>
-							</tr>
+					<div class="table-responsive">
+    					<table class="timetable_sub">
+    						<thead>
+    							<tr>
+    								<th>SL No.</th>
+    								<th>Product</th>
+    								<th>Product Name</th>
+    								<th>Quantity</th>
+    								<th>Price</th>
+    								<th>Remove</th>
+    							</tr>
+    						</thead>
+    						<tbody>
     							<?php
-                                $i ++;
+                                $total = 0;
+                                if ($cart != NULL) {
+                                     $i = 1;
+                                     foreach ($cart->getItems() as $product) {
+                                            $total += $product->getPPrice() * $product->getPQuantity();
+                                     ?>
+        							<tr class="rem<?php echo $i;?>">
+    								<td class="invert"><?php echo $product->getPId();?></td>
+    								<td class="invert-image"><a
+    									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
+    										src="images/<?php echo $product->getPImages();?>" alt=" "
+    										class="img-responsive"></a></td>
+    								<td class="invert"><?php echo $product->getPName();?></td>
+    								<td class="invert">
+    									<div class="quantity">
+    										<div class="quantity-select">
+    											<div class="entry value-minus">&nbsp;</div>
+    											<div class="entry value">
+    												<span><?php echo $product->getPQuantity();?></span>
+    											</div>
+    											<div class="entry value-plus active">&nbsp;</div>
+    										</div>
+    									</div>
+    								</td>
+    								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
+    								<td class="invert">
+    									<div class="rem">
+    										<a href="control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+    									</div>
+    								</td>
+    							</tr>
+        							<?php
+                                    $i ++;
+                                    }
                                 }
-                            }
-                            ?>
-						</tbody>
-					</table>
+                                ?>
+    						</tbody>
+    					</table>
+					</div>
 				</div>
 				<div class="checkout-left">
 					<div class="col-md-4 checkout-left-basket">

@@ -87,55 +87,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h4>
 						Products
 					</h4>
-					<table class="timetable_sub">
-						<thead>
-							<tr>
-								<th>SL No.</th>
-								<th>Product</th>
-								<th>Product Name</th>
-								<th>Price</th>
-								<th>Remove</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-                            $total = 0;
-                            if ($favorite != NULL) {
-                                 $i = 1;
-                                 foreach ($favorite as $product) {
-                                        $total += $product->getPPrice() * $product->getPQuantity();
-                                 ?>
-    							<tr class="rem<?php echo $i;?>">
-								<td class="invert"><?php echo $product->getPId();?></td>
-								<td class="invert-image"><a
-									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
-										src="images/<?php echo $product->getPImages();?>" alt=" "
-										class="img-responsive"></a></td>
-								<td class="invert"><?php echo $product->getPName();?></td>
-								
-								<td class="invert"><?php echo $product->getPPrice();?>ß</td>
-								<td class="invert">
-									<div class="rem">
-										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=remove"method="post">
-										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
-										
-										<button type="submit" >
-											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-										</button>
-										</form>
-									</div>
-
-								</td>
-							</tr>
+					<div class="table-responsive">
+    					<table class="timetable_sub">
+    						<thead>
+    							<tr>
+    								<th>SL No.</th>
+    								<th>Product</th>
+    								<th>Product Name</th>
+    								<th>Price</th>
+    								<th>Remove</th>
+    							</tr>
+    						</thead>
+    						<tbody>
     							<?php
-                                $i ++;
+                                $total = 0;
+                                if ($favorite != NULL) {
+                                     $i = 1;
+                                     foreach ($favorite as $product) {
+                                            $total += $product->getPPrice() * $product->getPQuantity();
+                                     ?>
+        							<tr class="rem<?php echo $i;?>">
+    								<td class="invert"><?php echo $product->getPId();?></td>
+    								<td class="invert-image"><a
+    									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
+    										src="images/<?php echo $product->getPImages();?>" alt=" "
+    										class="img-responsive"></a></td>
+    								<td class="invert"><?php echo $product->getPName();?></td>
+    								
+    								<td class="invert"><?php echo $product->getPPrice();?>ß</td>
+    								<td class="invert">
+    									<div class="rem">
+    										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=remove"method="post">
+    										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
+    										
+    										<button type="submit" >
+    											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+    										</button>
+    										</form>
+    									</div>
+    
+    								</td>
+    							</tr>
+        							<?php
+                                    $i ++;
+                                    }
                                 }
-                            }
-                            ?>
-						</tbody>
-					</table>
+                                ?>
+    						</tbody>
+    					</table>
+    				</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>
