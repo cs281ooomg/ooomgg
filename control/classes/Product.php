@@ -124,6 +124,7 @@ class Product
             $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_images"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], 0);
             $resultArray[] = $product;
         }
+        shuffle($resultArray);
         return $resultArray;
     }
 
