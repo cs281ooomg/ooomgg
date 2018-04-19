@@ -6,8 +6,8 @@
 		</ul>
 	</div>
 	<div id="cd-search" class="cd-search">
-		<form action="404.php" method="post">
-			<input name="Search" type="search"
+		<form action="search.php" method="post">
+			<input name="search" type="search"
 				placeholder="Click enter after typing...">
 		</form>
 	</div>
