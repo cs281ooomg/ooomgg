@@ -2,9 +2,9 @@
 
 class Account
 {
-
+    
     private $id, $pass, $type, $email, $fname, $lname, $gender, $tel;
-
+    
     public function __construct($id, $pass, $type, $email, $fname, $lname, $gender, $tel)
     {
         $this->id = $id;
@@ -16,87 +16,87 @@ class Account
         $this->gender = $gender;
         $this->tel = $tel;
     }
-
+    
     public function getID()
     {
         return $this->id;
     }
-
+    
     public function getPASS()
     {
         return $this->pass;
     }
-
+    
     public function getTYPE()
     {
         return $this->type;
     }
-
+    
     public function getEMAIL()
     {
         return $this->email;
     }
-
+    
     public function getFNAME()
     {
         return $this->fname;
     }
-
+    
     public function getLNAME()
     {
         return $this->lname;
     }
-
+    
     public function getGENDER()
     {
         return $this->genger;
     }
-
+    
     public function getTEL()
     {
         return $this->tel;
     }
-
+    
     public function setID($id)
     {
         $this->id = id;
     }
-
+    
     public function setPASS($pass)
     {
         $this->pass = pass;
     }
-
+    
     public function setTYPE($type)
     {
         $this->TYPE = type;
     }
-
+    
     public function setEMAIL($email)
     {
         $this->email = email;
     }
-
+    
     public function setFNAME($fname)
     {
         $this->fname = fname;
     }
-
+    
     public function setLNAME($lname)
     {
         $this->lname = lname;
     }
-
+    
     public function setGENDER($gender)
     {
         $this->gender = gender;
     }
-
+    
     public function setTEL($tel)
     {
         $this->tel = tel;
     }
-
+    
     public static function loginAuth($acc_id, $acc_pass)
     {
         require 'config/config.php';
@@ -114,7 +114,7 @@ class Account
         $conn->close();
         return null;
     }
-
+    
     public static function logout()
     {
         session_start();
@@ -122,14 +122,14 @@ class Account
         header("location:../index.php");
         exit();
     }
-
-    public static function checkFavorite($cpro_id, $cacc_id)
+    
+    public function checkFavorite($cpro_id)
     {
         require 'config/config.php';
         $pro_id = $cpro_id;
-        $acc_id = $cacc_id;
+        
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='" . $pro_id . "' AND ACC_ID ='" . $acc_id . "'  ";
+        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='" .$pro_id. "' AND ACC_ID ='" .$this->getID(). "'  ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
@@ -137,7 +137,7 @@ class Account
         }
         return FALSE;
     }
-
+    
     public static function registerAuth($accid)
     {
         require 'config/config.php';
@@ -150,7 +150,7 @@ class Account
         }
         return true;
     }
-
+    
     public static function createAcc($userinput, $passinput, $fname, $lname, $email, $phonenumber, $gender)
     {
         require 'config/config.php';
@@ -160,7 +160,7 @@ class Account
         $query = $conn->query($sql);
         return $query;
     }
-
+    
     public function getMyCart()
     {
         require 'config/config.php';
@@ -182,7 +182,7 @@ class Account
         $cart = new Cart($result['CART_INDEX'], $resultArray);
         return $cart;
     }
-
+    
     public function addToMyCart($product)
     {
         require 'config/config.php';
@@ -203,7 +203,7 @@ class Account
             return $query;
         }
     }
-
+    
     public function removeFromMyCart($product)
     {
         require 'config/config.php';
@@ -216,21 +216,33 @@ class Account
         }
         return FALSE;
     }
-    public static function removeFavorite($acc_id,$pro_id)
+    public function removeFavorite($pro_id)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$acc_id."' AND '".$pro_id."' ";
+        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$this->getID()."' AND '".$pro_id."' ";
         $query = $conn->query($sql);
         echo "alert('delete wishlist')";
     }
-    public static function addFavorite($acc_id,$pro_id)
+    public function addFavorite($pro_id)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
+        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $this->getID(). "','" . $pro_id . "')";
         $query = $conn->query($sql);
         echo "alert('wished')";
+    }
+    public function getFavoriteProduct()
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$this->getID()  . "'";
+        $query = $conn->query($sql);
+        $proArr= array();
+        while ($result = $query->fetch_array()) {
+            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);
+        }
+        return $proArr;
     }
 }
 ?>

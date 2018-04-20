@@ -1,33 +1,26 @@
 <?php
-require 'classes/Account.php';
+require 'autoload.php';
 if ($_GET["pro_id"]) {
-    session_start();
-    $session_set = false;
-     if (isset($_SESSION['ACC'])) {
-         $session_set = true;
-     }
     $mode = $_GET['mode'];
     if ($session_set) {
-        require 'classes/config/config.php';
         $pro_id = $_GET["pro_id"];
-        $acc_id = $_SESSION['ACC']->getID();
         if($mode==='remove')
         {
-            Account::removeFavorite($acc_id, $pro_id);
+            $account->removeFavorite($pro_id);
             header("Location:../productFavorite.php");
         }
         else if($mode==='add')
         {
-            if (Account::checkFavorite($pro_id, $acc_id)) {
-                Account::removeFavorite($acc_id, $pro_id);
+            if ($account->checkFavorite($pro_id)) {
+                $account->removeFavorite($pro_id);
             } else {
-                Account::addFavorite($acc_id, $pro_id);    
+                $account->addFavorite($pro_id);
             }
-                header("location:../product_detail.php?pro_id=$pro_id");
-        // echo "<script> document.location.href=\"../product.php\";</script>";
-            }
+            header("location:../product_detail.php?pro_id=$pro_id");
+            // echo "<script> document.location.href=\"../product.php\";</script>";
+        }
         
-    }else 
+    }else
     {
         header("Location:../login.php");
     }

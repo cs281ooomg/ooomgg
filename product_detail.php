@@ -2,7 +2,7 @@
 require 'includes/autoload.php';
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
-        $product = Product::ShowProductDetail($productid);
+    $product = Product::ShowProductDetail($productid);
 } else {
     header("Location: 404.php");
 }
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<?php if(!$session_set){?>
 							<span class="glyphicon glyphicon-heart-empty"></span>
 							<?php }else {
-							if (Account::checkFavorite($_GET['pro_id'],$_SESSION['ACC']->getID())){?>
+							if ($account->checkFavorite($_GET['pro_id'])){?>
 							<span class="glyphicon glyphicon-heart"></span>
 							<?php      } 
 							      else {?>
