@@ -19,7 +19,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-<title>OOOMG : Favorite</title>
+<title>OOOMG : Cart</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -82,9 +82,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="shop_inner_inf">
 			<div class="privacy about">
 				<h3>Favorite</h3>
-
-				<div class="checkout-right">
-					<h4>
 						Products
 					</h4>
 					<div class="table-responsive">
@@ -94,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     								<th>SL No.</th>
     								<th>Product</th>
     								<th>Product Name</th>
+    							
     								<th>Price</th>
     								<th>Remove</th>
     							</tr>
@@ -104,7 +102,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 if ($favorite != NULL) {
                                      $i = 1;
                                      foreach ($favorite as $product) {
-                                            $total += $product->getPPrice() * $product->getPQuantity();
                                      ?>
         							<tr class="rem<?php echo $i;?>">
     								<td class="invert"><?php echo $product->getPId();?></td>
@@ -113,19 +110,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     										src="images/<?php echo $product->getPImages();?>" alt=" "
     										class="img-responsive"></a></td>
     								<td class="invert"><?php echo $product->getPName();?></td>
-    								
-    								<td class="invert"><?php echo $product->getPPrice();?>฿</td>
+    						
+    								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
     								<td class="invert">
     									<div class="rem">
-    										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=2"method="post">
-    										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
-    										
-    										<button type="submit" >
-    											<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
-    										</button>
-    										</form>
+    										<a href="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=2"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
     									</div>
-    
     								</td>
     							</tr>
         							<?php
@@ -135,7 +125,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 ?>
     						</tbody>
     					</table>
-    				</div>
+					</div>
+				</div>
+			
 				</div>
 			</div>
 		</div>

@@ -7,18 +7,22 @@ if ($_GET["pro_id"] && $_GET["mode"]) {
     $pro_id = $_GET["pro_id"];
     $mode = $_GET["mode"];
     if($acc->checkFavorite($pro_id)) {
-        $acc->removeFavorite($pro_id);
+        if($acc->removeFavorite($pro_id)){
+            echo "<script>alert('Remove wishlist complete')</script>";
+        }else{
+            echo "<script>alert('Remove wishlist fail')</script>";
+        }
     } else {
         if($acc->addFavorite($pro_id)){
-            echo "alert('add to wishlist complete')";
+            echo "<script>alert('add to wishlist complete')</script>";
         }else{
-            echo "alert('add to wishlist fail')";
+            echo "<script>alert('add to wishlist fail')</script>";
         }
     }
-    if($mode === '1'){
-        header("location:../product_detail.php?pro_id=$pro_id");
+    if($mode === '2'){
+        echo "<script> document.location.href=\"../productFavorite.php\";</script>";
     }else{
-        header("location:../productFavorite.php");
+        echo "<script> document.location.href=\"../product_detail.php?pro_id=$pro_id\";</script>";
     }
 }else{
     header("Location:../404.php");

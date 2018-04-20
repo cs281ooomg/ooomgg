@@ -150,7 +150,7 @@ class Account
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID(). "' ";
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID() . "' ";
         $query = $conn->query($sql);
         $conn->close();
         $resultArray = array();
@@ -201,49 +201,51 @@ class Account
         }
         return FALSE;
     }
-    
-    public function checkFavorite($cpro_id)
+
+    public function checkFavorite($pro_id)
     {
         require 'config/config.php';
-        $pro_id = $cpro_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM FAVORITE WHERE PRO_INDEX ='" . $pro_id . "' AND ACC_ID ='" . $this->getID() . "'  ";
+        $sql = "SELECT * FROM FAVORITE WHERE ACC_ID='" . $this->getID() . "' AND PRO_INDEX = '" . $pro_id . "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
-        if ($result) {
-            return TRUE;
+        if($result){
+            return true;
         }
-        return FALSE;
+        return false;
     }
+    
     
     public function removeFavorite($pro_id)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$this->getID()."' AND PRO_INDEX = '".$pro_id."'";
+        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='" . $this->getID() . "' AND PRO_INDEX = '" . $pro_id . "'";
         $query = $conn->query($sql);
         return $query;
     }
+
     public function addFavorite($pro_id)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" .$this->getID()."','" . $pro_id . "')";
+        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $this->getID() . "','" . $pro_id . "')";
         $query = $conn->query($sql);
         return $query;
     }
-    
+
     public function getFavoriteProduct()
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$this->getID(). "'";
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='" . $this->getID() . "'";
         $query = $conn->query($sql);
-        $proArr= array();
+        $proArr = array();
         while ($result = $query->fetch_array()) {
-            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);
+            $proArr[] = Product::ShowProductDetail($result['PRO_INDEX']);
         }
         return $proArr;
     }
+
 }
 ?>

@@ -240,7 +240,7 @@ class Product
         }
         $conn->close();
     }
-
+    
     public static function sendEmailNoti($topic, $massage)
     {
         require 'config/config.php';

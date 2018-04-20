@@ -2,7 +2,7 @@
 require 'includes/autoload.php';
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
-        $product = Product::ShowProductDetail($productid);
+    $product = Product::ShowProductDetail($productid);
 } else {
     header("Location: 404.php");
 }
