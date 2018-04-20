@@ -82,7 +82,7 @@
 							<div class="address-right">
 								<h6>Email Address</h6>
 								<p>
-									Email :<a href="mailto:example@email.com"> mail@example.com</a>
+									Email :<a href="mailto:cs284cstu@gmail.com"> cs284cstu@gmail.com</a>
 								</p>
 							</div>
 							<div class="clearfix"></div>
