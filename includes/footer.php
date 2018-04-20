@@ -9,8 +9,7 @@
 				</h1>
 			</div>
 			<br> <br> <br>
-			<p>Lorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed
-				quia non numquam eius modi tempora.</p>
+			<p>Music is the greatest communication in the world. Even if people don't understand the language that you're singing in, they still know good music when they hear it.</p>
 			<ul class="social-nav model-3d-0 footer-social social two">
 				<li><a href="#" class="facebook">
 						<div class="front">
@@ -102,7 +101,7 @@
 				</div>
 				<div class="col-md-3 sign-gd flickr-post">
 					<h4>
-						Flickr <span>Posts</span>
+						My <span>Team</span>
 					</h4>
 					<ul>
 						<li><a href="single.html"><img src="images/t1.jpg" alt=" "
