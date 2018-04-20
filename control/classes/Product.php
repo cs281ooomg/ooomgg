@@ -200,7 +200,11 @@ class Product
             echo "<script> document.location.href=\"../add_product.php\";</script>";
             exit();
         } else {
-            echo "Error" . $sql . "<br>" . $conn->error;
+            echo "<script language=\"JavaScript\">";
+            echo "alert('Fail to add product.')";
+            echo "</script>";
+            echo "<script> document.location.href=\"../add_product.php\";</script>";
+            exit();
         }
         
         $conn->close();
