@@ -241,19 +241,6 @@ class Product
         $conn->close();
     }
 
-    public static function getFavoriteProduct($acc)
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$acc->getID()  . "'";
-        $query = $conn->query($sql);
-        $proArr= array();
-        while ($result = $query->fetch_array()) {
-            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);  
-        }
-        return $proArr;
-    }
-
     public static function sendEmailNoti($topic, $massage)
     {
         require 'config/config.php';

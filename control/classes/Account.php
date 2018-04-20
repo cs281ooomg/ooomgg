@@ -123,21 +123,6 @@ class Account
         exit();
     }
 
-    public static function checkFavorite($cpro_id, $cacc_id)
-    {
-        require 'config/config.php';
-        $pro_id = $cpro_id;
-        $acc_id = $cacc_id;
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM FAVORITE  WHERE PRO_INDEX ='" . $pro_id . "' AND ACC_ID ='" . $acc_id . "'  ";
-        $query = $conn->query($sql);
-        $result = $query->fetch_assoc();
-        if ($result) {
-            return TRUE;
-        }
-        return FALSE;
-    }
-
     public static function registerAuth($accid)
     {
         require 'config/config.php';
@@ -216,21 +201,49 @@ class Account
         }
         return FALSE;
     }
-    public static function removeFavorite($acc_id,$pro_id)
+    
+    public function checkFavorite($cpro_id)
     {
         require 'config/config.php';
+        $pro_id = $cpro_id;
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$acc_id."' AND '".$pro_id."' ";
+        $sql = "SELECT * FROM FAVORITE WHERE PRO_INDEX ='" . $pro_id . "' AND ACC_ID ='" . $this->getID() . "'  ";
         $query = $conn->query($sql);
-        echo "alert('delete wishlist')";
+        $result = $query->fetch_assoc();
+        if ($result) {
+            return TRUE;
+        }
+        return FALSE;
     }
-    public static function addFavorite($acc_id,$pro_id)
+    
+    public function removeFavorite($pro_id)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" . $acc_id . "','" . $pro_id . "')";
+        $sql = "DELETE FROM FAVORITE WHERE ACC_ID='".$this->getID()."' AND PRO_INDEX = '".$pro_id."'";
         $query = $conn->query($sql);
-        echo "alert('wished')";
+        return $query;
+    }
+    public function addFavorite($pro_id)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "INSERT INTO FAVORITE (ACC_ID,PRO_INDEX) VALUES ('" .$this->getID()."','" . $pro_id . "')";
+        $query = $conn->query($sql);
+        return $query;
+    }
+    
+    public function getFavoriteProduct()
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT PRO_INDEX FROM FAVORITE WHERE ACC_ID ='".$this->getID(). "'";
+        $query = $conn->query($sql);
+        $proArr= array();
+        while ($result = $query->fetch_array()) {
+            $proArr [] = Product::ShowProductDetail($result['PRO_INDEX']);
+        }
+        return $proArr;
     }
 }
 ?>

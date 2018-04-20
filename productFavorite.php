@@ -7,7 +7,7 @@ if (!$session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$favorite = Product::getFavoriteProduct($acc);
+$favorite = $acc->getFavoriteProduct();
 ?>
 <!--
 author: W3layouts
@@ -117,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     								<td class="invert"><?php echo $product->getPPrice();?>฿</td>
     								<td class="invert">
     									<div class="rem">
-    										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=remove"method="post">
+    										<form action="control/add_favorite.php?pro_id=<?php echo $product->getPId()?>&mode=2"method="post">
     										<input type="hidden" name="pro_id" value="<?php echo $product->getPId(); ?>">
     										
     										<button type="submit" >
