@@ -1,7 +1,7 @@
 <?php
 function __autoload($class_name) {
-    if(file_exists('control/classes/'.$class_name . '.php')) {
-        require_once('control/classes/'.$class_name . '.php');
+    if(file_exists('system/classes/'.$class_name . '.php')) {
+        require_once('system/classes/'.$class_name . '.php');
     } else {
         throw new Exception("Unable to load $class_name.");
     }
