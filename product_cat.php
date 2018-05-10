@@ -197,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+												<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
 													<i class="fa fa-cart-plus" aria-hidden="true"></i>
 												</button>
 											</div>

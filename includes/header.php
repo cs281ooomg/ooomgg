@@ -30,7 +30,7 @@
 					<div class="col-md-12">
 						<p>LOGIN</p>
 						<form class="form" role="form" method="post"
-							action="control/login_auth.php" accept-charset="UTF-8"
+							action="system/login_auth.php" accept-charset="UTF-8"
 							id="login-nav">
 							<div class="form-group">
 								<label class="sr-only" for="usernameIn">Username</label> <input

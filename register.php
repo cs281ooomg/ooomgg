@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-8 col-md-offset-2 register_grid_right">
 					<h6>Please fill this form to join with us.</h6>
-					<form action="control/register_auth.php" method="post">
+					<form action="system/register_auth.php" method="post">
 						<div class="col-md-6 col-sm-6 register_left_grid">
 							<input type="text" name="accid" placeholder="Username" required=""> 
 							<input type="password" name="accpass" placeholder="Password" required="">

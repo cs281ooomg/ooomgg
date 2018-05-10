@@ -86,7 +86,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>fill catagory you want to add.</h6>
-					<form action="control/add_catagory.php" method="post" enctype="multipart/form-data">
+					<form action="system/add_catagory.php" method="post" enctype="multipart/form-data">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="cname" placeholder="Catagory Name">				
 						</div>

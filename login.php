@@ -78,7 +78,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="inner_section_w3ls">
 				<div class="col-md-8 col-md-offset-4 login_grid_right">
 					<h6>Please login to continue.</h6>
-					<form action="control/login_auth.php" method="post">
+					<form action="system/login_auth.php" method="post">
 						<div class="col-md-6 col-sm-6 contact">
 							<input type="text" name="username" placeholder="Username" required=""> 
 							<input type="password" name="password" placeholder="Password" required="">

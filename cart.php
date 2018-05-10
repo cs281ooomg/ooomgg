@@ -136,7 +136,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
     								<td class="invert">
     									<div class="rem">
-    										<a href="control/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+    										<a href="system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
     									</div>
     								</td>
     							</tr>
