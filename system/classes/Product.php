@@ -3,9 +3,9 @@
 class Product
 {
 
-    private $pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity;
+    private $pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity,$pPromotions;
 
-    public function __construct($pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity)
+    public function __construct($pId, $pName, $pImages, $pPrice, $pDescription, $pType, $pQuantity,$pPromotions)
     {
         $this->pId = $pId;
         $this->pName = $pName;
@@ -14,6 +14,17 @@ class Product
         $this->pDescription = $pDescription;
         $this->pType = $pType;
         $this->pQuantity = $pQuantity;
+        $this->pPromotions = $pPromotions;
+    }
+
+    public function getPPromotions()
+    {
+        return $this->pPromotions;
+    }
+
+    public function setPPromotions($pPromotions)
+    {
+        $this->pPromotions = $pPromotions;
     }
 
     public function getPId()
