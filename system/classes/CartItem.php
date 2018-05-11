@@ -28,8 +28,7 @@ class CartItem
     {
         $this->quantity = $quantity;
     }
-
-    
-    
+       
 }
+?>
 

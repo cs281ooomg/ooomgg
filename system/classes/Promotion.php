@@ -38,4 +38,4 @@ class Promotion
         $this->date = $date;
     }
 }
-
+?>

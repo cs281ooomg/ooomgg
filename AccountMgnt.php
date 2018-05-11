@@ -1,9 +1,8 @@
 <?php
-class Payment
+class AccountMgnt
 {
+
     public function __construct()
-    {
-        
-    }
+    {}
 }
 ?>

@@ -34,4 +34,4 @@ class CartMgnt
         return $cart->getItems();
     }
 }
-
+?>
