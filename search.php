@@ -5,7 +5,7 @@ if(!isset($_POST['search'])){
     exit();
 }
 $name = $_POST['search'];
-$searchArr = Product::searchWord($name);
+$searchArr = ProductMgnt::search($name);
 if($searchArr === NULL){
     header('location:404.php');
     exit();
@@ -114,10 +114,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="glyphicon glyphicon-menu-right"> <b>All</b> </span>
 						</a></li>
-						<?php 	$cataArr = Product::getallCatagory();?>
+						<?php 	$cataArr = CategoryMgnt::getAllCategory();?>
 						<?php foreach ($cataArr as $cata) {?>
 						<li>
-    						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
+    						<a href="product_cat.php?id=<?php echo $cata->getCType();?>"> 
         						<span class="span glyphicon glyphicon-menu-down"> 
         							<?php echo $cata->getcName();?>
         						</span>
