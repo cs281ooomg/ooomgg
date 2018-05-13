@@ -31,7 +31,7 @@ class AddressMgnt
         $query = $conn->query($sql);
         $addArr = array();
         while ($result = $query->fetch_array()) {
-            $addArr[] = 
+            $addArr[] = AddressMgnt::getAddress($result["add_index"]);
         }
         return $addArr;
     }
@@ -42,7 +42,7 @@ class AddressMgnt
         $sql = "SELECT * FROM ADDRESS WHERE ADD_INDEX ='" . $add_index . "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
-        $address = new Address($result[""]);
+        $address = new Address($result["ADD_INDEX"],$result["ADD_INFO"],$result["ADD_SUB_DISTRICT"],$result["ADD_PROVINCE"],$result["ADD_CODE"]);
         return $address;
     }
 }
