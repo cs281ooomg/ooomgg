@@ -1,11 +1,11 @@
 <?php
+
 class PromotionMgnt
 {
-    
-    public static function getExtraPromotion($price) {
-        
-    }
-    
+
+    public static function getExtraPromotion($price)
+    {}
+
     public static function sendEmailNoti($topic, $massage)
     {
         require 'config/config.php';
@@ -26,20 +26,39 @@ class PromotionMgnt
             $mail->Password = "0822808826";
             $mail->setFrom(' cs284cstu@gmail.com', 'OOOMG Promotion Notification');
             $email = $result["ACC_EMAIL"];
-            $name = $result["ACC_FNAME"]. ' ' .$result["ACC_LNAME"];
+            $name = $result["ACC_FNAME"] . ' ' . $result["ACC_LNAME"];
             $mail->addAddress($email, $name);
             $mail->Subject = $topic;
             $mail->CharSet = 'utf-8';
             $mail->msgHTML($massage);
-            if (!$mail->send()) {
+            if (! $mail->send()) {
                 return false;
             }
         }
         return true;
     }
+
+    public static function addNewPromotion($product, $promotion)
+    {}
     
-    public static function addNewPromotion($product,$promotion) {
-        
+    public static function getPromotionByProductID($pro_id) {
+        require 'config/config.php';
+        $todays_date = date("Y-m-d");
+        $today = strtotime($todays_date);
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM PROMOTION WHERE PRO_INDEX ='" . $pro_id . "' AND PROMO_DATE >= '".$today."'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) {
+            $promotion = new Promotion($result['PROMO_INDEX'], $result['PROMO_PERCENT'], $result['PROMO_DATE']);
+            return $promotion;
+        }
+        return NULL;
+    }
+    
+    public static function getNewPricePromotion($product){
+        $discountP = $product->getPPrice() * $product->getPPromotions()->getPercent()/100;
+        return $product->getPPrice()-$discountP;
     }
 }
 ?>

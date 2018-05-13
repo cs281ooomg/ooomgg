@@ -116,7 +116,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
 				<h3><?php echo $product->getPname();?></h3>
 				<p>
-					<span class="item_price"><?php echo $product->getPPrice();?> ฿</span>
+					<span class="item_price">	
+					<?php 
+					if($product->getPPromotions() != NULL){
+						$promotion = $product->getPPromotions();
+						echo PromotionMgnt::getNewPricePromotion($product).' ฿<del>'.$product->getPPrice().'</del>';
+					}else{
+						echo $product->getPPrice().' ฿';
+					}
+					?>
+					</span>
 				</p>
 				<div class="description">
 					<h5>Check delivery, payment options and charges at your location</h5>
@@ -278,10 +287,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>" class="link-product-add-cart">Quick View</a>
 									</div>
 								</div>
+								<?php 
+								if($pro_fea->getPPromotions() != NULL){
+								    $promotion = $pro_fea->getPPromotions();
+									echo '<span class="product-new-top">'.$promotion->getPercent().'%</span>';   
+								}
+								?>
 							</div>
 							<div class="item-info-product">
 								<h4>
-									<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>">
+									<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>">
 										<?php 
 										    $str = $pro_fea->getPName();
 											if(strlen($str) <= 24){
@@ -296,12 +311,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="grid_meta">
 										<div class="product_price">
 											<div class="grid-price ">
-												<span class="money "><?php echo $pro_fea->getPPrice();?></span>
+												<span class="money ">
+												<?php 
+												if($pro_fea->getPPromotions() != NULL){
+												    $promotion = $pro_fea->getPPromotions();
+												    echo PromotionMgnt::getNewPricePromotion($pro_fea).'&nbsp;&nbsp;&nbsp;฿<del>'.$pro_fea->getPPrice().'</del>';
+												}else{
+												    echo $pro_fea->getPPrice().'&nbsp;&nbsp;&nbsp;฿';
+												}
+												?>
+												</span>
 											</div>
 										</div>
 									</div>
 									<div class="shoe single-item hvr-outline-out">
-										<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+										<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $pro_fea->getPId();?>&mode=add';">
 											<i class="fa fa-cart-plus" aria-hidden="true"></i>
 										</button>
 									</div>

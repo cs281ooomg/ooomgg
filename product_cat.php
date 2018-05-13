@@ -173,6 +173,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												<a href="product_detail.php?pro_id=<?php echo $product->getPId();?>" class="link-product-add-cart">Quick View</a>
 											</div>
 										</div>
+										<?php 
+										if($product->getPPromotions() != NULL){
+										    $promotion = $product->getPPromotions();
+										    echo '<span class="product-new-top">'.$promotion->getPercent().'%</span>';   
+										}
+										?>
 									</div>
 									<div class="item-info-product">
 										<h4>
@@ -191,7 +197,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="grid_meta">
 												<div class="product_price">
 													<div class="grid-price ">
-														<span class="money "><?php echo $product->getPPrice(); ?>&nbsp;&nbsp;&nbsp; ฿</span>
+														<span class="money ">
+														<?php 
+														if($product->getPPromotions() != NULL){
+														    $promotion = $product->getPPromotions();
+														    echo PromotionMgnt::getNewPricePromotion($product).'&nbsp;&nbsp;&nbsp;฿<del>'.$product->getPPrice().'</del>';
+														}else{
+														    echo $product->getPPrice().'&nbsp;&nbsp;&nbsp;฿';
+														}
+														?>
+														</span>
 													</div>
 												</div>
 											</div>

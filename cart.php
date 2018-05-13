@@ -136,7 +136,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     										</div>
     									</div>
     								</td>
-    								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
+    								<td class="invert">
+    								<?php 
+                					if($product->getPPromotions() != NULL){
+                						$promotion = $product->getPPromotions();
+                						echo PromotionMgnt::getNewPricePromotion($product).' ฿</br><del>'.$product->getPPrice().'</del>';
+                					}else{
+                						echo $product->getPPrice().' ฿';
+                					}
+                					?>
+    								</td>
     								<td class="invert">
     									<div class="rem">
     										<a href="system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
@@ -164,9 +173,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         foreach ($items as $cartItem){
                             $product = $cartItem->getProduct();
                             $quantity = $cartItem->getQuantity();
-                            $price = $product->getPPrice()*$quantity;
+                            $price = 0;
+                            if($product->getPPromotions() != NULL){
+                                $promotion = $product->getPPromotions();
+                                $price = PromotionMgnt::getNewPricePromotion($product);
+                            }else{
+                                $price = $product->getPPrice();
+                            }
+                            $price = $price * $quantity;
                         ?>
-							<li><?php echo $product->getPName().' x '.$quantity; ?><span><?php echo number_format($price,2); ?> ฿</span></li>	
+							<li><?php echo $product->getPName().' x '.$quantity; 
+							if($product->getPPromotions() != NULL){
+							    $promotion = $product->getPPromotions();
+							    echo ' ( -'.$promotion->getPercent().' % )';
+							}
+							?>
+							<span><?php echo number_format($price,2); ?> ฿</span></li>	
 						<?php } }?>
 							<li>Total Service Charges (<?php echo CartMgnt::$vat;?>%)<span><?php echo number_format($vat,2);?> ฿</span></li>
 							<li>Total<span><?php echo number_format($total,2);?> ฿</span></li>
