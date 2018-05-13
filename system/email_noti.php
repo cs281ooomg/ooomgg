@@ -1,10 +1,9 @@
 <?php
 require 'autoload.php';
 if ($session_set) {
-    if (isset($_POST['topic']) && isset($_POST['massage'])) {
+    if (isset($_POST['topic'])) {
         $topic = $_POST['topic'];
-        $massage = $_POST['massage'];
-        if(Product::sendEmailNoti($topic, $massage)){
+        if(PromotionMgnt::sendEmailNoti($topic)){
             echo "<script language=\"JavaScript\">";
             echo "alert('Send promotion email success!!')";
             echo "</script>";

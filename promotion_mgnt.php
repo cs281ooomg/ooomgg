@@ -79,8 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h6>Please fill this.</h6>
 					<form action="system/email_noti.php" method="post">
 						<div class="col-md-12 col-sm-12 register_left_grid">
-							<input type="text" name="topic" placeholder="Topic" required=""> 
-							<textarea name="massage" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Description...';}">Massage...</textarea>
+							<input type="text" name="topic" placeholder="Topic" required="">
 						</div>
 						<div class="clearfix"></div>
 							<br> 

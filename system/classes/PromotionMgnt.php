@@ -6,12 +6,30 @@ class PromotionMgnt
     public static function getExtraPromotion($price)
     {}
 
-    public static function sendEmailNoti($topic, $massage)
+    public static function sendEmailNoti($topic)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM ACCOUNT";
         $query = $conn->query($sql);
+        $allProduct = ProductMgnt::getAllProduct();
+        $pmProduct = array();
+        $massage = "Product Promotion List</br>";
+        $todays_date = date("Y-m-d");
+        $today = strtotime($todays_date); 
+        foreach ($allProduct as $product){
+            if($product->getPPromotions() != NULL){
+                $name = $product->getPName();
+                $price = $product->getPPrice();
+                $newPrice = PromotionMgnt::getNewPricePromotion($product);
+                $disPer = $product->getPPromotions()->getPercent();
+                $date = $product->getPPromotions()->getDate();
+                $exp_date = strtotime($date);
+                if($today <= $exp_date){
+                    $massage = $massage.$name.' Price : '.$price.' Discount '.$disPer.'% New Price : '.$newPrice.' Today before!! : '.$date.'</br>';
+                }    
+            }
+        }
         while ($result = $query->fetch_array()) {
             date_default_timezone_set('Asia/Bangkok');
             $mail = new PHPMailer();

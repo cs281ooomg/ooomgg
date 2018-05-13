@@ -47,7 +47,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" type="text/css" href="css/checkout.css">
 <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/custom-ooomg.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom-ooomg.css" rel="stylesheet" type="text/css"
+	media="all" />
 <!-- font-awesome-icons -->
 <link href="css/font-awesome.css" rel="stylesheet">
 <!-- //font-awesome-icons -->
@@ -132,11 +133,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="color-quality">
 					<div class="color-quality-right">
-						<h5>Quality :</h5>
+						<h5>Quality : [ <?php echo $product->getPQuantity(); ?> Available ]</h5>
 						<div class="quantity">
 							<div class="quantity-select">
 								<div class="entry value-minus">&nbsp;</div>
-								<div class="entry value"><span>1</span></div>
+								<div class="entry value">
+									<span>1</span>
+								</div>
 								<div class="entry value-plus active">&nbsp;</div>
 							</div>
 						</div>
@@ -148,10 +151,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<button class="button_add_to_cart" onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
-							Add to cart
-						</button>
-						<a href="system/favorite_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=1" class="button add fav"> 
+						<?php 
+						if($product->getPQuantity()>0){ ?>
+						    <button class="button_add_to_cart"
+							onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+							Add to cart</button>
+						<?php }else{ ?>
+							<button class="button_add_to_cart">Out Of Stock</button>
+						<?php }?>
+						<a
+							href="system/favorite_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=1"
+							class="button add fav"> 
 							<?php if(!$session_set){?>
 							<span class="glyphicon glyphicon-heart-empty"></span>
 							<?php }else {
@@ -281,10 +291,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="product-shoe-info shoe">
 						<div class="men-pro-item">
 							<div class="men-thumb-item">
-								<img src="images/<?php echo $pro_fea->getPImages();?>" alt="#" class = "img-responsive" style="height: 250px;overflow: hidden;">
+								<img src="images/<?php echo $pro_fea->getPImages();?>" alt="#"
+									class="img-responsive" style="height: 250px; overflow: hidden;">
 								<div class="men-cart-pro">
 									<div class="inner-men-cart-pro">
-										<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>" class="link-product-add-cart">Quick View</a>
+										<a
+											href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>"
+											class="link-product-add-cart">Quick View</a>
 									</div>
 								</div>
 								<?php 
@@ -296,7 +309,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 							<div class="item-info-product">
 								<h4>
-									<a href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>">
+									<a
+										href="product_detail.php?pro_id=<?php echo $pro_fea->getPId();?>">
 										<?php 
 										    $str = $pro_fea->getPName();
 											if(strlen($str) <= 24){
@@ -325,7 +339,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 									<div class="shoe single-item hvr-outline-out">
-										<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $pro_fea->getPId();?>&mode=add';">
+										<button type="submit" class="shoe-cart pshoe-cart"
+											onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $pro_fea->getPId();?>&mode=add';">
 											<i class="fa fa-cart-plus" aria-hidden="true"></i>
 										</button>
 									</div>
