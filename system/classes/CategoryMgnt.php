@@ -2,7 +2,7 @@
 
 class CategoryMgnt
 {
-    public static function getallCategory()
+    public static function getAllCategory()
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
@@ -11,17 +11,17 @@ class CategoryMgnt
         $resultArray = array();
         $i = 0;
         while ($result = $query->fetch_array()) {
-            $product = new Category($result["CAT_INDEX"], $result["CAT_NAME"]);
+            $product = new Category($result["CAT_INDEX"], $result["CAT_NAME"],NULL);
             $resultArray[] = $product;
         }
         return $resultArray;
     }
     
-    public static function checkCatagory($name)
+    public static function checkCategory($name)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CATAGORY WHERE CAT_NAME='" . $name . "' ";
+        $sql = "SELECT * FROM CATEGORY WHERE CAT_NAME='" . $name . "' ";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) {
@@ -30,17 +30,16 @@ class CategoryMgnt
         return true;
     }
     
-    public static function addCatagory($name)
+    public static function addCategory($name)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO CATAGORY(CAT_NAME)
-		VALUES('" . $name . "');";
+        $sql = "INSERT INTO CATEGORY(CAT_NAME) VALUES('" . $name . "');";
         if ($conn->query($sql) === TRUE) {
             echo "<script language=\"JavaScript\">";
             echo "alert('Add new catagory successfully.')";
             echo "</script>";
-            echo "<script> document.location.href=\"../add_catagory.php\";</script>";
+            echo "<script> document.location.href=\"../add_category.php\";</script>";
             exit();
         } else {
             echo "Error" . $sql . "<br>" . $conn->error;

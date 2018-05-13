@@ -3,11 +3,11 @@ require 'autoload.php';
 if ($session_set) {
     if (isset($_GET['pro_id']) && isset($_GET['mode'])) {
         $pro_id = $_GET['pro_id'];
-        $product = Product::ShowProductDetail($pro_id);
+        $product = ProductMgnt::getProduct($pro_id);
         $product->setPQuantity(1);
         $mode = $_GET['mode'];
         if($mode === 'add'){
-            if ($account->addToMyCart($product)) {
+            if (CartMgnt::addToMyCart($account,$product,1)) {
                 echo "<script language=\"JavaScript\">";
                 echo "alert('Add to cart success!!')";
                 echo "</script>";
@@ -17,7 +17,7 @@ if ($session_set) {
                 echo "</script>";
             }       
         }else if($mode === 'remove'){
-            if ($account->removeFromMyCart($product)) {
+            if (CartMgnt::removeFromMyCart($account,$product)) {
                 echo "<script language=\"JavaScript\">";
                 echo "alert('Remove form cart success!!')";
                 echo "</script>";

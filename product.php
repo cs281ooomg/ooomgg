@@ -1,6 +1,6 @@
 <?php
 require 'includes/autoload.php';
-$productArr = Product::getallProduct();
+$productArr = ProductMgnt::getAllProduct();
 ?>
 <!--
 author: W3layouts
@@ -105,10 +105,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="glyphicon glyphicon-menu-right"> <b>All</b> </span>
 						</a></li>
-						<?php 	$cataArr = Product::getallCatagory();?>
+						<?php 	$cataArr = CategoryMgnt::getAllCategory();?>
 						<?php foreach ($cataArr as $cata) {?>
 						<li>
-    						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
+    						<a href="product_cat.php?id=<?php echo $cata->getCType();?>"> 
         						<span class="span glyphicon glyphicon-menu-down"> 
         							<?php echo $cata->getcName();?>
         						</span>
@@ -182,7 +182,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 											</div>
 											<div class="shoe single-item hvr-outline-out">
-												<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+												<button type="submit" class="shoe-cart pshoe-cart" onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
 													<i class="fa fa-cart-plus" aria-hidden="true"></i>
 												</button>
 											</div>

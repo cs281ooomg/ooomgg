@@ -8,7 +8,7 @@ if ($userinput === "" || $passinput === "") {
     echo "</script>";
     echo "<script> document.location.href=\"../login.php\";</script>";
 } else {
-    $ac = Account::loginAuth($userinput, $passinput);
+    $ac = LoginMgnt::loginAuth($userinput, $passinput);
     if ($ac != null) {
         $_SESSION["ACC"] = $ac;
         session_write_close();

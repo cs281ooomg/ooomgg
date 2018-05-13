@@ -1,10 +1,10 @@
 eclipse.preferences.version=1
 encoding//includes/session.php=UTF-8
-encoding//system/add_favorite.php=UTF-8
 encoding//system/add_product.php=UTF-8
-encoding//system/cartMgnt.php=UTF-8
+encoding//system/cart_mgnt.php=UTF-8
 encoding//system/classes/Account.php=UTF-8
 encoding//system/classes/config/config.php=UTF-8
+encoding//system/favorite_mgnt.php=UTF-8
 encoding//system/login_auth.php=UTF-8
 encoding//system/register_auth.php=UTF-8
 encoding/cart.php=UTF-8

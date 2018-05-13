@@ -2,7 +2,7 @@
 require 'includes/autoload.php';
 $productid=$_GET['pro_id'];
 if (isset($productid)) {
-    $product = Product::ShowProductDetail($productid);
+    $product = ProductMgnt::getProduct($productid);
 } else {
     header("Location: 404.php");
 }
@@ -139,14 +139,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<button class="button_add_to_cart" onclick="location.href='system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
+						<button class="button_add_to_cart" onclick="location.href='system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=add';">
 							Add to cart
 						</button>
-						<a href="system/add_favorite.php?pro_id=<?php echo $product->getPId();?>&mode=1" class="button add fav"> 
+						<a href="system/favorite_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=1" class="button add fav"> 
 							<?php if(!$session_set){?>
 							<span class="glyphicon glyphicon-heart-empty"></span>
 							<?php }else {
-							if ($acc->checkFavorite($_GET['pro_id'])){?>
+							if (FavoMgnt::checkFavorite($account,$product->getPId())){?>
 							<span class="glyphicon glyphicon-heart"></span>
 							<?php      } 
 							      else {?>
@@ -258,7 +258,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 			</div>
-	<?php $pro_fea_arr = Product::getFeaProduct($product);
+	<?php $pro_fea_arr = ProductMgnt::getFeaProduct($product);
 	if($pro_fea_arr!=NULL){ ?>
 			<div class="new_arrivals">
 				<h3>Featured Products</h3>

@@ -20,7 +20,7 @@ if ($acc->getTYPE() == '0'){
 <html lang="th">
 
 <head>
-<title>OOOMG : Add Catagory</title>
+<title>OOOMG : Add Category</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -81,12 +81,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
-			<h3 class="head">Add Catagory</h3>
+			<h3 class="head">Add Category</h3>
 <!--		<p class="head_para">Add Some Description</p> -->
 			<div class="inner_section_w3ls">
 				<div class="col-md-7 contact_grid_right">
 					<h6>fill catagory you want to add.</h6>
-					<form action="system/add_catagory.php" method="post" enctype="multipart/form-data">
+					<form action="system/add_category.php" method="post" enctype="multipart/form-data">
 						<div class="col-md-6 col-sm-6 contact_left_grid">
 							<input type="text" name="cname" placeholder="Catagory Name">				
 						</div>

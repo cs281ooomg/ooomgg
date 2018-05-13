@@ -7,7 +7,7 @@ if (!$session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 } 
-$cart = $account->getMyCart();
+$cart = CartMgnt::getCartByAccount($account);
 ?>
 <!--
 author: W3layouts
@@ -110,11 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     						<tbody>
     							<?php
                                 $total = 0;
+                                $cartMgnt = new CartMgnt();
                                 if ($cart != NULL) {
-                                     $i = 1;
-                                     foreach ($cart->getItems() as $product) {
-                                            $total += $product->getPPrice() * $product->getPQuantity();
-                                     ?>
+                                    $i = 1;
+                                    $items = $cart->getItems();
+                                    foreach ($items as $cartItem){
+                                        $product = $cartItem->getProduct();
+                                        $quantity = $cartItem->getQuantity();
+                                    ?>
         							<tr class="rem<?php echo $i;?>">
     								<td class="invert"><?php echo $product->getPId();?></td>
     								<td class="invert-image"><a
@@ -127,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     										<div class="quantity-select">
     											<div class="entry value-minus">&nbsp;</div>
     											<div class="entry value">
-    												<span><?php echo $product->getPQuantity();?></span>
+    												<span><?php echo $quantity;?></span>
     											</div>
     											<div class="entry value-plus active">&nbsp;</div>
     										</div>
@@ -136,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
     								<td class="invert">
     									<div class="rem">
-    										<a href="system/cartMgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
+    										<a href="system/cart_mgnt.php?pro_id=<?php echo $product->getPId();?>&mode=remove"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
     									</div>
     								</td>
     							</tr>
@@ -155,13 +158,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<?php
 						$vat = 0;
                         if ($cart != NULL) {
-                        foreach ($cart->getItems() as $product) {
-                            $vat+= $product->getPPrice()*7/100;
+                        $items = $cart->getItems();
+                        $total = $cartMgnt->getTotalPrice($cart);
+                        $vat = $cartMgnt->getVatPriceByCart($cart);
+                        foreach ($items as $cartItem){
+                            $product = $cartItem->getProduct();
+                            $quantity = $cartItem->getQuantity();
+                            $price = $product->getPPrice()*$quantity;
                         ?>
-							<li><?php echo $product->getPName().' x '.$product->getPQuantity(); ?><span><?php echo number_format($product->getPPrice()*$product->getPQuantity(),2); ?> ฿</span></li>	
+							<li><?php echo $product->getPName().' x '.$quantity; ?><span><?php echo number_format($price,2); ?> ฿</span></li>	
 						<?php } }?>
-							<li>Total Service Charges (7%)<span><?php echo number_format($vat,2);?> ฿</span></li>
-							<li>Total<span><?php echo number_format($total+$vat,2);?> ฿</span></li>
+							<li>Total Service Charges (<?php echo CartMgnt::$vat;?>%)<span><?php echo number_format($vat,2);?> ฿</span></li>
+							<li>Total<span><?php echo number_format($total,2);?> ฿</span></li>
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>

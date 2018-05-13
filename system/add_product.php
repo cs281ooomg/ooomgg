@@ -12,7 +12,7 @@ if (empty($name) or empty($price) or empty($des) or empty($type)) {
     echo "<script> document.location.href=\"../add_product.php\";</script>";
     exit();
 } else {
-    if (Product::checkProduct($name)) {
+    if (ProductMgnt::checkProduct($name)) {
         $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
@@ -54,7 +54,7 @@ if (empty($name) or empty($price) or empty($des) or empty($type)) {
                 // echo "Sorry, there was an error uploading your file.";
             }
         }
-        Product::addProduct($name, $image, $price, $des, $type);
+        ProductMgnt::addProduct($name, $image, $price, $des, $type);
     } else {
         echo "<script language=\"JavaScript\">";
         echo "alert('Have this product already.')";

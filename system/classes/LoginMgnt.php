@@ -1,5 +1,5 @@
 <?php
-class AccountMgnt
+class LoginMgnt
 {
     public static function loginAuth($acc_id, $acc_pass)
     {

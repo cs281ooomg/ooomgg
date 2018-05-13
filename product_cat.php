@@ -1,8 +1,8 @@
 <?php
 require 'includes/autoload.php';
-$pag=$_GET['page'];
-if (isset($pag)) {
-	$product = Product::ShowProductDetail($pag);
+$cat_id=$_GET['id'];
+if (isset($cat_id)) {
+	$products = ProductMgnt::getAllProductByCat($cat_id);
 } else {
 	header("Location: 404.php");
 }
@@ -109,11 +109,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul>
 						<li><a href="product.php"> <span class="span glyphicon glyphicon-menu-down"> All </span>
 						</a></li>
-						<?php 	$cataArr = Product::getallCatagory();?>
+						<?php 	$cataArr = CategoryMgnt::getAllCategory();?>
 						<?php foreach ($cataArr as $cata) {
-    						    if($cata->getCType()===$pag){ ?>
+    						    if($cata->getCType()===$cat_id){ ?>
     						         <li>
-                						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
+                						<a href="product_cat.php?id=<?php echo $cata->getCType();?>"> 
                     						<span class="glyphicon glyphicon-menu-right"> 
                     							<b><?php echo $cata->getcName();?></b> 
                     						</span>
@@ -121,7 +121,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             						</li>
     				      <?php }else{ ?>
     						        <li>
-                						<a href="product_cat.php?page=<?php echo $cata->getCType();?>"> 
+                						<a href="product_cat.php?id=<?php echo $cata->getCType();?>"> 
                     						<span class="glyphicon glyphicon-menu-down"> 
                     							<?php echo $cata->getcName();?> 
                     						</span>
@@ -153,8 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  <?php
 						$i = 0;
 						$mode = false;
-						$productArr = Product::getProduct($pag); 
-						foreach ($productArr as $product) {
+						foreach ($products as $product) {
 						if($i%3===0){
 						    $mode = !$mode;
 						}

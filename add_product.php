@@ -7,7 +7,7 @@ if(!$session_set){
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-if ($acc->getTYPE() == '0'){
+if ($account->getTYPE() == '0'){
     echo "<script language=\"JavaScript\">";
     echo "alert('You is not owner!!!')";
     echo "</script>";
@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="col-md-6 col-sm-6 contact_left_grid">
                             Select image to upload:
                             <input type="file" name="fileToUpload" id="fileToUpload">
-                            <?php $cataArr = Product::getallCatagory();?>
+                            <?php $cataArr = CategoryMgnt::getAllCategory();?>
                             <select class="type_select" name ="type">
                             <?php foreach ($cataArr as $cata) {?>
                                 	<option value="<?php echo $cata->getCType();?>"><?php echo $cata->getcName();?></option>

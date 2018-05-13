@@ -3,16 +3,22 @@
 class CartMgnt
 {
 
-    private $vat = 7;
+    public static $vat = 7;
 
     public function getTotalPrice($cart)
     {
         $cartItems = $this->getAllCartItems($cart);
         $totalPrice = $this->getPriceByCartItem($cartItems);
-        return $totalPrice * $this->getVatPrice($totalPrice);
+        return $totalPrice + $this->getVatPrice($totalPrice);
     }
     
-    public function getCartByAccount($account){
+    public function getVatPriceByCart($cart){
+        $cartItems = $this->getAllCartItems($cart);
+        $totalPrice = $this->getPriceByCartItem($cartItems);
+        return $this->getVatPrice($totalPrice);
+    }
+    
+    public static function getCartByAccount($account){
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' ";
@@ -21,7 +27,7 @@ class CartMgnt
         $resultArray = array();
         $count = 0;
         while ($result = $query->fetch_array()) {
-            $product = ProductMgnt::getProduct($result['PRO_ID']);
+            $product = ProductMgnt::getProduct($result['PRO_INDEX']);
             $quantity = $result['QUANTITY'];
             $cartItem = new CartItem($product, $quantity);
             $resultArray[] = $cartItem;
@@ -34,32 +40,32 @@ class CartMgnt
         return $cart;
     }
     
-    public function addToMyCart($product)
+    public static function addToMyCart($acc,$product,$quan)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $acc->getID() . "' AND PRO_INDEX = '" . $product->getPId() . "';";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
         if ($result) { // update
-            $quantity = $product->getPQuantity() + $result['QUANTITY'];
+            $quantity = $quan + $result['QUANTITY'];
             $sql = "UPDATE CART SET QUANTITY = '" . $quantity . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
             $query = $conn->query($sql);
             $conn->close();
             return $query;
         } else { // new
-            $sql = "INSERT INTO CART (ACC_ID,PRO_ID,QUANTITY)  VALUES ('" . $this->getID() . "','" . $product->getPId() . "'," . $product->getPQuantity() . ");";
+            $sql = "INSERT INTO CART (ACC_ID,PRO_INDEX,QUANTITY)  VALUES ('" . $acc->getID() . "','" . $product->getPId() . "'," . $quan . ");";
             $query = $conn->query($sql);
             $conn->close();
             return $query;
         }
     }
     
-    public function removeFromMyCart($product)
+    public static function removeFromMyCart($acc,$product)
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "DELETE FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
+        $sql = "DELETE FROM CART WHERE ACC_ID = '" . $acc->getID() . "' AND PRO_INDEX = '" . $product->getPId() . "';";
         $query = $conn->query($sql);
         $conn->close();
         if ($query) {
@@ -70,7 +76,7 @@ class CartMgnt
 
     private function getVatPrice($price)
     {
-        return $price * $vat / 100;
+        return $price * CartMgnt::$vat / 100;
     }
 
     private function getPriceByCartItem($cartItems)
