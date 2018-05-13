@@ -2,7 +2,7 @@
 class PromotionMgnt
 {
     
-    public function getExtraPromotion($price) {
+    public static function getExtraPromotion($price) {
         
     }
     
@@ -38,5 +38,8 @@ class PromotionMgnt
         return true;
     }
     
+    public static function addNewPromotion($product,$promotion) {
+        
+    }
 }
 ?>
