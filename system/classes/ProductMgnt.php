@@ -8,8 +8,13 @@ class ProductMgnt
         $sql = "SELECT * FROM PRODUCT WHERE PRO_INDEX ='" . $pro_index . "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
-        $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],NULL);
-        return $product;
+        if($result){
+            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
+            return $product;
+        }else{
+            return NULL;
+        }
     }
     
     public static function getAllProduct()
@@ -21,7 +26,8 @@ class ProductMgnt
         $resultArray = array();
         $i = 0;
         while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],NULL);
+            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
             $resultArray[] = $product;
         }
         shuffle($resultArray);
@@ -37,7 +43,8 @@ class ProductMgnt
         $resultArray = array();
         $i = 0;
         while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],NULL);
+            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
             $resultArray[] = $product;
             $i ++;
         }
@@ -88,15 +95,15 @@ class ProductMgnt
    
     public static function search($name)
     {
-        require 'config/config.php';
-        
+        require 'config/config.php';      
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "SELECT * FROM PRODUCT WHERE PRO_NAME LIKE '%$name%'";
         $query = $conn->query($sql);
         $resultArray = array();
         $i = 0;
         while ($result = $query->fetch_array()) {
-            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],NULL);
+            $promotion = PromotionMgnt::getPromotionByProductID($result["PRO_INDEX"]);
+            $product = new Product($result["PRO_INDEX"], $result["PRO_NAME"], $result["PRO_IMAGE"], $result["PRO_PRICE"], $result["PRO_DESC"], $result["CAT_INDEX"], $result["PRO_STOCKS"],$promotion);
             $resultArray[] = $product;
             $i++;
         }
@@ -115,7 +122,8 @@ class ProductMgnt
         $i = 0;
         $resultArray = array();
         while ($resultt = $query->fetch_array()) {
-            $product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_IMAGE"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"], $resultt["PRO_STOCKS"],NULL);
+            $promotion = PromotionMgnt::getPromotionByProductID($resultt["PRO_INDEX"]);
+            $product = new Product($resultt["PRO_INDEX"], $resultt["PRO_NAME"], $resultt["PRO_IMAGE"], $resultt["PRO_PRICE"], $resultt["PRO_DESC"], $resultt["CAT_INDEX"], $resultt["PRO_STOCKS"],$promotion);
             $resultArray[] = $product;
             $i++;
         }
