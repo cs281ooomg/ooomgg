@@ -19,5 +19,9 @@ class OrderMgnt
             
         }
     }
+    
+    public static function billExport($order){
+        
+    }
 }
 ?>

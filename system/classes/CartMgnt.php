@@ -33,6 +33,40 @@ class CartMgnt
         $cart = new Cart($result['CART_INDEX'], $resultArray);
         return $cart;
     }
+    
+    public function addToMyCart($product)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if ($result) { // update
+            $quantity = $product->getPQuantity() + $result['QUANTITY'];
+            $sql = "UPDATE CART SET QUANTITY = '" . $quantity . "' WHERE CART_INDEX = '" . $result['CART_INDEX'] . "';";
+            $query = $conn->query($sql);
+            $conn->close();
+            return $query;
+        } else { // new
+            $sql = "INSERT INTO CART (ACC_ID,PRO_ID,QUANTITY)  VALUES ('" . $this->getID() . "','" . $product->getPId() . "'," . $product->getPQuantity() . ");";
+            $query = $conn->query($sql);
+            $conn->close();
+            return $query;
+        }
+    }
+    
+    public function removeFromMyCart($product)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "DELETE FROM CART WHERE ACC_ID = '" . $this->getID() . "' AND PRO_ID = '" . $product->getPId() . "';";
+        $query = $conn->query($sql);
+        $conn->close();
+        if ($query) {
+            return TRUE;
+        }
+        return FALSE;
+    }
 
     private function getVatPrice($price)
     {
