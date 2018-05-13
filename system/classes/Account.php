@@ -146,28 +146,6 @@ class Account
         return $query;
     }
 
-    public function getMyCart()
-    {
-        require 'config/config.php';
-        $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $this->getID() . "' ";
-        $query = $conn->query($sql);
-        $conn->close();
-        $resultArray = array();
-        $count = 0;
-        while ($result = $query->fetch_array()) {
-            $temp = Product::ShowProductDetail($result['PRO_ID']);
-            $temp->setPQuantity($result['QUANTITY']);
-            $resultArray[] = $temp;
-            $count ++;
-        }
-        if ($count === 0) {
-            return NULL;
-        }
-        $cart = new Cart($result['CART_INDEX'], $resultArray);
-        return $cart;
-    }
-
     public function addToMyCart($product)
     {
         require 'config/config.php';

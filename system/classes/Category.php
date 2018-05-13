@@ -1,6 +1,6 @@
 <?php
 
-class Catagory
+class Category
 {
 
     private $cName, $cType, $items;

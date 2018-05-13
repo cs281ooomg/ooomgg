@@ -11,6 +11,28 @@ class CartMgnt
         $totalPrice = $this->getPriceByCartItem($cartItems);
         return $totalPrice * $this->getVatPrice($totalPrice);
     }
+    
+    public function getCartByAccount($account){
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM CART WHERE ACC_ID = '" . $account->getID() . "' ";
+        $query = $conn->query($sql);
+        $conn->close();
+        $resultArray = array();
+        $count = 0;
+        while ($result = $query->fetch_array()) {
+            $product = ProductMgnt::getProduct($result['PRO_ID']);
+            $quantity = $result['QUANTITY'];
+            $cartItem = new CartItem($product, $quantity);
+            $resultArray[] = $cartItem;
+            $count ++;
+        }
+        if ($count === 0) {
+            return NULL;
+        }
+        $cart = new Cart($result['CART_INDEX'], $resultArray);
+        return $cart;
+    }
 
     private function getVatPrice($price)
     {
