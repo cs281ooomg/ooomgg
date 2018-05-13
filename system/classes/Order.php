@@ -4,7 +4,8 @@ class Order
 {
 
     private $index, $date, $account, $code, $status;
-
+    public static $UN_PAYMENT = 0, $DELIVERING = 1, $SUCCESS = 2;
+    
     public function __construct($index, $date, $account, $code, $status)
     {
         $this->index = $index;
