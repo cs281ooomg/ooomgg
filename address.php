@@ -80,7 +80,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3 class="head">Please select address</h3>
 			<p class="head_para"></p>
 			<div class="inner_section_w3ls">
-			<?php ?>
+			<?php if(AddressMgnt::checkAddress($acc)){?>
+			<?php }else{?>
 				<div class="col-md-8 col-md-offset-2 register_grid_right">
 					<h6>Please fill Address</h6>
 					<form action="system/address_mgnt.php" method="post">
@@ -97,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input type="submit" value="Add"> 
 							<input type="reset" value="Clear">
 							
-					</form><?php ?>
+					</form><?php }?>
 				</div>
 
 				<div class="clearfix"></div>

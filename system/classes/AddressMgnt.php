@@ -1,6 +1,4 @@
 <?php
-namespace system\classes;
-
 class AddressMgnt
 {
     public static function checkAddress($acc)
