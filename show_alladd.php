@@ -90,11 +90,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<th>Add No.</th>
 
 								<th>Address</th>
-
-								<th>Select</th>
-								<th>Remove</th>
+									
+								
 							</tr>
-						</thead>
+						</thead><br>
 						<tbody>
     							<?php
         $total = 0;
@@ -105,7 +104,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         							<tr class="rem<?php echo $i;?>">
 								<td class="invert"><?php echo $add->getAdd_index();?></td>
 								<td class="invert"><?php echo $add->getInfo(); echo $add->getProvince(); echo $add->getDistrict(); echo $add->getSubDis(); echo $add->getAddCode() ?>"</td>
-								
 							</tr>
         							<?php
                 $i ++;
@@ -114,13 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ?>
     						</tbody>
 					</table>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	</div>
-	</div>
+				</div><br>
 	<form action="address.php?" method="post" class="creditly-card-form agileinfo_form">
 							<section class="creditly-wrapper wrapper">
 								<div class="information-wrapper">
@@ -129,6 +121,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</div>
 							</section>
 	</form>
+			</div>
+
+		</div>
+	</div>
+	</div>
+	</div>
+	
 
 	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>

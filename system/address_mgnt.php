@@ -8,7 +8,7 @@ $addinfo = $_POST['addinfo'];
 
 if (AddressMgnt::addAddress($acc, $province, $district, $subdis, $addcode, $addinfo)) {
     echo "<script>alert('success')</script>";
-    echo "<script> document.location.href=\"../cart.php\";</script>";
+    echo "<script> document.location.href=\"../show_alladd.php\";</script>";
 } else {
     echo "<script>alert('fail')</script>";
     echo "<script> document.location.href=\"../address.php\";</script>";
