@@ -2,9 +2,11 @@
 
 class CartItem
 {
+    private $index;
     private $product;
     private $quantity;
-    public function __construct($product, $quantity){
+    public function __construct($index,$product, $quantity){
+        $this->index = $index;
         $this->product = $product;
         $this->quantity = $quantity;
     }
@@ -28,7 +30,19 @@ class CartItem
     {
         $this->quantity = $quantity;
     }
+
+    public function getIndex()
+    {
+        return $this->index;
+    }
+
+    public function setIndex($index)
+    {
+        $this->index = $index;
+    }
+
        
+    
 }
 ?>
 
