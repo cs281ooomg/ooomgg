@@ -1,8 +1,10 @@
 <?php
 require 'includes/autoload.php';
 if(! $session_set){
-    echo "<script> document.location.href=\"../login.php\";</script>";
+    
     echo "<script>alert('Please log in')</script>";
+    echo "<script> document.location.href=\"../ooomgg/login.php\";</script>";
+    
     exit;
 }
 ?>
@@ -77,11 +79,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
-			<h3 class="head">Please select address</h3>
+		
+			<h3 class="head">Please add address</h3>
 			<p class="head_para"></p>
 			<div class="inner_section_w3ls">
-			<?php if(AddressMgnt::checkAddress($acc)){?>
-			<?php }else{?>
 				<div class="col-md-8 col-md-offset-2 register_grid_right">
 					<h6>Please fill Address</h6>
 					<form action="system/address_mgnt.php" method="post">
@@ -98,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input type="submit" value="Add"> 
 							<input type="reset" value="Clear">
 							
-					</form><?php }?>
+					</form>
 				</div>
 
 				<div class="clearfix"></div>
