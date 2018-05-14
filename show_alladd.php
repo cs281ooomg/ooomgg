@@ -83,8 +83,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="shop_inner_inf">
 			<div class="privacy about">
 				<h3>Address</h3>
-
-
 				<div class="table-responsive">
 					<table class="timetable_sub">
 						<thead>
@@ -107,17 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         							<tr class="rem<?php echo $i;?>">
 								<td class="invert"><?php echo $add->getAdd_index();?></td>
 								<td class="invert"><?php echo $add->getInfo(); echo $add->getProvince(); echo $add->getDistrict(); echo $add->getSubDis(); echo $add->getAddCode() ?>"</td>
-								<td class="invert" >
-									<form action="system/address_mgnt2.php?">
-									
-										<input type="submit" name ="add_index" value="select"> 
-									</form>
-								</td>
-								<td class="invert" name = add_index>
-    								<form action="system/address_mgnt2.php?">
-										<input type="submit" name ="add_index" value="Remove" />
-									</form>
-    								</td>
+								
 							</tr>
         							<?php
                 $i ++;
@@ -133,6 +121,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	</div>
 	</div>
+	<form action="address.php?" method="post" class="creditly-card-form agileinfo_form">
+							<section class="creditly-wrapper wrapper">
+								<div class="information-wrapper">
+	
+									<button class="submit check_out">Add address</button>
+								</div>
+							</section>
+	</form>
 
 	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>
