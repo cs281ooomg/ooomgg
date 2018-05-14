@@ -1,5 +1,5 @@
 <?php
-require 'includes/autoload.php';
+require 'includes/autoload.php';//testupload
 $accid = $_GET['acc_id'];
 if (!$session_set) {
     echo "<script language=\"JavaScript\">";
@@ -78,7 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //banner_inner -->
 	</div>
 	<!-- //banner -->
-
+	
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
