@@ -81,8 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
 			<div class="privacy about">
-				<h3>Cart</h3>
-
+				<h3>Cart ( Your point : <?php echo ExtraPromotionMgnt::getMyPoint($account); ?> )</h3>
 				<div class="checkout-right">
 					<h4>
 						Your shopping cart contains: 
@@ -170,6 +169,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         $items = $cart->getItems();
                         $total = $cartMgnt->getTotalPrice($cart);
                         $vat = $cartMgnt->getVatPriceByCart($cart);
+                        $deliver = 0;
                         foreach ($items as $cartItem){
                             $product = $cartItem->getProduct();
                             $quantity = $cartItem->getQuantity();
@@ -191,7 +191,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<span><?php echo number_format($price,2); ?> ฿</span></li>	
 						<?php } }?>
 							<li>Total Service Charges (<?php echo CartMgnt::$vat;?>%)<span><?php echo number_format($vat,2);?> ฿</span></li>
-							<li>Total<span><?php echo number_format($total,2);?> ฿</span></li>
+							<li>Lower price for free Delivery Charge : <?php echo ExtraPromotionMgnt::getPriceFreeDelivery();?> ฿</li>
+							<li>Delivery Charge
+							<span>
+							<?php if(ExtraPromotionMgnt::checkFreeDelivery($total)){
+							     echo 'Free';
+							}else{
+							    $deliver = ExtraPromotionMgnt::$delivery;
+							    echo $deliver;
+							}?> ฿
+							</span></li>
+							<li>Total<span>
+							<?php 
+							$total+=$deliver;
+							echo number_format($total,2);
+							?> ฿</span></li>
+							<?php if(ExtraPromotionMgnt::getMyPoint($account) > 0){
+							    if($total - ExtraPromotionMgnt::getMyPoint($account) <= 0){
+							        $total = 0;
+							    }else{
+							        $total -= ExtraPromotionMgnt::getMyPoint($account);
+							    }
+							    echo '<li>Total discount point ( '.ExtraPromotionMgnt::getMyPoint($account).' point)<span>'.number_format($total,2).' ฿</span></li>';
+							}?>
+							
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>
