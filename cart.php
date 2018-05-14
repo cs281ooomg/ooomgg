@@ -220,13 +220,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 					<div class="col-md-8 address_form">
 						<h4>Add a new Details</h4>
-						<form action="xxxx" method="post" class="creditly-card-form agileinfo_form">
+						<form action="system/address_mgnt2.php?" method="post" class="creditly-card-form agileinfo_form">
 							<section class="creditly-wrapper wrapper">
 								<div class="information-wrapper">
 									<div class="first-row form-group">			
 										<div class="controls">
 											<label class="control-label">Address type: </label>
-											<select class="form-control option-w3ls">
+											<select class="form-control option-w3ls" name ="add_index">
 											<?php
 											$allAddress = AddressMgnt::getAlladdress($acc);
 											foreach ($allAddress as $add){?>
@@ -236,6 +236,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</div>
 									</div>
 									<button class="submit check_out">Delivery to this Address</button>
+								</div>
+							</section>
+							<br>
+						</form>
+							<form action="address.php?" method="post" class="creditly-card-form agileinfo_form">
+							<section class="creditly-wrapper wrapper">
+								<div class="information-wrapper">
+	
+									<button class="submit check_out">Add address</button>
 								</div>
 							</section>
 						</form>

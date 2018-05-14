@@ -20,7 +20,14 @@ class AddressMgnt
         $conn = new mysqli($hostname, $username, $password, $dbname);
         $sql = "INSERT INTO ADDRESS (ACC_ID,ADD_INFO,ADD_SUB_DISTRICT,ADD_DISTRICT,ADD_PROVINCE,ADD_CODE,DATE) 
         VALUES ('" . $acc->getID() . "','" . $addinfo . "','".$subdis."','".$dis."','" . $pro . "','".$addcode."','".$todays_date."')";
-        echo $sql;
+        $query = $conn->query($sql);
+        return $query;
+    }
+    public static function removeAddress($add)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "DELETE FROM ADDRESS WHERE ADD_INDEX='". $add ."'";
         $query = $conn->query($sql);
         return $query;
     }
@@ -46,11 +53,11 @@ class AddressMgnt
         $address = new Address($result["ADD_INDEX"],$result["ACC_ID"],$result["ADD_INFO"],$result["ADD_SUB_DISTRICT"],$result["ADD_DISTRICT"],$result["ADD_PROVINCE"],$result["ADD_CODE"],$result["DATE"]);
         return $address;
     }
-    public static function lastAddress($acc) {
+    public static function lastAddress($add) {
         require 'config/config.php';
         $todays_date = date("Y-m-d");
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "UPDATE ADDRESS SET DATE =['". $todays_date."']";
+        $sql = "UPDATE ADDRESS SET DATE ='". $todays_date."'  WHERE ADD_INDEX ='".$add."'";
         $query = $conn->query($sql);
         return $query;
     }
