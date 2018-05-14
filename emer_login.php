@@ -67,7 +67,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
 			<h3 class="head">Login</h3>
-			<p class="head_para">โ�คโ�คโ�คโ�คโ�ค</p>
+			<p class="head_para">❤❤❤❤❤</p>
 			<div class="inner_section_w3ls">
 				<div class="col-md-8 col-md-offset-4 login_grid_right">
 					<h6>Please login to continue.</h6>
