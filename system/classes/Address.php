@@ -1,97 +1,106 @@
 <?php
-namespace system\classes;
 
 class Address
 {
-    private $acc,$province,$district,$subdis,$addcode;
-    public function __construct($acc, $province, $district, $subdis, $addcode)
+
+    private $add_index, $acc, $info, $province, $district, $subDis, $addCode, $lastUse;
+
+    public function __construct($add_index, $acc, $info, $province, $district, $subDis, $addCode, $lastUse)
     {
+        $this->add_index = $add_index;
         $this->acc = $acc;
+        $this->info = $info;
         $this->province = $province;
         $this->district = $district;
-        $this->subdis = $subdis;
-        $this->addcode = $addcode;
-       
+        $this->subDis = $subDis;
+        $this->addCode = $addCode;
+        $this->lastUse = $lastUse;
     }
-    /**
-     * @return mixed
-     */
+
+    public function showAddress()
+    {
+        $text = $this->info . ' , ' . $this->province . ' , ' . $this->district . ' , ' . $this->subDis . ' , ' . $this->addCode;
+        return $text;
+    }
+
+    public function getAdd_index()
+    {
+        return $this->add_index;
+    }
+
     public function getAcc()
     {
         return $this->acc;
     }
 
-    /**
-     * @return mixed
-     */
+    public function getInfo()
+    {
+        return $this->info;
+    }
+
     public function getProvince()
     {
         return $this->province;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDistrict()
     {
         return $this->district;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getSubdis()
+    public function getSubDis()
     {
-        return $this->subdis;
+        return $this->subDis;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAddcode()
+    public function getAddCode()
     {
-        return $this->addcode;
+        return $this->addCode;
     }
 
-    /**
-     * @param mixed $acc
-     */
+    public function getLastUse()
+    {
+        return $this->lastUse;
+    }
+
+    public function setAdd_index($add_index)
+    {
+        $this->add_index = $add_index;
+    }
+
     public function setAcc($acc)
     {
         $this->acc = $acc;
     }
 
-    /**
-     * @param mixed $province
-     */
+    public function setInfo($info)
+    {
+        $this->info = $info;
+    }
+
     public function setProvince($province)
     {
         $this->province = $province;
     }
 
-    /**
-     * @param mixed $district
-     */
     public function setDistrict($district)
     {
         $this->district = $district;
     }
 
-    /**
-     * @param mixed $subdis
-     */
-    public function setSubdis($subdis)
+    public function setSubDis($subDis)
     {
-        $this->subdis = $subdis;
+        $this->subDis = $subDis;
     }
 
-    /**
-     * @param mixed $addcode
-     */
-    public function setAddcode($addcode)
+    public function setAddCode($addCode)
     {
-        $this->addcode = $addcode;
+        $this->addCode = $addCode;
     }
 
+    public function setLastUse($lastUse)
+    {
+        $this->lastUse = $lastUse;
+    }
 }
 

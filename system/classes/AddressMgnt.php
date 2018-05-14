@@ -28,10 +28,10 @@ class AddressMgnt
     {
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "SELECT ADD_INDEX FROM FAVORITE WHERE ACC_ID ='" . $acc->getID() . "'";
+        $sql = "SELECT ADD_INDEX FROM ADDRESS WHERE ACC_ID ='" . $acc->getID() . "'";
         $query = $conn->query($sql);
         $addArr = array();
-        while ($result = $query->fetch_array()) {
+        while ($result = $query->fetch_assoc()) {
             $addArr[] = AddressMgnt::getAddress($result["ADD_INDEX"]);
         }
         return $addArr;
@@ -43,7 +43,7 @@ class AddressMgnt
         $sql = "SELECT * FROM ADDRESS WHERE ADD_INDEX ='" . $add_index . "'";
         $query = $conn->query($sql);
         $result = $query->fetch_assoc();
-        $address = new Address($result["ADD_INDEX"],$result["ADD_INFO"],$result["ADD_SUB_DISTRICT"],$result["ADD_PROVINCE"],$result["ADD_CODE"]);
+        $address = new Address($result["ADD_INDEX"],$result["ACC_ID"],$result["ADD_INFO"],$result["ADD_SUB_DISTRICT"],$result["ADD_DISTRICT"],$result["ADD_PROVINCE"],$result["ADD_CODE"],$result["DATE"]);
         return $address;
     }
     public static function lastAddress($acc) {
@@ -55,4 +55,4 @@ class AddressMgnt
         return $query;
     }
 }
-
+?>

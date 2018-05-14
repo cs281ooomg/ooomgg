@@ -218,7 +218,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 						<a href="#" class=""><h4>Check Out</h4></a>
 					</div>
-					<div class="clearfix"></div>
+					<div class="col-md-8 address_form">
+						<h4>Add a new Details</h4>
+						<form action="xxxx" method="post" class="creditly-card-form agileinfo_form">
+							<section class="creditly-wrapper wrapper">
+								<div class="information-wrapper">
+									<div class="first-row form-group">			
+										<div class="controls">
+											<label class="control-label">Address type: </label>
+											<select class="form-control option-w3ls">
+											<?php
+											$allAddress = AddressMgnt::getAlladdress($acc);
+											foreach ($allAddress as $add){?>
+												<option value="<?php echo $add->getAdd_index()?>"><?php echo $add->showAddress();?></option>
+											<?php }?>	
+											</select>
+										</div>
+									</div>
+									<button class="submit check_out">Delivery to this Address</button>
+								</div>
+							</section>
+						</form>
+						<div class="checkout-right-basket">
+							<a href="payment.html">Make a Payment </a>
+						</div>
+					</div>				
+					<div class="clearfix"></div>		
 				</div>
 			</div>
 		</div>
