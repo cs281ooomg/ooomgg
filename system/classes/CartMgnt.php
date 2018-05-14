@@ -29,14 +29,14 @@ class CartMgnt
         while ($result = $query->fetch_array()) {
             $product = ProductMgnt::getProduct($result['PRO_INDEX']);
             $quantity = $result['QUANTITY'];
-            $cartItem = new CartItem($product, $quantity);
+            $cartItem = new CartItem(0,$product, $quantity);
             $resultArray[] = $cartItem;
             $count ++;
         }
         if ($count === 0) {
             return NULL;
         }
-        $cart = new Cart($result['CART_INDEX'], $resultArray);
+        $cart = new Cart($account->getID(), $resultArray);
         return $cart;
     }
     

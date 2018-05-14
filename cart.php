@@ -249,7 +249,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</section>
 						</form>
 						<div class="checkout-right-basket">
-							<a href="payment.html">Make a Payment </a>
+							<a href="system/order_mgnt.php?mode=create">Create Order</a>
 						</div>
 					</div>				
 					<div class="clearfix"></div>		

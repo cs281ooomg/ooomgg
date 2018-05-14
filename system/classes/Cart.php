@@ -3,12 +3,12 @@
 class Cart
 {
 
-    private $cartID;
+    private $account;
     private $items; //array LineItem
 
-    public function __construct($cartID, $items)
+    public function __construct($account, $items)
     {
-        $this->cartID = $cartID;
+        $this->$account = $account;
         $this->items = $items;
     }
 
@@ -22,14 +22,14 @@ class Cart
         $this->items = $items;
     }
 
-    public function getCartID()
+    public function getAccount()
     {
-        return $this->cartID;
+        return $this->$account;
     }
 
-    public function setCartID($cartID)
+    public function setAccount($account)
     {
-        $this->cartID = $cartID;
+        $this->$account = $account;
     }
 }
 ?>
