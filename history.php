@@ -95,9 +95,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     							</tr>
     						</thead>
     						<tbody>
-    							<td><?php  ?>testtest</td>
-    							<td><?php echo $order->getOrderStatus(); ?></td>
-    							
+    													<?php
+        $total = 0;
+        if ($order != NULL) {
+            $i = 1;
+            foreach ($order as $orders) {
+                ?>
+        							<tr class="rem<?php echo $i;?>">
+								<td class="invert"><?php echo $orders->getIndex();?></td>
+								<td class="invert"><?php if($orders->getStatus()==Order::$UN_PAYMENT)
+								{
+								echo "ยังไม่ชำระเงิน";
+								}else if($orders->getStatus()==Order::$DELIVERRING){
+								echo "กำลังจัดส่ง";
+								}else if($orders->getStatus()==Order::$SUCCESS){
+								    echo "จัดส่งเสร็จสิ้น";
+								}?></td>
+							</tr>
+        							<?php
+                $i ++;
+            }
+        }
+        ?>
     						</tbody>
     					</table>
 					</div>
