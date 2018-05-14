@@ -16,9 +16,9 @@ if ($session_set) {
                 echo "</script>";
             }
         }else if($mode === 'remove'){
-            OrderMgnt::test();
+           
         }
-       // echo "<script> document.location.href=\"../order.php\";</script>";
+       echo "<script> document.location.href=\"../order.php\";</script>";
     }
 }else{
     echo "<script language=\"JavaScript\">";
@@ -26,5 +26,5 @@ if ($session_set) {
     echo "</script>";
     echo "<script> document.location.href=\"../login.php\";</script>";
 }
-//echo "<script> document.location.href=\"../404.php\";</script>";
+echo "<script> document.location.href=\"../404.php\";</script>";
 ?>
