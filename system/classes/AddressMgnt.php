@@ -13,11 +13,14 @@ class AddressMgnt
         }
         return false;
     }
-    public static function addAddress($acc,$pro,$dis,$subdis,$addcode)
+    public static function addAddress($acc,$pro,$dis,$subdis,$addcode,$addinfo)
     {
         require 'config/config.php';
+        $todays_date = date("Y-m-d");
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO ADDRESS (ACC_ID,ADD_INFO,ADD_SUB_DISTRICT,ADD_DISTRICT,ADD_PROVINCE,ADD_CODE) VALUES ('" . $acc->getID() . "','" . $pro . "','".$dis."','".$subdis."','".$addcode."')";
+        $sql = "INSERT INTO ADDRESS (ACC_ID,ADD_INFO,ADD_SUB_DISTRICT,ADD_DISTRICT,ADD_PROVINCE,ADD_CODE,DATE) 
+        VALUES ('" . $acc->getID() . "','" . $addinfo . "','".$subdis."','".$dis."','" . $pro . "','".$addcode."','".$todays_date."')";
+        echo $sql;
         $query = $conn->query($sql);
         return $query;
     }
@@ -29,7 +32,7 @@ class AddressMgnt
         $query = $conn->query($sql);
         $addArr = array();
         while ($result = $query->fetch_array()) {
-            $addArr[] = AddressMgnt::getAddress($result["add_index"]);
+            $addArr[] = AddressMgnt::getAddress($result["ADD_INDEX"]);
         }
         return $addArr;
     }
@@ -42,6 +45,14 @@ class AddressMgnt
         $result = $query->fetch_assoc();
         $address = new Address($result["ADD_INDEX"],$result["ADD_INFO"],$result["ADD_SUB_DISTRICT"],$result["ADD_PROVINCE"],$result["ADD_CODE"]);
         return $address;
+    }
+    public static function lastAddress($acc) {
+        require 'config/config.php';
+        $todays_date = date("Y-m-d");
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "UPDATE ADDRESS SET DATE =['". $todays_date."']";
+        $query = $conn->query($sql);
+        return $query;
     }
 }
 
