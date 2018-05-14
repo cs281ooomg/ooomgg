@@ -3,5 +3,5 @@
     $exp = new ExtraPromotion(ExtraPromotion::$POINT);
     $exp->setPoint(100);
     $exp->setLowerPrice(1000);
-    ExtraPromotionMgnt::pointUpdate($account, $exPointPro);
+    ExtraPromotionMgnt::pointUpdate($account, $exp);
 ?>
