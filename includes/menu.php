@@ -12,6 +12,7 @@
 		<li><a href="register.php">Register</a></li>
 		<?php } ?>
 		<li><a href="history.php?acc_id=<?php echo $account->getID()?>">History</a></li>
+		<li><a href="show_alladd.php">Address</a></li>
 		<li><a href="about.php">About</a></li>
 		<li><a href="404.php">Team</a></li>	
 		<?php if ($session_set){ ?>
@@ -20,6 +21,7 @@
             		<li><a href="add_category.php">Add Catagory</a></li>
             		<li><a href="add_product.php">Add Product</a></li>
             		<li><a href="promotion_mgnt.php">Promotion Manage</a></li>
+            		
 			<?php } 
 		      }?>
 		<li><a href="product.php">Shop Now</a></li>
