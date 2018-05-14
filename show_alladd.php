@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 ?>
         							<tr class="rem<?php echo $i;?>">
 								<td class="invert"><?php echo $add->getAdd_index();?></td>
-								<td class="invert"><?php echo $add->getInfo(); echo $add->getProvince(); echo $add->getDistrict(); echo $add->getSubDis(); echo $add->getAddCode() ?>"</td>
+								<td class="invert"><?php echo $add->getInfo(); echo "   "; echo $add->getProvince(); echo "  "; echo $add->getDistrict(); echo "  "; echo $add->getSubDis(); echo  "  "; echo $add->getAddCode() ?>"</td>
 							</tr>
         							<?php
                 $i ++;
