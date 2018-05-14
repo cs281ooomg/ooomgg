@@ -8,6 +8,7 @@ if(! $session_set){
     exit;
 }
 $add= $_POST['add_index'];
+
 if(AddressMgnt::lastAddress($add))
 {
     echo "<script>alert('Select success')</script>";
