@@ -23,5 +23,20 @@ class OrderMgnt
     public static function billExport($order){
         
     }
+    public static function getOrderStatus($acc)
+    {
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM ORDER WHERE ACC_ID='".$acc->getID()."'";
+        $query = $conn->query($sql);
+        $orderarr = array();
+        
+        while ($result = $query->fetch_array()){
+            $orderarr = new Order($result["ORDER_INDEX"], $result["ORDER_DATE"], $result["ACC_ID"], $result["ORDER_CODE"], $result["ORDER_STATUS"]);
+        }
+       
+        return $orderarr;
+    }
+    
 }
 ?>

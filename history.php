@@ -1,5 +1,6 @@
 <?php
 require 'includes/autoload.php';
+$accid = $_GET['acc_id'];
 if (!$session_set) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
@@ -7,7 +8,8 @@ if (!$session_set) {
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$favorite = FavoMgnt::getFavoriteProduct($acc);
+$order = OrderMgnt::getOrderStatus($acc);
+
 ?>
 <!--
 author: W3layouts
@@ -19,7 +21,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="th">
 
 <head>
-<title>OOOMG : Favorite</title>
+<title>OOOMG : History</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords"
@@ -69,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.php">Home</a><i>|</i></li>
-					<li>Cart</li>
+					<li>History</li>
 				</ul>
 			</div>
 		</div>
@@ -81,48 +83,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
 			<div class="privacy about">
-				<h3>Favorite</h3>
-						Products
-					</h4>
+				<h3>History</h3>
+				<h4><?php echo $acc->getFNAME().' '.$acc->getLNAME(); ?></h4>
+						<br><br>		
 					<div class="table-responsive">
     					<table class="timetable_sub">
     						<thead>
     							<tr>
-    								<th>SL No.</th>
-    								<th>Product</th>
-    								<th>Product Name</th>
-    							
-    								<th>Price</th>
-    								<th>Remove</th>
+    								<th>Order</th>
+    								<th>Order Status</th>
     							</tr>
     						</thead>
     						<tbody>
-    							<?php
-                                $total = 0;
-                                if ($favorite != NULL) {
-                                     $i = 1;
-                                     foreach ($favorite as $product) {
-                                     ?>
-        							<tr class="rem<?php echo $i;?>">
-    								<td class="invert"><?php echo $product->getPId();?></td>
-    								<td class="invert-image"><a
-    									href="product_detail.php?pro_id=<?php echo $product->getPId();?>"><img
-    										src="images/<?php echo $product->getPImages();?>" alt=" "
-    										class="img-responsive"></a></td>
-    								<td class="invert"><?php echo $product->getPName();?></td>
-    						
-    								<td class="invert"><?php echo $product->getPPrice();?> ฿</td>
-    								<td class="invert">
-    									<div class="rem">
-    										<a href="system/favorite_mgnt.php?pro_id=<?php echo $product->getPId()?>&mode=2"><i class="glyphicon glyphicon-trash" aria-hidden="true"></i></a>
-    									</div>
-    								</td>
-    							</tr>
-        							<?php
-                                    $i ++;
-                                    }
-                                }
-                                ?>
+    							<td><?php  ?>testtest</td>
+    							<td><?php echo $order->getOrderStatus(); ?></td>
+    							
     						</tbody>
     					</table>
 					</div>
@@ -130,8 +105,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			
 				</div>
 			</div>
-		</div>
-	</div>
 
 	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>

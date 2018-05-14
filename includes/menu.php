@@ -11,6 +11,7 @@
 		<?php if(!$session_set){ ?>
 		<li><a href="register.php">Register</a></li>
 		<?php } ?>
+		<li><a href="history.php?acc_id=<?php echo $account->getID()?>">History</a></li>
 		<li><a href="about.php">About</a></li>
 		<li><a href="404.php">Team</a></li>	
 		<?php if ($session_set){ ?>
