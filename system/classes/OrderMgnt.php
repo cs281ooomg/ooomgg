@@ -62,10 +62,24 @@ class OrderMgnt
         }
        
         return $orderarr;
+        
     }
     
     public static function generateCodeOrder($length = 10){
         return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+    }
+    
+    public static function getOrderByID($order_id){
+        require 'config/config.php';
+        $conn = new mysqli($hostname, $username, $password, $dbname);
+        $sql = "SELECT * FROM ORDERS WHERE ORDER_INDEX ='".$order_id."'";
+        $query = $conn->query($sql);
+        $result = $query->fetch_assoc();
+        if($result){
+            $order = new Order($result['ORDER_INDEX'], $result['ORDER_DATE'], $result['ACC_ID'], $result['ORDER_CODE'], $result['ORDER_STATUS']);
+            return $order;
+        }
+        return null;
     }
 }
 ?>

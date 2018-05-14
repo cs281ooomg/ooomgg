@@ -1,14 +1,14 @@
 <?php
-require 'includes/autoload.php';//testupload
+require 'includes/autoload.php'; // testupload
 $accid = $_GET['acc_id'];
-if (!$session_set) {
+if (! $session_set) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$order = OrderMgnt::getOrderStatus($acc);
+$orders = OrderMgnt::getOrderStatus($acc);
 
 ?>
 <!--
@@ -78,52 +78,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<!-- //banner_inner -->
 	</div>
 	<!-- //banner -->
-	
+
 	<!-- top Products -->
 	<div class="ads-grid_shop">
 		<div class="shop_inner_inf">
 			<div class="privacy about">
 				<h3>History</h3>
 				<h4><?php echo $acc->getFNAME().' '.$acc->getLNAME(); ?></h4>
-						<br><br>		
-					<div class="table-responsive">
-    					<table class="timetable_sub">
-    						<thead>
-    							<tr>
-    								<th>Order</th>
-    								<th>Order Status</th>
-    							</tr>
-    						</thead>
-    						<tbody>
-    													<?php
-        $total = 0;
-        if ($order != NULL) {
-            $i = 1;
-            foreach ($order as $orders) {
-                ?>
-        							<tr class="rem<?php echo $i;?>">
-								<td class="invert"><?php echo $orders->getIndex();?></td>
-								<td class="invert"><?php if($orders->getStatus()==Order::$UN_PAYMENT)
-								{
-								echo "ยังไม่ชำระเงิน";
-								}else if($orders->getStatus()==Order::$DELIVERRING){
-								echo "กำลังจัดส่ง";
-								}else if($orders->getStatus()==Order::$SUCCESS){
-								    echo "จัดส่งเสร็จสิ้น";
-								}?></td>
+				<br>
+				<br>
+				<div class="table-responsive">
+					<table class="timetable_sub">
+						<thead>
+							<tr>
+								<th>Order</th>
+								<th>Order Status</th>
+								<th>Date</th>
+								<th>Payment</th>
 							</tr>
-        							<?php
-                $i ++;
-            }
-        }
-        ?>
+						</thead>
+						<tbody>
+    					<?php
+                        if ($orders != NULL) {
+                            $i = 1;
+                            foreach ($orders as $order) {
+                                ?>
+        						<tr class="rem<?php echo $i;?>">
+								<td class="invert"><?php echo $order->getIndex();?></td>
+								<td class="invert"><?php
+                        
+                                if ($order->getStatus() == Order::$UN_PAYMENT) {
+                                    echo "ยังไม่ชำระเงิน";
+                                } else if ($order->getStatus() == Order::$DELIVERRING) {
+                                    echo "กำลังจัดส่ง";
+                                } else if ($order->getStatus() == Order::$SUCCESS) {
+                                    echo "จัดส่งเสร็จสิ้น";
+                                }
+                        ?></td>
+                        		<td class="invert"><?php echo $order->getDate()?></td>
+                        		<td class="invert">
+								<?php 
+								if($order->getStatus() == Order::$UN_PAYMENT){ ?>
+									 <a href ="system/payment.php?order_id=<?php echo $order->getIndex(); ?>&code=unconf">Payment Click</a>
+						  <?php }else{
+								     echo 'success';
+								}
+								?>
+								</td>
+							</tr>
+        				<?php
+                                 $i ++;
+                            }
+                        }
+                        ?>
     						</tbody>
-    					</table>
-					</div>
-				</div>
-			
+					</table>
 				</div>
 			</div>
+
+		</div>
+	</div>
 
 	<!-- top prodcut -->
 	<?php require 'includes/top_product.php';?>
