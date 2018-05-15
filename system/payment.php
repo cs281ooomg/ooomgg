@@ -19,7 +19,7 @@ if ($session_set) {
                     echo "<script> document.location.href=\"../history.php\";</script>";
                 }else{
                     echo "<script language=\"JavaScript\">";
-                    echo "alert('Payment feil!!')";
+                    echo "alert('Payment fail!!')";
                     echo "</script>";
                     echo "<script> document.location.href=\"../history.php\";</script>";
                 }

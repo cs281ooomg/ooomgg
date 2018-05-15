@@ -43,6 +43,7 @@ class OrderMgnt
         }else{ //success
             
         }
+        return true;
     }
     
     public static function billExport($order){
