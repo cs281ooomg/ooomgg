@@ -18,7 +18,7 @@ if ($session_set) {
         }else if($mode === 'remove'){
            
         }
-       echo "<script> document.location.href=\"../order.php\";</script>";
+       echo "<script> document.location.href=\"../history.php\";</script>";
     }
 }else{
     echo "<script language=\"JavaScript\">";

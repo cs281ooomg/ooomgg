@@ -1,15 +1,13 @@
 <?php
-require 'includes/autoload.php'; // testupload
-$accid = $_GET['acc_id'];
-if (! $session_set) {
+require 'includes/autoload.php';
+if (!$session_set) {
     echo "<script language=\"JavaScript\">";
     echo "alert('Please login!!!')";
     echo "</script>";
     echo "<script> document.location.href=\"login.php\";</script>";
     exit();
 }
-$orders = OrderMgnt::getOrderStatus($acc);
-
+$orders = OrderMgnt::getOrderStatus($account);
 ?>
 <!--
 author: W3layouts

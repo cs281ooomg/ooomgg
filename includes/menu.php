@@ -11,7 +11,7 @@
 		<?php if(!$session_set){ ?>
 		<li><a href="register.php">Register</a></li>
 		<?php } ?>
-		<li><a href="history.php?acc_id=<?php echo $account->getID()?>">History</a></li>
+		<li><a href="history.php">History</a></li>
 		<li><a href="show_alladd.php">Address</a></li>
 		<?php if ($session_set){ ?>
 		    <li><a href="product_fav.php">My Favourite</a></li> 

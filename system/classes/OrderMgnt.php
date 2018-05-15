@@ -7,10 +7,10 @@ class OrderMgnt
     {   
         require 'config/config.php';
         $conn = new mysqli($hostname, $username, $password, $dbname);
-        $sql = "INSERT INTO `ORDER` (ORDER_DATE,ACC_ID,ADD_INDEX,ORDER_CODE,ORDER_STATUS) VALUES ('".$order->getDate()."', '".$acc->getID()."', '".AddressMgnt::getLastAddress($acc)->getAdd_index()."', '".$order->getCode()."', '".$order->getStatus()."')";
+        $sql = "INSERT INTO ORDERS (ORDER_DATE,ACC_ID,ADD_INDEX,ORDER_CODE,ORDER_STATUS) VALUES ('".$order->getDate()."', '".$acc->getID()."', '".AddressMgnt::getLastAddress($acc)->getAdd_index()."', '".$order->getCode()."', '".$order->getStatus()."')";
         $query = $conn->query($sql);
         if($query){
-            $sql = "SELECT * FROM ORDER WHERE ACC_ID = '".$acc->getID()."' ORDER BY INDEX";
+            $sql = "SELECT * FROM ORDERS WHERE ACC_ID = '".$acc->getID()."' ORDER BY ORDER_INDEX";
             $query = $conn->query($sql);
             $result = $query->fetch_assoc();
             if ($result) {
@@ -20,11 +20,10 @@ class OrderMgnt
                 while ($result = $query->fetch_array()){
                     $productIndex = $result['CART_INDEX'];
                     $qty = $result['QUANTITY'];
-                    $conn = new mysqli($hostname, $username, $password, $dbname);
-                    $sql = "INSERT INTO ORDER_ITEM (ORDER_INDEX,PRO_INDEX,QUANTITY)  VALUES ('".$orderIndex."','" . $productIndex . "','" . $qty . "')";
-                    $query = $conn->query($sql);
+                    $sql = "INSERT INTO ORDER_ITEMS (ORDER_INDEX,PRO_INDEX,QUANTITY)  VALUES ('".$orderIndex."','" . $productIndex . "','" . $qty . "')";
+                    $query1 = $conn->query($sql);
                 }
-                $sql = "DELETE * FROM CART WHERE ACC_ID='".$acc->getID()."'";
+                $sql = "DELETE FROM CART WHERE ACC_ID='".$acc->getID()."'";
                 $query = $conn->query($sql);
                 return true;
             }
