@@ -8,14 +8,14 @@ if (!$session_set) {
 	echo "<script> document.location.href=\"login.php\";</script>";
 	exit();
 } 
-$ord = OrderMgnt::getOrd($acc);
-$cart = CartMgnt::getCartByAccount($account);
+$order_id = $_GET['order_id'];
+$order = OrderMgnt::getOrderByOrderID($order_id);
 ?>
 <!DOCTYPE html>
 <html lang="en" >
 	<head>
 	  <meta charset="UTF-8">
-	  <title>OOOMG Order #<?php echo $ord->getIndex();?></title>
+	  <title>OOOMG Order #<?php echo $order->getIndex();?></title>
 	  <link rel="stylesheet" href="css/order.css">
 	</head>
 <body> 
@@ -27,29 +27,28 @@ $cart = CartMgnt::getCartByAccount($account);
 	</head>
 	<body>
 		<header>
-			<h1>OOOMG Order #<?php echo $ord->getIndex();?></h1>
+			<h1>OOOMG Order #<?php echo $order->getIndex();?></h1>
 			<address>
-				<?php 	$addac = OrderMgnt::getACC($acc); ?>
-				<p><?php echo $addac->getFNAME();?>  <?php echo $addac->getLNAME();?></p>
-				<?php 	$addor = OrderMgnt::getAddress($acc); ?>
-				<p><?php echo $addor->getInfo();?><br><?php echo $addor->getDistrict(); ?> <?php echo $addor->getSubDis();?>  <?php echo $addor->getProvince(); ?><br><?php echo $addor->getAddCode();?></p>
-				<p><?php echo $addac->getTEL();?></p>
+				<p><?php echo $acc->getFNAME();?>  <?php echo $acc->getLNAME();?></p>
+				<?php 	$add = OrderMgnt::getAddressByOrderId($order->getIndex()); ?>
+				<p><?php echo $add->getInfo();?><br><?php echo $add->getDistrict(); ?> <?php echo $add->getSubDis();?>  <?php echo $add->getProvince(); ?><br><?php echo $add->getAddCode();?></p>
+				<p><?php echo $acc->getTEL();?></p>
 			</address>
 			<span><img alt="" src="http://www.jonathantneal.com/examples/invoice/logo.png"></span>
 		</header>
 		<article>
 			<h1>Recipient</h1>
 			<address>
-				<p><?php echo $addac->getFNAME();?><br><?php echo $addac->getLNAME();?></p>
+				<p><?php echo $acc->getFNAME();?><br><?php echo $acc->getLNAME();?></p>
 			</address>
 			<table class="meta">
 				<tr>
 					<th><span>Invoice #</span></th>
-					<td><span><?php echo $ord->getIndex();?></span></td>
+					<td><span><?php echo $order->getIndex();?></span></td>
 				</tr>
 				<tr>
 					<th><span>Date</span></th>
-					<td><span><?php echo $todays_date = date("d-m-Y");?></span></td>
+					<td><span><?php echo $order->getDate(); ?></span></td>
 				</tr>
 				
 			</table>
@@ -66,13 +65,11 @@ $cart = CartMgnt::getCartByAccount($account);
 				<tbody>
 			<?php
                                 $total = 0;
-                                $cartMgnt = new CartMgnt();
-                                if ($cart != NULL) {
-                                    $i = 1;
-                                    $items = $cart->getItems();
-                                    foreach ($items as $cartItem){
-                                        $product = $cartItem->getProduct();
-                                        $quantity = $cartItem->getQuantity();
+                                $orderItems = OrderMgnt::getOrderItemsByOrderID($order->getIndex());
+                                if ($orderItems != NULL) {
+                                    foreach ($orderItems as $item){
+                                        $product = $item->getProduct();
+                                        $quantity = $item->getQuantity();
                                     ?>
 					<tr>
 						<td><span><?php echo $product->getPName();?></span></td>
@@ -82,7 +79,6 @@ $cart = CartMgnt::getCartByAccount($account);
 						<td><span data-prefix>$</span><span><?php echo $product->getPPrice()*$quantity;?></span></td>
 					</tr>
                           <?php		$total = $total+($product->getPPrice()*$quantity);
-                                    $i ++;
                                     }
                                 }
                                 ?>   

@@ -4,7 +4,7 @@ if ($session_set) {
     if (isset($_GET['mode'])) {
         $mode = $_GET['mode'];
         if($mode === 'create'){
-            $todays_date = date("Y-m-d");
+            $todays_date = date("Y-m-d H:i:s");
             $order = new Order(0, $todays_date, $account, OrderMgnt::generateCodeOrder(), Order::$UN_PAYMENT);
             if (OrderMgnt::createOrder($order, $acc)) {
                 echo "<script language=\"JavaScript\">";

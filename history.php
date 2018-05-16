@@ -102,14 +102,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             foreach ($orders as $order) {
                                 ?>
         						<tr class="rem<?php echo $i;?>">
-								<td class="invert"><?php echo $order->getIndex();?></td>
+								<td class="invert"><a href="order_detail.php?order_id=<?php echo $order->getIndex();?>"><?php echo $order->getIndex();?></a> </td>
 								<td class="invert"><?php
                         
-                                if ($order->getStatus() == Order::$UN_PAYMENT) {
+                                if ($order->getStatus() == 0) {
                                     echo "ยังไม่ชำระเงิน";
-                                } else if ($order->getStatus() == Order::$DELIVERRING) {
+                                } else if ($order->getStatus() == 1) {
                                     echo "กำลังจัดส่ง";
-                                } else if ($order->getStatus() == Order::$SUCCESS) {
+                                } else if ($order->getStatus() == 2) {
                                     echo "จัดส่งเสร็จสิ้น";
                                 }
                         ?></td>
